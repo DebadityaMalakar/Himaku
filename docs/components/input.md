@@ -1,6 +1,6 @@
 # Input
 
-CSS-only component for styling native HTML `<input>` and `<textarea>` elements. Unlike other CapsuleUI components, Input is not a Web Component - it's a set of CSS styles that automatically apply to native form elements.
+CSS-only component for styling native HTML `<input>` elements. Unlike other CapsuleUI components, Input is not a Web Component - it's a set of CSS styles that automatically apply to native input elements.
 
 ## Installation
 
@@ -50,38 +50,24 @@ The Input styles work with all standard input types:
 <input type="time" />
 ```
 
-### Textarea
-
-<div style="margin: 1rem 0;">
-<textarea placeholder="Enter your message" rows="4"></textarea>
-</div>
-
-```html
-<textarea placeholder="Enter your message" rows="4"></textarea>
-```
-
 ### Disabled State
 
 <div style="margin: 1rem 0; display: flex; flex-direction: column; gap: 0.5rem;">
 <input type="text" placeholder="Disabled input" disabled />
-<textarea placeholder="Disabled textarea" disabled></textarea>
 </div>
 
 ```html
 <input type="text" placeholder="Disabled input" disabled />
-<textarea placeholder="Disabled textarea" disabled></textarea>
 ```
 
 ### Invalid State
 
 <div style="margin: 1rem 0; display: flex; flex-direction: column; gap: 0.5rem;">
 <input type="email" placeholder="Invalid email" aria-invalid="true" value="not-an-email" />
-<textarea placeholder="Invalid textarea" aria-invalid="true"></textarea>
 </div>
 
 ```html
 <input type="email" placeholder="Invalid email" aria-invalid="true" value="not-an-email" />
-<textarea placeholder="Invalid textarea" aria-invalid="true"></textarea>
 ```
 
 ### With Label
@@ -114,7 +100,6 @@ The Input styles work with all standard input types:
 
 - ✅ **Automatic styling** - No custom element needed, styles apply to native inputs
 - ✅ **All input types** - Works with text, email, password, number, date, etc.
-- ✅ **Textarea support** - Styled textarea elements
 - ✅ **Focus states** - Clear focus indicators with ring
 - ✅ **Invalid states** - Visual feedback for invalid inputs
 - ✅ **Disabled states** - Proper disabled styling
@@ -136,7 +121,6 @@ The Input styles work with all standard input types:
 - `month`
 - `week`
 - `file`
-- `textarea` (separate element)
 
 ## Styling Details
 
@@ -159,7 +143,7 @@ The Input component applies the following styles:
 
 ## Important Notes
 
-⚠️ **This is not a Web Component!** Input is a CSS-only component. You use native HTML `<input>` and `<textarea>` elements, and the styles are automatically applied.
+⚠️ **This is not a Web Component!** Input is a CSS-only component. You use native HTML `<input>` elements, and the styles are automatically applied.
 
 Unlike other CapsuleUI components, you don't use a custom element like `<capsule-input>`. Just use regular HTML:
 
@@ -171,5 +155,7 @@ Unlike other CapsuleUI components, you don't use a custom element like `<capsule
 <capsule-input type="text" placeholder="Enter text" />
 ```
 
-The styles are automatically applied to all `<input>` and `<textarea>` elements once the Input component CSS is imported.
+The styles are automatically applied to all `<input>` elements once the Input component CSS is imported.
+
+> **Note:** For multi-line text input, use the [Textarea](/components/textarea) component instead.
 

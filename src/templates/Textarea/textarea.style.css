@@ -1,0 +1,62 @@
+/* Textarea CSS-only component - applies styles to native <textarea> elements */
+
+textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  box-shadow: var(--shadow-sm);
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  resize: vertical;
+}
+
+textarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+textarea::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.dark textarea {
+  background-color: color-mix(in srgb, var(--input) 30%, transparent);
+}
+
+textarea:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+}
+
+textarea[aria-invalid='true'] {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
+}
+
+.dark textarea[aria-invalid='true'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 40%, transparent);
+}
+
+textarea:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Responsive font size */
+@media (min-width: 768px) {
+  textarea {
+    font-size: var(--font-size-sm);
+  }
+}
+

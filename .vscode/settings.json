@@ -25,6 +25,7 @@
     "docs/@capsule/components/capsule-speed-dial/vscode.data.json",
     "docs/@capsule/components/capsule-container/vscode.data.json",
     "docs/@capsule/components/capsule-icon/vscode.data.json",
-    "docs/@capsule/components/capsule-input/vscode.data.json"
+    "docs/@capsule/components/capsule-input/vscode.data.json",
+    "docs/@capsule/components/capsule-hover-card/vscode.data.json"
   ]
 }

@@ -11,8 +11,7 @@ input[type='date'],
 input[type='time'],
 input[type='datetime-local'],
 input[type='month'],
-input[type='week'],
-textarea {
+input[type='week'] {
   display: block;
   width: 100%;
   min-width: 0;
@@ -31,21 +30,11 @@ textarea {
   outline: none;
 }
 
-textarea {
-  height: auto;
-  min-height: 2.25rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  resize: vertical;
-}
-
-input::placeholder,
-textarea::placeholder {
+input::placeholder {
   color: var(--muted-foreground);
 }
 
-input::selection,
-textarea::selection {
+input::selection {
   background-color: var(--primary);
   color: var(--primary-foreground);
 }
@@ -61,30 +50,25 @@ textarea::selection {
 .dark input[type='time'],
 .dark input[type='datetime-local'],
 .dark input[type='month'],
-.dark input[type='week'],
-.dark textarea {
+.dark input[type='week'] {
   background-color: color-mix(in srgb, var(--input) 30%, transparent);
 }
 
-input:focus-visible,
-textarea:focus-visible {
+input:focus-visible {
   border-color: var(--ring);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
 }
 
-input[aria-invalid='true'],
-textarea[aria-invalid='true'] {
+input[aria-invalid='true'] {
   border-color: var(--destructive);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
 }
 
-.dark input[aria-invalid='true'],
-.dark textarea[aria-invalid='true'] {
+.dark input[aria-invalid='true'] {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 40%, transparent);
 }
 
-input:disabled,
-textarea:disabled {
+input:disabled {
   pointer-events: none;
   cursor: not-allowed;
   opacity: 0.5;

@@ -1,6 +1,6 @@
 # Input
 
-CSS-only компонент для стилизации нативных HTML элементов `<input>` и `<textarea>`. В отличие от других компонентов CapsuleUI, Input не является Web Component - это набор CSS стилей, которые автоматически применяются к нативным элементам форм.
+CSS-only компонент для стилизации нативных HTML элементов `<input>`. В отличие от других компонентов CapsuleUI, Input не является Web Component - это набор CSS стилей, которые автоматически применяются к нативным элементам input.
 
 ## Установка
 
@@ -50,38 +50,24 @@ npx @zizigy/capsule add Input
 <input type="time" />
 ```
 
-### Textarea
-
-<div style="margin: 1rem 0;">
-<textarea placeholder="Введите ваше сообщение" rows="4"></textarea>
-</div>
-
-```html
-<textarea placeholder="Введите ваше сообщение" rows="4"></textarea>
-```
-
 ### Отключенное состояние
 
 <div style="margin: 1rem 0; display: flex; flex-direction: column; gap: 0.5rem;">
 <input type="text" placeholder="Отключенный input" disabled />
-<textarea placeholder="Отключенный textarea" disabled></textarea>
 </div>
 
 ```html
 <input type="text" placeholder="Отключенный input" disabled />
-<textarea placeholder="Отключенный textarea" disabled></textarea>
 ```
 
 ### Невалидное состояние
 
 <div style="margin: 1rem 0; display: flex; flex-direction: column; gap: 0.5rem;">
 <input type="email" placeholder="Невалидный email" aria-invalid="true" value="не-email" />
-<textarea placeholder="Невалидный textarea" aria-invalid="true"></textarea>
 </div>
 
 ```html
 <input type="email" placeholder="Невалидный email" aria-invalid="true" value="не-email" />
-<textarea placeholder="Невалидный textarea" aria-invalid="true"></textarea>
 ```
 
 ### С меткой
@@ -114,7 +100,6 @@ npx @zizigy/capsule add Input
 
 - ✅ **Автоматическая стилизация** - Не нужен кастомный элемент, стили применяются к нативным input
 - ✅ **Все типы input** - Работает с text, email, password, number, date и т.д.
-- ✅ **Поддержка textarea** - Стилизованные элементы textarea
 - ✅ **Состояния фокуса** - Четкие индикаторы фокуса с кольцом
 - ✅ **Невалидные состояния** - Визуальная обратная связь для невалидных input
 - ✅ **Отключенные состояния** - Правильная стилизация disabled
@@ -136,7 +121,6 @@ npx @zizigy/capsule add Input
 - `month`
 - `week`
 - `file`
-- `textarea` (отдельный элемент)
 
 ## Детали стилизации
 
@@ -159,7 +143,7 @@ npx @zizigy/capsule add Input
 
 ## Важные примечания
 
-⚠️ **Это не Web Component!** Input - это CSS-only компонент. Вы используете нативные HTML элементы `<input>` и `<textarea>`, и стили автоматически применяются.
+⚠️ **Это не Web Component!** Input - это CSS-only компонент. Вы используете нативные HTML элементы `<input>`, и стили автоматически применяются.
 
 В отличие от других компонентов CapsuleUI, вы не используете кастомный элемент типа `<capsule-input>`. Просто используйте обычный HTML:
 
@@ -171,5 +155,7 @@ npx @zizigy/capsule add Input
 <capsule-input type="text" placeholder="Введите текст" />
 ```
 
-Стили автоматически применяются ко всем элементам `<input>` и `<textarea>` после импорта CSS компонента Input.
+Стили автоматически применяются ко всем элементам `<input>` после импорта CSS компонента Input.
+
+> **Примечание:** Для многострочного текстового ввода используйте компонент [Textarea](/ru/components/textarea) вместо этого.
 

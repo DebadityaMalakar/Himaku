@@ -7,7 +7,8 @@ CapsuleUI provides a collection of modern, unstyled web components that you can 
 ### Form Elements
 
 - **[Button](/components/button)** - A button component with multiple variants and sizes
-- **[Input](/components/input)** - CSS-only styles for native input and textarea elements
+- **[Input](/components/input)** - CSS-only styles for native input elements
+- **[Textarea](/components/textarea)** - CSS-only styles for native textarea elements
 - **[Switch](/components/switch)** - A toggle switch component
 - **[Range](/components/range)** - A range slider component
 

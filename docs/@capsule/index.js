@@ -51,3 +51,4 @@ import './modules/form/index.js';
 import './components/capsule-container/register.js';
 import './components/capsule-icon/register.js';
 import './components/capsule-input/register.js';
+import './components/capsule-hover-card/register.js';
