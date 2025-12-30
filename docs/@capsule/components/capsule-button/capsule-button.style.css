@@ -2,214 +2,195 @@ capsule-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: var(--capsule-font-weight-medium);
-  transition: var(--capsule-transition);
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   user-select: none;
-  position: relative;
-  overflow: hidden;
-  border: none;
-  font-family: var(--capsule-font-family);
-  box-shadow: var(--capsule-shadow);
-  transform: translateY(0);
-  gap: 0.5rem;
-}
-
-capsule-button[rounded='none'] {
-  border-radius: 0;
-}
-
-capsule-button[rounded='xs'] {
-  border-radius: var(--capsule-radius-xs);
-}
-
-capsule-button[rounded='sm'] {
-  border-radius: var(--capsule-radius-sm);
-}
-
-capsule-button:not([rounded]),
-capsule-button[rounded='md'] {
-  border-radius: var(--capsule-radius-md);
-}
-
-capsule-button[rounded='lg'] {
-  border-radius: var(--capsule-radius-lg);
-}
-
-capsule-button[rounded='xl'] {
-  border-radius: var(--capsule-radius-xl);
-}
-
-capsule-button[rounded='full'] {
-  border-radius: var(--capsule-radius-full);
-}
-
-capsule-button:hover:not([disabled]) {
-  transform: translateY(-1px);
-  box-shadow: var(--capsule-shadow-md);
-}
-
-capsule-button:active:not([disabled]) {
-  transform: translateY(0);
-  box-shadow: var(--capsule-shadow-sm);
-  transition: var(--capsule-transition-fast);
-}
-
-capsule-button:focus-visible {
+  border: 1px solid transparent;
   outline: none;
-  box-shadow: var(--capsule-shadow-focus), var(--capsule-shadow);
+  background: transparent;
+  color: inherit;
+}
+
+capsule-button svg {
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+capsule-button:has(> svg) svg:not([class*='size-']) {
+  width: 1rem;
+  height: 1rem;
 }
 
 capsule-button[disabled] {
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
-  transform: translateY(0);
-  box-shadow: var(--capsule-shadow-sm);
 }
 
-capsule-button[size='xs'] {
-  padding: var(--capsule-padding-xs);
-  font-size: var(--capsule-font-size-xs);
-  gap: 0.25rem;
+capsule-button:focus-visible {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+}
+
+capsule-button[aria-invalid='true'] {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
+}
+
+.dark capsule-button[aria-invalid='true'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 40%, transparent);
+}
+
+/* Sizes */
+capsule-button:not([size]),
+capsule-button[size='default'] {
+  height: 2.25rem;
+  padding: 0.5rem 1rem;
+}
+
+capsule-button:not([size]):has(> svg),
+capsule-button[size='default']:has(> svg) {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 capsule-button[size='sm'] {
-  padding: var(--capsule-padding-sm);
-  font-size: var(--capsule-font-size-sm);
+  height: 2rem;
+  border-radius: var(--radius-md);
   gap: 0.375rem;
+  padding: 0 0.75rem;
 }
 
-capsule-button:not([size]),
-capsule-button[size='md'] {
-  padding: var(--capsule-padding-md);
-  font-size: var(--capsule-font-size);
-  gap: 0.5rem;
+capsule-button[size='sm']:has(> svg) {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 
 capsule-button[size='lg'] {
-  padding: var(--capsule-padding-lg);
-  font-size: var(--capsule-font-size-lg);
-  gap: 0.625rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  padding: 0 1.5rem;
 }
 
+capsule-button[size='lg']:has(> svg) {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+capsule-button[size='icon'] {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+}
+
+capsule-button[size='icon-sm'] {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+}
+
+capsule-button[size='icon-lg'] {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+/* Variants */
 capsule-button:not([variant]),
-capsule-button[variant='primary'] {
-  background: var(--capsule-color-primary);
-  color: white;
+capsule-button[variant='default'] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: transparent;
 }
 
 capsule-button:not([variant]):hover:not([disabled]),
-capsule-button[variant='primary']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-primary) 90%, black);
+capsule-button[variant='default']:hover:not([disabled]) {
+  background: color-mix(in srgb, var(--primary) 90%, transparent);
 }
 
-capsule-button:not([variant]):active:not([disabled]),
-capsule-button[variant='primary']:active:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-primary) 80%, black);
+capsule-button[variant='destructive'] {
+  background: var(--destructive);
+  color: white;
+  border-color: transparent;
 }
 
-capsule-button[variant='secondary'] {
-  background: var(--capsule-color-surface);
-  color: var(--capsule-color-text);
-  border: 1px solid var(--capsule-color-outline);
+capsule-button[variant='destructive']:hover:not([disabled]) {
+  background: color-mix(in srgb, var(--destructive) 90%, transparent);
 }
 
-capsule-button[variant='secondary']:hover:not([disabled]) {
-  background: color-mix(
-    in srgb,
-    var(--capsule-color-surface) 90%,
-    var(--capsule-color-text)
-  );
+capsule-button[variant='destructive']:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
 }
 
-capsule-button[variant='secondary']:active:not([disabled]) {
-  background: color-mix(
-    in srgb,
-    var(--capsule-color-surface) 80%,
-    var(--capsule-color-text)
-  );
+.dark capsule-button[variant='destructive'] {
+  background: color-mix(in srgb, var(--destructive) 60%, transparent);
+}
+
+.dark capsule-button[variant='destructive']:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 40%, transparent);
 }
 
 capsule-button[variant='outline'] {
-  background: transparent;
-  color: var(--capsule-color-text);
-  border: 1.5px solid var(--capsule-color-outline);
-  box-shadow: none;
+  border: 1px solid var(--border);
+  background: var(--background);
+  box-shadow: var(--shadow-sm);
+  color: var(--foreground);
 }
 
 capsule-button[variant='outline']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-text) 5%, transparent);
-  box-shadow: var(--capsule-shadow);
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
-capsule-button[variant='outline']:active:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-text) 10%, transparent);
+.dark capsule-button[variant='outline'] {
+  background: color-mix(in srgb, var(--input) 30%, transparent);
+  border-color: var(--input);
 }
 
-capsule-button[variant='text'] {
+.dark capsule-button[variant='outline']:hover:not([disabled]) {
+  background: color-mix(in srgb, var(--input) 50%, transparent);
+}
+
+capsule-button[variant='secondary'] {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border-color: transparent;
+}
+
+capsule-button[variant='secondary']:hover:not([disabled]) {
+  background: color-mix(in srgb, var(--secondary) 80%, transparent);
+}
+
+capsule-button[variant='ghost'] {
   background: transparent;
-  color: var(--capsule-color-primary);
-  box-shadow: none;
-  border: none;
+  color: var(--foreground);
+  border-color: transparent;
 }
 
-capsule-button[variant='text']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-primary) 8%, transparent);
+capsule-button[variant='ghost']:hover:not([disabled]) {
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
-capsule-button[variant='text']:active:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-primary) 15%, transparent);
+.dark capsule-button[variant='ghost']:hover:not([disabled]) {
+  background: color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
-capsule-button[variant='success'] {
-  background: var(--capsule-color-success);
-  color: white;
+capsule-button[variant='link'] {
+  background: transparent;
+  color: var(--primary);
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-capsule-button[variant='success']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-success) 90%, black);
-}
-
-capsule-button[variant='success']:active:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-success) 80%, black);
-}
-
-capsule-button[variant='error'] {
-  background: var(--capsule-color-error);
-  color: white;
-}
-
-capsule-button[variant='error']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-error) 90%, black);
-}
-
-capsule-button[variant='error']:active:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-error) 80%, black);
-}
-
-capsule-button[variant='warning'] {
-  background: var(--capsule-color-warning);
-  color: white;
-}
-
-capsule-button[variant='warning']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-warning) 90%, black);
-}
-
-capsule-button[variant='warning']:active:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-warning) 80%, black);
-}
-
-capsule-button[variant='info'] {
-  background: var(--capsule-color-info);
-  color: white;
-}
-
-capsule-button[variant='info']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-info) 90%, black);
-}
-
-capsule-button[variant='info']:active:not([disabled]) {
-  background: color-mix(in srgb, var(--capsule-color-info) 80%, black);
+capsule-button[variant='link']:hover:not([disabled]) {
+  text-decoration: underline;
 }

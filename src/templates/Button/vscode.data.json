@@ -5,47 +5,42 @@
       "name": "__PREFIX__-__COMPONENT__",
       "attributes": [
         {
-          "name": "rounded",
-          "values": [
-            {
-              "name": "none"
-            },
-            {
-              "name": "sm"
-            },
-            {
-              "name": "md"
-            },
-            {
-              "name": "lg"
-            },
-            {
-              "name": "xl"
-            },
-            {
-              "name": "full"
-            }
-          ]
-        },
-        {
           "name": "disabled",
           "description": "Disables component",
           "valueSet": "v"
         },
         {
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "name": "aria-invalid",
+          "values": [
+            {
+              "name": "true"
+            }
+          ]
+        },
+        {
           "name": "size",
           "values": [
             {
-              "name": "xs"
+              "name": "default"
             },
             {
               "name": "sm"
             },
             {
-              "name": "md"
+              "name": "lg"
             },
             {
-              "name": "lg"
+              "name": "icon"
+            },
+            {
+              "name": "icon-sm"
+            },
+            {
+              "name": "icon-lg"
             }
           ]
         },
@@ -53,28 +48,22 @@
           "name": "variant",
           "values": [
             {
-              "name": "primary"
+              "name": "default"
             },
             {
-              "name": "secondary"
+              "name": "destructive"
             },
             {
               "name": "outline"
             },
             {
-              "name": "text"
+              "name": "secondary"
             },
             {
-              "name": "success"
+              "name": "ghost"
             },
             {
-              "name": "error"
-            },
-            {
-              "name": "warning"
-            },
-            {
-              "name": "info"
+              "name": "link"
             }
           ]
         }
