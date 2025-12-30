@@ -1,14 +1,14 @@
 /**
  * @file CapsuleUI Main Entry Point
  * @version 1.0.0
- * @description Open-source Web Components library. 
+ * @description Open-source Web Components library.
  * Copy, paste, and customize - no npm install required.
- * 
+ *
  * @example
  * // HTML
  * <script type="module" src="@capsule/index.js"></script>
  * <capsule-button>Click</capsule-button>
- * 
+ *
  * @see https://capsuleui.dev/docs
  */
 
@@ -41,10 +41,11 @@ import './components/capsule-select/register.js';
 import './components/capsule-kbd/register.js';
 import './components/capsule-aspect-ratio/register.js';
 import './components/capsule-progress/register.js';
-
-// Import all modules
-import './modules/form/index.js';
 import './components/capsule-comparison/register.js';
 import './components/capsule-pagination/register.js';
 import './components/capsule-circular-progress/register.js';
 import './components/capsule-tour/register.js';
+
+// Import all modules
+import './modules/form/index.js';
+import './components/capsule-container/register.js';

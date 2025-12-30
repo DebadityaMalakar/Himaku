@@ -33,6 +33,10 @@ class CapsuleComparison extends LitElement {
     this._updateLineAria();
   }
 
+  createRenderRoot() {
+    return super.createRenderRoot();
+  }
+
   render() {
     return html`<slot></slot>`;
   }

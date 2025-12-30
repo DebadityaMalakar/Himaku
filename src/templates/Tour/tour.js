@@ -11,7 +11,7 @@ class CapsuleTour extends LitElement {
   }
 
   createRenderRoot() {
-    return this;
+    return super.createRenderRoot();
   }
 
   connectedCallback() {
@@ -27,10 +27,6 @@ class CapsuleTour extends LitElement {
 
   firstUpdated() {
     this._updateTour();
-  }
-
-  createRenderRoot() {
-    return super.createRenderRoot();
   }
 
   render() {

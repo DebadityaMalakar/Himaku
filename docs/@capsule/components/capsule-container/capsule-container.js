@@ -1,6 +1,6 @@
 import { LitElement, html } from '../../lit';
 
-class CapsuleComparisonBefore extends LitElement {
+class CapsuleContainer extends LitElement {
   createRenderRoot() {
     return super.createRenderRoot();
   }
@@ -10,8 +10,4 @@ class CapsuleComparisonBefore extends LitElement {
   }
 }
 
-customElements.define(
-  '__PREFIX__-__COMPONENT__-before',
-  CapsuleComparisonBefore
-);
-
+customElements.define('capsule-container', CapsuleContainer);

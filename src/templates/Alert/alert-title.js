@@ -12,7 +12,7 @@ class CapsuleAlertTitle extends LitElement {
   }
 
   createRenderRoot() {
-    return this;
+    return super.createRenderRoot();
   }
 
   render() {

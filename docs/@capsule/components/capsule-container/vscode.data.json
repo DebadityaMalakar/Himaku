@@ -1,0 +1,11 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "capsule-container",
+      "description": "Container component - a centered container with max-width constraints",
+      "attributes": []
+    }
+  ]
+}
+

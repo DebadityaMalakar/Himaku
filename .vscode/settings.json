@@ -21,6 +21,8 @@
     "docs/@capsule/components/capsule-comparison/vscode.data.json",
     "docs/@capsule/components/capsule-pagination/vscode.data.json",
     "docs/@capsule/components/capsule-circular-progress/vscode.data.json",
-    "docs/@capsule/components/capsule-tour/vscode.data.json"
+    "docs/@capsule/components/capsule-tour/vscode.data.json",
+    "docs/@capsule/components/capsule-speed-dial/vscode.data.json",
+    "docs/@capsule/components/capsule-container/vscode.data.json"
   ]
 }

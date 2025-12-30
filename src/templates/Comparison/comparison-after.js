@@ -2,7 +2,7 @@ import { LitElement, html } from '../../lit';
 
 class CapsuleComparisonAfter extends LitElement {
   createRenderRoot() {
-    return this;
+    return super.createRenderRoot();
   }
 
   render() {
