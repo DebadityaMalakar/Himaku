@@ -27,6 +27,7 @@
     "docs/@capsule/components/capsule-icon/vscode.data.json",
     "docs/@capsule/components/capsule-input/vscode.data.json",
     "docs/@capsule/components/capsule-hover-card/vscode.data.json",
-    "docs/@capsule/components/capsule-radio-group/vscode.data.json"
+    "docs/@capsule/components/capsule-radio-group/vscode.data.json",
+    "docs/@capsule/components/capsule-sidebar/vscode.data.json"
   ]
 }

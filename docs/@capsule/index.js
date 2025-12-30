@@ -53,3 +53,4 @@ import './components/capsule-icon/register.js';
 import './components/capsule-input/register.js';
 import './components/capsule-hover-card/register.js';
 import './components/capsule-radio-group/register.js';
+import './components/capsule-sidebar/register.js';
