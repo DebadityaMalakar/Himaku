@@ -138,8 +138,3 @@
 :root.light {
   color-scheme: light;
 }
-
-body {
-  color: var(--foreground);
-  background-color: var(--background);
-}
