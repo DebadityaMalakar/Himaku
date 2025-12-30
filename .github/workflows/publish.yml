@@ -28,11 +28,11 @@ jobs:
           scope: '@capsuleui'
           always-auth: true
 
-      - name: Enable corepack
-        run: npm i -g --force corepack@latest && corepack enable
+      - name: Clean lockfile for cross-platform
+        run: rm -f package-lock.json yarn.lock pnpm-lock.yaml
 
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: npm install
 
       - name: Build package
         run: npm run build
