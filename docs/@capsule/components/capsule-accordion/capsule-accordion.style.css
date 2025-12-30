@@ -5,27 +5,13 @@ capsule-accordion {
 
 capsule-accordion-panel {
   display: grid;
-  margin-bottom: var(--capsule-margin-sm);
+  border-bottom: 1px solid var(--border);
   overflow: hidden;
-  transition: var(--capsule-transition-slow);
+  transition: grid-template-rows 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-capsule-accordion-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  user-select: none;
-  background: transparent;
-  border: none;
-  width: 100%;
-  text-align: left;
-  font-size: inherit;
-  color: inherit;
-}
-
-capsule-accordion-content {
-  overflow: hidden;
+capsule-accordion-panel:last-child {
+  border-bottom: none;
 }
 
 capsule-accordion-panel[open='true'],
@@ -36,4 +22,64 @@ capsule-accordion-panel[open] {
 capsule-accordion-panel,
 capsule-accordion-panel[open='false'] {
   grid-template-rows: min-content 0fr;
+}
+
+capsule-accordion-trigger {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: var(--radius-md);
+  padding: 1rem 0;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: inherit;
+  background: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+capsule-accordion-trigger:hover {
+  text-decoration: underline;
+}
+
+capsule-accordion-trigger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+}
+
+capsule-accordion-trigger:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+capsule-accordion-trigger > svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  flex-shrink: 0;
+  transform: translateY(0.125rem);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+capsule-accordion-panel[open='true'] capsule-accordion-trigger > svg,
+capsule-accordion-panel[open] capsule-accordion-trigger > svg {
+  transform: translateY(0.125rem) rotate(180deg);
+}
+
+capsule-accordion-content {
+  overflow: hidden;
+  font-size: var(--font-size-sm);
+}
+
+capsule-accordion-content > * {
+  padding-top: 0;
+  padding-bottom: 1rem;
 }

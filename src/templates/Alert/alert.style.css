@@ -1,97 +1,79 @@
 __PREFIX__-__COMPONENT__ {
   position: relative;
   width: 100%;
-  border-radius: var(--capsule-radius);
-  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  font-size: var(--font-size-sm);
   display: grid;
   grid-template-columns: 0 1fr;
-  gap: 12px;
+  gap: 0.125rem;
   align-items: flex-start;
-  padding: var(--capsule-padding-lg);
-  font-size: var(--capsule-font-size-sm);
-  background-color: color-mix(
-    in srgb,
-    var(--capsule-color-primary) 8%,
-    var(--capsule-color-background)
-  );
-  border-color: var(--capsule-color-primary);
-  color: var(--capsule-color-primary);
   box-sizing: border-box;
 }
 
 __PREFIX__-__COMPONENT__:has(> svg) {
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1rem 1fr;
+  column-gap: 0.75rem;
+}
+
+__PREFIX__-__COMPONENT__ > svg {
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(0.125rem);
+  color: currentColor;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 __PREFIX__-__COMPONENT__ > :not(svg) {
   grid-column: 2;
 }
 
-__PREFIX__-__COMPONENT__ > svg {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: start;
-  margin-top: 2px;
-}
-
+/* Variants */
+__PREFIX__-__COMPONENT__:not([variant]),
 __PREFIX__-__COMPONENT__[variant='default'] {
-  background-color: color-mix(
-    in srgb,
-    var(--capsule-color-primary) 8%,
-    var(--capsule-color-background)
-  );
-  border-color: var(--capsule-color-primary);
-  color: var(--capsule-color-primary);
+  background-color: var(--card);
+  color: var(--card-foreground);
 }
 
-__PREFIX__-__COMPONENT__[variant='error'] {
-  background-color: color-mix(
-    in srgb,
-    var(--capsule-color-error) 8%,
-    var(--capsule-color-background)
-  );
-  border-color: var(--capsule-color-error);
-  color: var(--capsule-color-error);
+__PREFIX__-__COMPONENT__[variant='destructive'] {
+  color: var(--destructive);
+  background-color: var(--card);
 }
 
-__PREFIX__-__COMPONENT__[variant='warning'] {
-  background-color: color-mix(
-    in srgb,
-    var(--capsule-color-warning) 8%,
-    var(--capsule-color-background)
-  );
-  border-color: var(--capsule-color-warning);
-  color: var(--capsule-color-warning);
+__PREFIX__-__COMPONENT__[variant='destructive'] > svg {
+  color: currentColor;
 }
 
-__PREFIX__-__COMPONENT__[variant='success'] {
-  background-color: color-mix(
-    in srgb,
-    var(--capsule-color-success) 8%,
-    var(--capsule-color-background)
-  );
-  border-color: var(--capsule-color-success);
-  color: var(--capsule-color-success);
+__PREFIX__-__COMPONENT__[variant='destructive'] __PREFIX__-__COMPONENT__-description {
+  color: color-mix(in srgb, var(--destructive) 90%, transparent);
 }
 
-__PREFIX__-__COMPONENT__[variant='info'] {
-  background-color: color-mix(
-    in srgb,
-    var(--capsule-color-info) 8%,
-    var(--capsule-color-background)
-  );
-  border-color: var(--capsule-color-info);
-  color: var(--capsule-color-info);
-}
-
+/* Title */
 __PREFIX__-__COMPONENT__-title {
-  display: block;
+  grid-column-start: 2;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 1rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.025em;
   margin: 0;
-  margin-bottom: var(--capsule-margin-xs);
-  font-weight: 600;
 }
 
+/* Description */
 __PREFIX__-__COMPONENT__-description {
-  display: block;
+  grid-column-start: 2;
+  display: grid;
+  justify-items: start;
+  gap: 0.25rem;
+  color: var(--muted-foreground);
+  font-size: var(--font-size-sm);
   margin: 0;
+}
+
+__PREFIX__-__COMPONENT__-description p {
+  line-height: 1.625;
 }

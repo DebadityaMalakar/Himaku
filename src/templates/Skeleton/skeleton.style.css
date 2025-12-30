@@ -1,11 +1,7 @@
 __PREFIX__-__COMPONENT__ {
   display: block;
-  background-color: color-mix(
-    in srgb,
-    var(--capsule-color-text) 15%,
-    transparent
-  );
-  border-radius: var(--capsule-radius-sm);
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+  border-radius: var(--radius-md);
   animation: capsule-skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -31,7 +27,7 @@ __PREFIX__-__COMPONENT__[variant='text'] {
 }
 
 __PREFIX__-__COMPONENT__[variant='circular'] {
-  border-radius: var(--capsule-radius-full);
+  border-radius: var(--radius-full);
   width: 2rem;
   height: 2rem;
 }

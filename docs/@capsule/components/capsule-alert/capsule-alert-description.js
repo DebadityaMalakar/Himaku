@@ -1,12 +1,12 @@
 import { LitElement, html } from '../../lit';
 
-class AlertDescription extends LitElement {
+class CapsuleAlertDescription extends LitElement {
   constructor() {
     super();
   }
 
   createRenderRoot() {
-    return this;
+    return super.createRenderRoot();
   }
 
   render() {
@@ -14,4 +14,7 @@ class AlertDescription extends LitElement {
   }
 }
 
-customElements.define('capsule-alert-description', AlertDescription);
+customElements.define(
+  'capsule-alert-description',
+  CapsuleAlertDescription
+);
