@@ -9,7 +9,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/capsuleui/core.git"
+    "url": "git+https://github.com/ZiZIGY/CapsuleUI.git"
   },
   "scripts": {
     "start": "vite build --watch",
