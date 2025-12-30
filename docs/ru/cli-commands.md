@@ -4,14 +4,14 @@ CapsuleUI предоставляет простой CLI для управлен�
 
 ## Команды
 
-### `npx @zizigy/capsule init`
+### `npx @capsuleui/core init`
 
 Инициализирует CapsuleUI в вашем проекте. Создает папку `@capsule` с глобальными стилями и утилитами.
 
 **Использование:**
 
 ```bash
-npx @zizigy/capsule init
+npx @capsuleui/core init
 ```
 
 **Опции:**
@@ -22,10 +22,10 @@ npx @zizigy/capsule init
 
 ```bash
 # Инициализация в корне проекта
-npx @zizigy/capsule init
+npx @capsuleui/core init
 
 # Инициализация в директории src
-npx @zizigy/capsule init -d src
+npx @capsuleui/core init -d src
 ```
 
 **Что делает:**
@@ -36,14 +36,14 @@ npx @zizigy/capsule init -d src
 
 ---
 
-### `npx @zizigy/capsule add <component>`
+### `npx @capsuleui/core add <component>`
 
 Добавляет компонент в ваш проект из доступных шаблонов.
 
 **Использование:**
 
 ```bash
-npx @zizigy/capsule add <имя-компонента>
+npx @capsuleui/core add <имя-компонента>
 ```
 
 **Опции:**
@@ -54,15 +54,15 @@ npx @zizigy/capsule add <имя-компонента>
 
 ```bash
 # Добавить компонент Button с префиксом по умолчанию
-npx @zizigy/capsule add Button
+npx @capsuleui/core add Button
 
 # Добавить компонент Button с пользовательским префиксом
-npx @zizigy/capsule add Button --prefix ui
+npx @capsuleui/core add Button --prefix ui
 
 # Добавить несколько компонентов
-npx @zizigy/capsule add Button
-npx @zizigy/capsule add Alert
-npx @zizigy/capsule add Accordion
+npx @capsuleui/core add Button
+npx @capsuleui/core add Alert
+npx @capsuleui/core add Accordion
 ```
 
 **Что делает:**
@@ -76,14 +76,14 @@ npx @zizigy/capsule add Accordion
 
 ---
 
-### `npx @zizigy/capsule list`
+### `npx @capsuleui/core list`
 
 Показывает список всех доступных компонентов, которые можно добавить в проект.
 
 **Использование:**
 
 ```bash
-npx @zizigy/capsule list
+npx @capsuleui/core list
 ```
 
 **Пример вывода:**
@@ -113,14 +113,14 @@ npx @zizigy/capsule list
 
 ---
 
-### `npx @zizigy/capsule module <action> [name]`
+### `npx @capsuleui/core module <action> [name]`
 
 Управляет модулями в вашем проекте (например, утилитами валидации форм).
 
 **Использование:**
 
 ```bash
-npx @zizigy/capsule module <action> [name]
+npx @capsuleui/core module <action> [name]
 ```
 
 **Действия:**
@@ -133,13 +133,13 @@ npx @zizigy/capsule module <action> [name]
 
 ```bash
 # Показать доступные модули
-npx @zizigy/capsule module list
+npx @capsuleui/core module list
 
 # Добавить конкретный модуль
-npx @zizigy/capsule module add form
+npx @capsuleui/core module add form
 
 # Удалить модуль
-npx @zizigy/capsule module remove form
+npx @capsuleui/core module remove form
 ```
 
 **Доступные модули:**
@@ -148,14 +148,14 @@ npx @zizigy/capsule module remove form
 
 ---
 
-### `npx @zizigy/capsule debug`
+### `npx @capsuleui/core debug`
 
 Помогает отладить проблемы с установкой и конфигурацией CapsuleUI.
 
 **Использование:**
 
 ```bash
-npx @zizigy/capsule debug
+npx @capsuleui/core debug
 ```
 
 **Что делает:**
@@ -167,14 +167,14 @@ npx @zizigy/capsule debug
 
 ---
 
-### `npx @zizigy/capsule vscode`
+### `npx @capsuleui/core vscode`
 
 Обновляет настройки VS Code для лучшей поддержки автодополнения и IntelliSense.
 
 **Использование:**
 
 ```bash
-npx @zizigy/capsule vscode
+npx @capsuleui/core vscode
 ```
 
 **Что делает:**
@@ -194,7 +194,7 @@ npx @zizigy/capsule vscode
 
 ## Советы
 
-- Всегда запускайте `npx @zizigy/capsule init` сначала в новом проекте
-- Используйте `npx @zizigy/capsule list` чтобы увидеть все доступные компоненты
+- Всегда запускайте `npx @capsuleui/core init` сначала в новом проекте
+- Используйте `npx @capsuleui/core list` чтобы увидеть все доступные компоненты
 - Имена компонентов чувствительны к регистру (используйте `Button` а не `button`)
 - Пользовательские префиксы должны быть в нижнем регистре и не содержать специальных символов

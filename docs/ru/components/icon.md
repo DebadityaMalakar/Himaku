@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Icon
+npx @capsuleui/core add Icon
 ```
 
 ## Использование
@@ -56,11 +56,26 @@ npx @zizigy/capsule add Icon
 </div>
 
 ```html
-<capsule-icon name="mdi:star" size="xs"></capsule-icon>
-<capsule-icon name="mdi:star" size="sm"></capsule-icon>
-<capsule-icon name="mdi:star" size="md"></capsule-icon>
-<capsule-icon name="mdi:star" size="lg"></capsule-icon>
-<capsule-icon name="mdi:star" size="xl"></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="xs"
+></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="sm"
+></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="md"
+></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="lg"
+></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="xl"
+></capsule-icon>
 ```
 
 ### Кастомный размер
@@ -73,8 +88,14 @@ npx @zizigy/capsule add Icon
 </div>
 
 ```html
-<capsule-icon name="mdi:check-circle" size="2rem"></capsule-icon>
-<capsule-icon name="mdi:check-circle" size="3rem"></capsule-icon>
+<capsule-icon
+  name="mdi:check-circle"
+  size="2rem"
+></capsule-icon>
+<capsule-icon
+  name="mdi:check-circle"
+  size="3rem"
+></capsule-icon>
 ```
 
 ### С текстом
@@ -123,8 +144,8 @@ npx @zizigy/capsule add Icon
 
 ### Атрибуты
 
-| Атрибут | Тип    | По умолчанию | Описание                                           |
-| ------- | ------ | ------------ | -------------------------------------------------- |
+| Атрибут | Тип    | По умолчанию | Описание                                          |
+| ------- | ------ | ------------ | ------------------------------------------------- |
 | `name`  | string | -            | Имя иконки в формате `{коллекция}:{имя-иконки}`   |
 | `size`  | string | `1em`        | Размер иконки (xs, sm, md, lg, xl, или кастомный) |
 
@@ -182,11 +203,17 @@ npx @zizigy/capsule add Icon
 
 ```html
 <div>
-  <capsule-icon name="mdi:check-circle" size="lg"></capsule-icon>
+  <capsule-icon
+    name="mdi:check-circle"
+    size="lg"
+  ></capsule-icon>
   Успешно
 </div>
 <div>
-  <capsule-icon name="mdi:alert-circle" size="lg"></capsule-icon>
+  <capsule-icon
+    name="mdi:alert-circle"
+    size="lg"
+  ></capsule-icon>
   Предупреждение
 </div>
 ```
@@ -209,4 +236,3 @@ npx @zizigy/capsule add Icon
   border-radius: 8px;
 }
 </style>
-

@@ -5,7 +5,7 @@ A skeleton component that provides a loading placeholder for content. CapsuleSke
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Skeleton
+npx @capsuleui/core add Skeleton
 ```
 
 ## Usage

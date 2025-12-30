@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Breadcrumb
+npx @capsuleui/core add Breadcrumb
 ```
 
 ## Использование

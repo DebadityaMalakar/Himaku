@@ -5,7 +5,7 @@ CSS-only компонент для стилизации нативных HTML э
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Textarea
+npx @capsuleui/core add Textarea
 ```
 
 ## Использование
@@ -29,7 +29,10 @@ npx @zizigy/capsule add Textarea
 </div>
 
 ```html
-<textarea placeholder="Введите ваше сообщение" rows="4"></textarea>
+<textarea
+  placeholder="Введите ваше сообщение"
+  rows="4"
+></textarea>
 ```
 
 ### Отключенное состояние
@@ -39,7 +42,10 @@ npx @zizigy/capsule add Textarea
 </div>
 
 ```html
-<textarea placeholder="Отключенный textarea" disabled></textarea>
+<textarea
+  placeholder="Отключенный textarea"
+  disabled
+></textarea>
 ```
 
 ### Невалидное состояние
@@ -49,7 +55,10 @@ npx @zizigy/capsule add Textarea
 </div>
 
 ```html
-<textarea placeholder="Невалидный textarea" aria-invalid="true"></textarea>
+<textarea
+  placeholder="Невалидный textarea"
+  aria-invalid="true"
+></textarea>
 ```
 
 ### С меткой
@@ -62,10 +71,11 @@ npx @zizigy/capsule add Textarea
 </div>
 
 ```html
-<label style="display: block; margin-bottom: 0.5rem;">
-  Сообщение
-</label>
-<textarea placeholder="Введите ваше сообщение" rows="4"></textarea>
+<label style="display: block; margin-bottom: 0.5rem;"> Сообщение </label>
+<textarea
+  placeholder="Введите ваше сообщение"
+  rows="4"
+></textarea>
 ```
 
 ### Поведение изменения размера
@@ -132,4 +142,3 @@ Textarea похож на Input, но предназначен для много�
 - **Textarea** — Многострочный текстовый ввод с вертикальным изменением размера
 
 Оба компонента используют одинаковый подход к стилизации и могут использоваться вместе в формах.
-

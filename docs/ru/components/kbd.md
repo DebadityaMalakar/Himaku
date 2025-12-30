@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Kbd
+npx @capsuleui/core add Kbd
 ```
 
 ## Использование

@@ -5,7 +5,7 @@ A custom radio button group component with smooth animations and icon support. B
 ## Installation
 
 ```bash
-npx @zizigy/capsule add RadioGroup
+npx @capsuleui/core add RadioGroup
 ```
 
 ## Usage

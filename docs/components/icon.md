@@ -5,7 +5,7 @@ Icon component that loads SVG icons from [Iconify](https://iconify.design/) API.
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Icon
+npx @capsuleui/core add Icon
 ```
 
 ## Usage
@@ -56,11 +56,26 @@ Icon component supports all icon sets available on Iconify. Use the format `{col
 </div>
 
 ```html
-<capsule-icon name="mdi:star" size="xs"></capsule-icon>
-<capsule-icon name="mdi:star" size="sm"></capsule-icon>
-<capsule-icon name="mdi:star" size="md"></capsule-icon>
-<capsule-icon name="mdi:star" size="lg"></capsule-icon>
-<capsule-icon name="mdi:star" size="xl"></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="xs"
+></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="sm"
+></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="md"
+></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="lg"
+></capsule-icon>
+<capsule-icon
+  name="mdi:star"
+  size="xl"
+></capsule-icon>
 ```
 
 ### Custom Size
@@ -73,8 +88,14 @@ You can also use custom CSS values for size:
 </div>
 
 ```html
-<capsule-icon name="mdi:check-circle" size="2rem"></capsule-icon>
-<capsule-icon name="mdi:check-circle" size="3rem"></capsule-icon>
+<capsule-icon
+  name="mdi:check-circle"
+  size="2rem"
+></capsule-icon>
+<capsule-icon
+  name="mdi:check-circle"
+  size="3rem"
+></capsule-icon>
 ```
 
 ### With Text
@@ -182,11 +203,17 @@ Icons are automatically cached in memory after the first load. If the same icon 
 
 ```html
 <div>
-  <capsule-icon name="mdi:check-circle" size="lg"></capsule-icon>
+  <capsule-icon
+    name="mdi:check-circle"
+    size="lg"
+  ></capsule-icon>
   Success
 </div>
 <div>
-  <capsule-icon name="mdi:alert-circle" size="lg"></capsule-icon>
+  <capsule-icon
+    name="mdi:alert-circle"
+    size="lg"
+  ></capsule-icon>
   Warning
 </div>
 ```
@@ -209,4 +236,3 @@ Icons are automatically cached in memory after the first load. If the same icon 
   border-radius: 8px;
 }
 </style>
-

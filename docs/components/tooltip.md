@@ -5,7 +5,7 @@ A tooltip component that displays helpful information when hovering over or focu
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Tooltip
+npx @capsuleui/core add Tooltip
 ```
 
 ## Usage

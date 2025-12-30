@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Range
+npx @capsuleui/core add Range
 ```
 
 ## Использование

@@ -5,7 +5,7 @@ CSS-only component for styling native HTML `<textarea>` elements. Unlike other C
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Textarea
+npx @capsuleui/core add Textarea
 ```
 
 ## Usage
@@ -29,7 +29,10 @@ npx @zizigy/capsule add Textarea
 </div>
 
 ```html
-<textarea placeholder="Enter your message" rows="4"></textarea>
+<textarea
+  placeholder="Enter your message"
+  rows="4"
+></textarea>
 ```
 
 ### Disabled State
@@ -39,7 +42,10 @@ npx @zizigy/capsule add Textarea
 </div>
 
 ```html
-<textarea placeholder="Disabled textarea" disabled></textarea>
+<textarea
+  placeholder="Disabled textarea"
+  disabled
+></textarea>
 ```
 
 ### Invalid State
@@ -49,7 +55,10 @@ npx @zizigy/capsule add Textarea
 </div>
 
 ```html
-<textarea placeholder="Invalid textarea" aria-invalid="true"></textarea>
+<textarea
+  placeholder="Invalid textarea"
+  aria-invalid="true"
+></textarea>
 ```
 
 ### With Label
@@ -62,10 +71,11 @@ npx @zizigy/capsule add Textarea
 </div>
 
 ```html
-<label style="display: block; margin-bottom: 0.5rem;">
-  Message
-</label>
-<textarea placeholder="Enter your message" rows="4"></textarea>
+<label style="display: block; margin-bottom: 0.5rem;"> Message </label>
+<textarea
+  placeholder="Enter your message"
+  rows="4"
+></textarea>
 ```
 
 ### Resize Behavior
@@ -132,4 +142,3 @@ Textarea is similar to Input but designed for multi-line text:
 - **Textarea** — Multi-line text input with vertical resize
 
 Both components share the same styling approach and can be used together in forms.
-

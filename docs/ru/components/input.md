@@ -5,7 +5,7 @@ CSS-only компонент для стилизации нативных HTML э
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Input
+npx @capsuleui/core add Input
 ```
 
 ## Использование
@@ -17,7 +17,10 @@ npx @zizigy/capsule add Input
 </div>
 
 ```html
-<input type="text" placeholder="Введите ваше имя" />
+<input
+  type="text"
+  placeholder="Введите ваше имя"
+/>
 ```
 
 **Примечание:** Не нужен кастомный тег! Стили автоматически применяются к нативным элементам `<input>`.
@@ -39,13 +42,34 @@ npx @zizigy/capsule add Input
 </div>
 
 ```html
-<input type="text" placeholder="Текстовый input" />
-<input type="email" placeholder="Email input" />
-<input type="password" placeholder="Пароль" />
-<input type="number" placeholder="Число" />
-<input type="tel" placeholder="Телефон" />
-<input type="url" placeholder="URL" />
-<input type="search" placeholder="Поиск" />
+<input
+  type="text"
+  placeholder="Текстовый input"
+/>
+<input
+  type="email"
+  placeholder="Email input"
+/>
+<input
+  type="password"
+  placeholder="Пароль"
+/>
+<input
+  type="number"
+  placeholder="Число"
+/>
+<input
+  type="tel"
+  placeholder="Телефон"
+/>
+<input
+  type="url"
+  placeholder="URL"
+/>
+<input
+  type="search"
+  placeholder="Поиск"
+/>
 <input type="date" />
 <input type="time" />
 ```
@@ -57,7 +81,11 @@ npx @zizigy/capsule add Input
 </div>
 
 ```html
-<input type="text" placeholder="Отключенный input" disabled />
+<input
+  type="text"
+  placeholder="Отключенный input"
+  disabled
+/>
 ```
 
 ### Невалидное состояние
@@ -67,7 +95,12 @@ npx @zizigy/capsule add Input
 </div>
 
 ```html
-<input type="email" placeholder="Невалидный email" aria-invalid="true" value="не-email" />
+<input
+  type="email"
+  placeholder="Невалидный email"
+  aria-invalid="true"
+  value="не-email"
+/>
 ```
 
 ### С меткой
@@ -80,10 +113,11 @@ npx @zizigy/capsule add Input
 </div>
 
 ```html
-<label style="display: block; margin-bottom: 0.5rem;">
-  Email адрес
-</label>
-<input type="email" placeholder="you@example.com" />
+<label style="display: block; margin-bottom: 0.5rem;"> Email адрес </label>
+<input
+  type="email"
+  placeholder="you@example.com"
+/>
 ```
 
 ### File Input
@@ -149,13 +183,18 @@ npx @zizigy/capsule add Input
 
 ```html
 <!-- ✅ Правильно -->
-<input type="text" placeholder="Введите текст" />
+<input
+  type="text"
+  placeholder="Введите текст"
+/>
 
 <!-- ❌ Неправильно -->
-<capsule-input type="text" placeholder="Введите текст" />
+<capsule-input
+  type="text"
+  placeholder="Введите текст"
+/>
 ```
 
 Стили автоматически применяются ко всем элементам `<input>` после импорта CSS компонента Input.
 
 > **Примечание:** Для многострочного текстового ввода используйте компонент [Textarea](/ru/components/textarea) вместо этого.
-

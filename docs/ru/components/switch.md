@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Switch
+npx @capsuleui/core add Switch
 ```
 
 ## Использование

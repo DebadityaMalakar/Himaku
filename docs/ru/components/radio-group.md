@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add RadioGroup
+npx @capsuleui/core add RadioGroup
 ```
 
 ## Использование
@@ -100,7 +100,10 @@ npx @zizigy/capsule add RadioGroup
 </div>
 
 ```html
-<capsule-radio-group value="option1" disabled>
+<capsule-radio-group
+  value="option1"
+  disabled
+>
   <label style="display: flex; align-items: center; gap: 0.5rem;">
     <capsule-radio-group-item value="option1"></capsule-radio-group-item>
     <span>Вариант 1</span>
@@ -126,7 +129,10 @@ npx @zizigy/capsule add RadioGroup
 ```html
 <capsule-radio-group value="option1">
   <label style="display: flex; align-items: center; gap: 0.5rem;">
-    <capsule-radio-group-item value="option1" aria-invalid="true"></capsule-radio-group-item>
+    <capsule-radio-group-item
+      value="option1"
+      aria-invalid="true"
+    ></capsule-radio-group-item>
     <span>Невалидный вариант</span>
   </label>
 </capsule-radio-group>
@@ -136,27 +142,27 @@ npx @zizigy/capsule add RadioGroup
 
 ### Компоненты
 
-| Компонент                      | Описание                              |
-| ------------------------------ | ------------------------------------- |
-| `capsule-radio-group`          | Корневой контейнер для группы         |
-| `capsule-radio-group-item`     | Отдельный элемент радио-кнопки (поддерживает слот для кастомных иконок) |
+| Компонент                  | Описание                                                                |
+| -------------------------- | ----------------------------------------------------------------------- |
+| `capsule-radio-group`      | Корневой контейнер для группы                                           |
+| `capsule-radio-group-item` | Отдельный элемент радио-кнопки (поддерживает слот для кастомных иконок) |
 
 ### Атрибуты
 
 #### RadioGroup
 
-| Атрибут   | Тип     | По умолчанию | Описание                    |
-| --------- | ------- | ------------ | --------------------------- |
-| `value`   | string  | -            | Выбранное значение          |
-| `disabled` | boolean | `false`      | Отключает все радио-кнопки  |
+| Атрибут    | Тип     | По умолчанию | Описание                   |
+| ---------- | ------- | ------------ | -------------------------- |
+| `value`    | string  | -            | Выбранное значение         |
+| `disabled` | boolean | `false`      | Отключает все радио-кнопки |
 
 #### RadioGroupItem
 
-| Атрибут       | Тип     | По умолчанию | Описание                                    |
-| ------------- | ------- | ------------ | ------------------------------------------- |
-| `value`       | string  | -            | Значение этого элемента                     |
-| `disabled`    | boolean | `false`      | Отключает этот элемент                      |
-| `checked`     | boolean | `false`      | Выбран ли этот элемент (только для чтения)  |
+| Атрибут        | Тип     | По умолчанию | Описание                                      |
+| -------------- | ------- | ------------ | --------------------------------------------- |
+| `value`        | string  | -            | Значение этого элемента                       |
+| `disabled`     | boolean | `false`      | Отключает этот элемент                        |
+| `checked`      | boolean | `false`      | Выбран ли этот элемент (только для чтения)    |
 | `aria-invalid` | boolean | `false`      | Помечает радио как невалидный для доступности |
 
 ## Возможности
@@ -205,7 +211,10 @@ radioGroup.addEventListener('change', (event) => {
 
 ```html
 <form>
-  <capsule-radio-group name="choice" value="option1">
+  <capsule-radio-group
+    name="choice"
+    value="option1"
+  >
     <label style="display: flex; align-items: center; gap: 0.5rem;">
       <capsule-radio-group-item value="option1"></capsule-radio-group-item>
       <span>Вариант 1</span>
@@ -230,4 +239,3 @@ radioGroup.addEventListener('change', (event) => {
   border-radius: 8px;
 }
 </style>
-

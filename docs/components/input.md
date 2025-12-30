@@ -5,7 +5,7 @@ CSS-only component for styling native HTML `<input>` elements. Unlike other Caps
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Input
+npx @capsuleui/core add Input
 ```
 
 ## Usage
@@ -17,7 +17,10 @@ npx @zizigy/capsule add Input
 </div>
 
 ```html
-<input type="text" placeholder="Enter your name" />
+<input
+  type="text"
+  placeholder="Enter your name"
+/>
 ```
 
 **Note:** No custom element tag is needed! The styles are automatically applied to native `<input>` elements.
@@ -39,13 +42,34 @@ The Input styles work with all standard input types:
 </div>
 
 ```html
-<input type="text" placeholder="Text input" />
-<input type="email" placeholder="Email input" />
-<input type="password" placeholder="Password input" />
-<input type="number" placeholder="Number input" />
-<input type="tel" placeholder="Phone input" />
-<input type="url" placeholder="URL input" />
-<input type="search" placeholder="Search input" />
+<input
+  type="text"
+  placeholder="Text input"
+/>
+<input
+  type="email"
+  placeholder="Email input"
+/>
+<input
+  type="password"
+  placeholder="Password input"
+/>
+<input
+  type="number"
+  placeholder="Number input"
+/>
+<input
+  type="tel"
+  placeholder="Phone input"
+/>
+<input
+  type="url"
+  placeholder="URL input"
+/>
+<input
+  type="search"
+  placeholder="Search input"
+/>
 <input type="date" />
 <input type="time" />
 ```
@@ -57,7 +81,11 @@ The Input styles work with all standard input types:
 </div>
 
 ```html
-<input type="text" placeholder="Disabled input" disabled />
+<input
+  type="text"
+  placeholder="Disabled input"
+  disabled
+/>
 ```
 
 ### Invalid State
@@ -67,7 +95,12 @@ The Input styles work with all standard input types:
 </div>
 
 ```html
-<input type="email" placeholder="Invalid email" aria-invalid="true" value="not-an-email" />
+<input
+  type="email"
+  placeholder="Invalid email"
+  aria-invalid="true"
+  value="not-an-email"
+/>
 ```
 
 ### With Label
@@ -80,10 +113,11 @@ The Input styles work with all standard input types:
 </div>
 
 ```html
-<label style="display: block; margin-bottom: 0.5rem;">
-  Email Address
-</label>
-<input type="email" placeholder="you@example.com" />
+<label style="display: block; margin-bottom: 0.5rem;"> Email Address </label>
+<input
+  type="email"
+  placeholder="you@example.com"
+/>
 ```
 
 ### File Input
@@ -149,13 +183,18 @@ Unlike other CapsuleUI components, you don't use a custom element like `<capsule
 
 ```html
 <!-- ✅ Correct -->
-<input type="text" placeholder="Enter text" />
+<input
+  type="text"
+  placeholder="Enter text"
+/>
 
 <!-- ❌ Incorrect -->
-<capsule-input type="text" placeholder="Enter text" />
+<capsule-input
+  type="text"
+  placeholder="Enter text"
+/>
 ```
 
 The styles are automatically applied to all `<input>` elements once the Input component CSS is imported.
 
 > **Note:** For multi-line text input, use the [Textarea](/components/textarea) component instead.
-

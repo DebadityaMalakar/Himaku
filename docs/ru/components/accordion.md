@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Accordion
+npx @capsuleui/core add Accordion
 ```
 
 ## Использование

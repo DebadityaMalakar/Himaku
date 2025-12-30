@@ -5,7 +5,7 @@ A tour component for guiding users through your interface. Highlights target ele
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Tour
+npx @capsuleui/core add Tour
 ```
 
 ## Usage

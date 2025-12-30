@@ -5,7 +5,7 @@ A comprehensive form validation module that provides field management, validatio
 ## Installation
 
 ```bash
-npx @zizigy/capsule module add form
+npx @capsuleui/core module add form
 ```
 
 This will add the Form module to your `@capsule/modules/form` directory and automatically import it into your main `@capsule/index.js` file.

@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Comparison
+npx @capsuleui/core add Comparison
 ```
 
 ## Использование
@@ -27,11 +27,17 @@ npx @zizigy/capsule add Comparison
 ```html
 <capsule-comparison>
   <capsule-comparison-before>
-    <img src="before.jpg" alt="До" />
+    <img
+      src="before.jpg"
+      alt="До"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="after.jpg" alt="После" />
+    <img
+      src="after.jpg"
+      alt="После"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -57,11 +63,17 @@ npx @zizigy/capsule add Comparison
 ```html
 <capsule-comparison position="30">
   <capsule-comparison-before>
-    <img src="before.jpg" alt="До" />
+    <img
+      src="before.jpg"
+      alt="До"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="after.jpg" alt="После" />
+    <img
+      src="after.jpg"
+      alt="После"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -87,23 +99,38 @@ npx @zizigy/capsule add Comparison
 ```html
 <!-- Простая иконка с эмодзи -->
 <capsule-comparison-line>
-  <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+  <div
+    style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"
+  >
     ↔️
   </div>
 </capsule-comparison-line>
 
 <!-- Кастомная SVG иконка -->
 <capsule-comparison-line>
-  <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%;">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path d="M8 12h8M12 8v8" stroke-width="2"/>
+  <div
+    style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%;"
+  >
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+    >
+      <path
+        d="M8 12h8M12 8v8"
+        stroke-width="2"
+      />
     </svg>
   </div>
 </capsule-comparison-line>
 
 <!-- Без круга, просто линия -->
 <capsule-comparison-line>
-  <div style="width: 2px; height: 100%; background: rgba(255,255,255,0.8);"></div>
+  <div
+    style="width: 2px; height: 100%; background: rgba(255,255,255,0.8);"
+  ></div>
 </capsule-comparison-line>
 ```
 
@@ -133,11 +160,17 @@ npx @zizigy/capsule add Comparison
 ```html
 <capsule-comparison id="my-comparison">
   <capsule-comparison-before>
-    <img src="before.jpg" alt="До" />
+    <img
+      src="before.jpg"
+      alt="До"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="after.jpg" alt="После" />
+    <img
+      src="after.jpg"
+      alt="После"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 
@@ -154,11 +187,21 @@ npx @zizigy/capsule add Comparison
 ```html
 <capsule-comparison>
   <capsule-comparison-before>
-    <video src="before.mp4" autoplay muted loop></video>
+    <video
+      src="before.mp4"
+      autoplay
+      muted
+      loop
+    ></video>
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <video src="after.mp4" autoplay muted loop></video>
+    <video
+      src="after.mp4"
+      autoplay
+      muted
+      loop
+    ></video>
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -184,7 +227,7 @@ npx @zizigy/capsule add Comparison
   .before-image {
     filter: grayscale(100%); /* Черно-белое изображение */
   }
-  
+
   .after-image {
     /* Цветное изображение - без фильтра */
   }
@@ -192,11 +235,19 @@ npx @zizigy/capsule add Comparison
 
 <capsule-comparison>
   <capsule-comparison-before>
-    <img src="photo.jpg" alt="До" class="before-image" />
+    <img
+      src="photo.jpg"
+      alt="До"
+      class="before-image"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="photo.jpg" alt="После" class="after-image" />
+    <img
+      src="photo.jpg"
+      alt="После"
+      class="after-image"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -211,8 +262,8 @@ npx @zizigy/capsule add Comparison
 
 Главный контейнер для сравнения. Управляет позицией разделителя и координирует все подкомпоненты.
 
-| Атрибут   | Тип    | По умолчанию | Описание                                                 |
-| --------- | ------ | ------------ | -------------------------------------------------------- |
+| Атрибут    | Тип    | По умолчанию | Описание                                                           |
+| ---------- | ------ | ------------ | ------------------------------------------------------------------ |
 | `position` | number | 50           | Начальная позиция разделительной линии (0-100, где 50 — это центр) |
 
 ### `capsule-comparison-before`
@@ -221,7 +272,10 @@ npx @zizigy/capsule add Comparison
 
 ```html
 <capsule-comparison-before>
-  <img src="before.jpg" alt="До" />
+  <img
+    src="before.jpg"
+    alt="До"
+  />
 </capsule-comparison-before>
 ```
 
@@ -231,7 +285,10 @@ npx @zizigy/capsule add Comparison
 
 ```html
 <capsule-comparison-after>
-  <img src="after.jpg" alt="После" />
+  <img
+    src="after.jpg"
+    alt="После"
+  />
 </capsule-comparison-after>
 ```
 
@@ -324,13 +381,21 @@ capsule-comparison-line::part(icon) {
 Идеально подходит для демонстрации изменений дизайна или редактирования фотографий.
 
 ```html
-<capsule-comparison style="max-width: 800px; border-radius: 8px; overflow: hidden;">
+<capsule-comparison
+  style="max-width: 800px; border-radius: 8px; overflow: hidden;"
+>
   <capsule-comparison-before>
-    <img src="original.jpg" alt="Оригинальный дизайн" />
+    <img
+      src="original.jpg"
+      alt="Оригинальный дизайн"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="redesigned.jpg" alt="Переработанная версия" />
+    <img
+      src="redesigned.jpg"
+      alt="Переработанная версия"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -342,11 +407,17 @@ capsule-comparison-line::part(icon) {
 ```html
 <capsule-comparison position="40">
   <capsule-comparison-before>
-    <img src="product-v1.jpg" alt="Продукт v1" />
+    <img
+      src="product-v1.jpg"
+      alt="Продукт v1"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="product-v2.jpg" alt="Продукт v2" />
+    <img
+      src="product-v2.jpg"
+      alt="Продукт v2"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -360,7 +431,7 @@ capsule-comparison-line::part(icon) {
   .sepia-filter {
     filter: sepia(100%) contrast(120%);
   }
-  
+
   .colorful {
     filter: saturate(150%) brightness(110%);
   }
@@ -368,14 +439,21 @@ capsule-comparison-line::part(icon) {
 
 <capsule-comparison>
   <capsule-comparison-before>
-    <img src="photo.jpg" alt="Оригинал" class="sepia-filter" />
+    <img
+      src="photo.jpg"
+      alt="Оригинал"
+      class="sepia-filter"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="photo.jpg" alt="Улучшенное" class="colorful" />
+    <img
+      src="photo.jpg"
+      alt="Улучшенное"
+      class="colorful"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
 
 Помните: Поскольку у вас есть реальные файлы кода в вашем проекте, вы можете стилизовать всё именно так, как хотите - фильтры, наложения, границы, тени, анимации или что-угодно еще!
-

@@ -5,7 +5,7 @@ A flexible calendar component for date selection. Perfect for date pickers, sche
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Calendar
+npx @capsuleui/core add Calendar
 ```
 
 ## Usage

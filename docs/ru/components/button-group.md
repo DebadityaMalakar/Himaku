@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add ButtonGroup
+npx @capsuleui/core add ButtonGroup
 ```
 
 ## Использование

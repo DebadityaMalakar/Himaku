@@ -5,7 +5,7 @@ A range slider component for selecting single or multiple values within a define
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Range
+npx @capsuleui/core add Range
 ```
 
 ## Usage

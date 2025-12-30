@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Tour
+npx @capsuleui/core add Tour
 ```
 
 ## Использование

@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Pagination
+npx @capsuleui/core add Pagination
 ```
 
 ## Использование
@@ -20,7 +20,11 @@ npx @zizigy/capsule add Pagination
 </div>
 
 ```html
-<capsule-pagination page="1" total-pages="10" items-per-page="5">
+<capsule-pagination
+  page="1"
+  total-pages="10"
+  items-per-page="5"
+>
   <button slot="previous">← Назад</button>
   <button slot="next">Вперед →</button>
 </capsule-pagination>
@@ -38,7 +42,11 @@ npx @zizigy/capsule add Pagination
 </div>
 
 ```html
-<capsule-pagination page="5" total-pages="20" items-per-page="5">
+<capsule-pagination
+  page="5"
+  total-pages="20"
+  items-per-page="5"
+>
   <button slot="first">Первая</button>
   <button slot="previous">← Назад</button>
   <button slot="next">Вперед →</button>
@@ -61,7 +69,11 @@ npx @zizigy/capsule add Pagination
 </div>
 
 ```html
-<capsule-pagination page="10" total-pages="20" items-per-page="5">
+<capsule-pagination
+  page="10"
+  total-pages="20"
+  items-per-page="5"
+>
   <button slot="first">Первая</button>
   <button slot="previous">← Назад</button>
   <span slot="ellipsis">…</span>
@@ -120,13 +132,23 @@ npx @zizigy/capsule add Pagination
 
 ```html
 <!-- Маленький -->
-<capsule-pagination page="3" total-pages="10" items-per-page="5" size="sm">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  size="sm"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
 
 <!-- Большой -->
-<capsule-pagination page="3" total-pages="10" items-per-page="5" size="lg">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  size="lg"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
@@ -153,13 +175,23 @@ npx @zizigy/capsule add Pagination
 
 ```html
 <!-- Outline -->
-<capsule-pagination page="3" total-pages="10" items-per-page="5" variant="outline">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  variant="outline"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
 
 <!-- Ghost -->
-<capsule-pagination page="3" total-pages="10" items-per-page="5" variant="ghost">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  variant="ghost"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
@@ -185,7 +217,12 @@ npx @zizigy/capsule add Pagination
 </div>
 
 ```html
-<capsule-pagination page="3" total-pages="10" items-per-page="5" color="error">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  color="error"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
@@ -211,14 +248,19 @@ npx @zizigy/capsule add Pagination
 </div>
 
 ```html
-<capsule-pagination id="my-pagination" page="5" total-pages="20" items-per-page="5">
+<capsule-pagination
+  id="my-pagination"
+  page="5"
+  total-pages="20"
+  items-per-page="5"
+>
   <button slot="previous">← Назад</button>
   <button slot="next">Вперед →</button>
 </capsule-pagination>
 
 <script>
   const pagination = document.getElementById('my-pagination');
-  
+
   // Навигация программно
   pagination.goToPage(10);
   pagination.nextPage();
@@ -231,19 +273,24 @@ npx @zizigy/capsule add Pagination
 Слушайте событие `change`, чтобы реагировать на навигацию по страницам.
 
 ```html
-<capsule-pagination id="my-pagination" page="1" total-pages="10" items-per-page="5">
+<capsule-pagination
+  id="my-pagination"
+  page="1"
+  total-pages="10"
+  items-per-page="5"
+>
   <button slot="previous">← Назад</button>
   <button slot="next">Вперед →</button>
 </capsule-pagination>
 
 <script>
   const pagination = document.getElementById('my-pagination');
-  
+
   pagination.addEventListener('change', (event) => {
     console.log('Текущая страница:', event.detail.page);
     console.log('Всего страниц:', event.detail.totalPages);
     console.log('Элементов на странице:', event.detail.itemsPerPage);
-    
+
     // Загрузить данные для новой страницы
     loadPageData(event.detail.page);
   });
@@ -252,15 +299,15 @@ npx @zizigy/capsule add Pagination
 
 ## Атрибуты
 
-| Атрибут             | Тип     | По умолчанию | Описание                                                          |
-| ------------------- | ------- | ------------ | ----------------------------------------------------------------- |
-| `page`              | number  | 1            | Текущий номер страницы (начиная с 1)                              |
-| `total-pages`       | number  | 1            | Общее количество страниц                                           |
-| `items-per-page`    | number  | 5            | Количество видимых кнопок страниц для отображения                 |
-| `show-boundary-pages` | boolean | false      | Показывать номера первой и последней страницы при использовании многоточия |
-| `size`              | string  | md           | Размер кнопок пагинации: `sm`, `md`, `lg`                         |
-| `variant`           | string  | —            | Визуальный вариант: `outline`, `ghost`                            |
-| `color`             | string  | —            | Цветовая тема для активной страницы: `secondary`, `error`, `warning`, `success`, `info` |
+| Атрибут               | Тип     | По умолчанию | Описание                                                                                |
+| --------------------- | ------- | ------------ | --------------------------------------------------------------------------------------- |
+| `page`                | number  | 1            | Текущий номер страницы (начиная с 1)                                                    |
+| `total-pages`         | number  | 1            | Общее количество страниц                                                                |
+| `items-per-page`      | number  | 5            | Количество видимых кнопок страниц для отображения                                       |
+| `show-boundary-pages` | boolean | false        | Показывать номера первой и последней страницы при использовании многоточия              |
+| `size`                | string  | md           | Размер кнопок пагинации: `sm`, `md`, `lg`                                               |
+| `variant`             | string  | —            | Визуальный вариант: `outline`, `ghost`                                                  |
+| `color`               | string  | —            | Цветовая тема для активной страницы: `secondary`, `error`, `warning`, `success`, `info` |
 
 ## Слоты
 
@@ -334,12 +381,12 @@ pagination.addEventListener('change', (event) => {
 - `data-on-last-page` - Устанавливается на последней странице
 
 ```css
-capsule-pagination[data-on-first-page] button[slot="previous"] {
+capsule-pagination[data-on-first-page] button[slot='previous'] {
   opacity: 0.5;
   pointer-events: none;
 }
 
-capsule-pagination[data-on-last-page] button[slot="next"] {
+capsule-pagination[data-on-last-page] button[slot='next'] {
   opacity: 0.5;
   pointer-events: none;
 }
@@ -375,12 +422,32 @@ capsule-pagination::part(page-item active) {
 У вас полный контроль над кнопками навигации. Настраивайте их как хотите!
 
 ```html
-<capsule-pagination page="5" total-pages="20" items-per-page="5">
-  <capsule-button slot="first" variant="outline">« Первая</capsule-button>
-  <capsule-button slot="previous" variant="outline">‹ Назад</capsule-button>
+<capsule-pagination
+  page="5"
+  total-pages="20"
+  items-per-page="5"
+>
+  <capsule-button
+    slot="first"
+    variant="outline"
+    >« Первая</capsule-button
+  >
+  <capsule-button
+    slot="previous"
+    variant="outline"
+    >‹ Назад</capsule-button
+  >
   <span slot="ellipsis">…</span>
-  <capsule-button slot="next" variant="outline">Вперед ›</capsule-button>
-  <capsule-button slot="last" variant="outline">Последняя »</capsule-button>
+  <capsule-button
+    slot="next"
+    variant="outline"
+    >Вперед ›</capsule-button
+  >
+  <capsule-button
+    slot="last"
+    variant="outline"
+    >Последняя »</capsule-button
+  >
 </capsule-pagination>
 ```
 
@@ -389,18 +456,17 @@ capsule-pagination::part(page-item active) {
 Используйте data-атрибуты для отключения кнопок навигации, когда это необходимо:
 
 ```css
-capsule-pagination[data-on-first-page] button[slot="previous"],
-capsule-pagination[data-on-first-page] button[slot="first"] {
+capsule-pagination[data-on-first-page] button[slot='previous'],
+capsule-pagination[data-on-first-page] button[slot='first'] {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-capsule-pagination[data-on-last-page] button[slot="next"],
-capsule-pagination[data-on-last-page] button[slot="last"] {
+capsule-pagination[data-on-last-page] button[slot='next'],
+capsule-pagination[data-on-last-page] button[slot='last'] {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 ```
-

@@ -65,7 +65,7 @@ export const moduleCmd = {
       if (action !== 'list') {
         // Для add/remove требуется @capsule
         spinner.fail(
-          "Could not find '@capsule' folder in the project. Run 'npx @zizigy/capsule init' first."
+          "Could not find '@capsule' folder in the project. Run 'npx @capsuleui/core init' first."
         );
         return;
       }

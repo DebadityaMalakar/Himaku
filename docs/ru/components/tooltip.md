@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Tooltip
+npx @capsuleui/core add Tooltip
 ```
 
 ## Использование

@@ -5,7 +5,7 @@ A pagination component for navigating through multiple pages of content. Support
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Pagination
+npx @capsuleui/core add Pagination
 ```
 
 ## Usage
@@ -20,7 +20,11 @@ npx @zizigy/capsule add Pagination
 </div>
 
 ```html
-<capsule-pagination page="1" total-pages="10" items-per-page="5">
+<capsule-pagination
+  page="1"
+  total-pages="10"
+  items-per-page="5"
+>
   <button slot="previous">← Prev</button>
   <button slot="next">Next →</button>
 </capsule-pagination>
@@ -38,7 +42,11 @@ npx @zizigy/capsule add Pagination
 </div>
 
 ```html
-<capsule-pagination page="5" total-pages="20" items-per-page="5">
+<capsule-pagination
+  page="5"
+  total-pages="20"
+  items-per-page="5"
+>
   <button slot="first">First</button>
   <button slot="previous">← Prev</button>
   <button slot="next">Next →</button>
@@ -61,7 +69,11 @@ When you provide an ellipsis slot, the component automatically shows ellipsis (.
 </div>
 
 ```html
-<capsule-pagination page="10" total-pages="20" items-per-page="5">
+<capsule-pagination
+  page="10"
+  total-pages="20"
+  items-per-page="5"
+>
   <button slot="first">First</button>
   <button slot="previous">← Prev</button>
   <span slot="ellipsis">…</span>
@@ -120,13 +132,23 @@ Enable `show-boundary-pages` to always show the first and last page numbers alon
 
 ```html
 <!-- Small -->
-<capsule-pagination page="3" total-pages="10" items-per-page="5" size="sm">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  size="sm"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
 
 <!-- Large -->
-<capsule-pagination page="3" total-pages="10" items-per-page="5" size="lg">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  size="lg"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
@@ -153,13 +175,23 @@ Enable `show-boundary-pages` to always show the first and last page numbers alon
 
 ```html
 <!-- Outline -->
-<capsule-pagination page="3" total-pages="10" items-per-page="5" variant="outline">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  variant="outline"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
 
 <!-- Ghost -->
-<capsule-pagination page="3" total-pages="10" items-per-page="5" variant="ghost">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  variant="ghost"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
@@ -185,7 +217,12 @@ Enable `show-boundary-pages` to always show the first and last page numbers alon
 </div>
 
 ```html
-<capsule-pagination page="3" total-pages="10" items-per-page="5" color="error">
+<capsule-pagination
+  page="3"
+  total-pages="10"
+  items-per-page="5"
+  color="error"
+>
   <button slot="previous">←</button>
   <button slot="next">→</button>
 </capsule-pagination>
@@ -211,14 +248,19 @@ Control the pagination programmatically using JavaScript methods.
 </div>
 
 ```html
-<capsule-pagination id="my-pagination" page="5" total-pages="20" items-per-page="5">
+<capsule-pagination
+  id="my-pagination"
+  page="5"
+  total-pages="20"
+  items-per-page="5"
+>
   <button slot="previous">← Prev</button>
   <button slot="next">Next →</button>
 </capsule-pagination>
 
 <script>
   const pagination = document.getElementById('my-pagination');
-  
+
   // Navigate programmatically
   pagination.goToPage(10);
   pagination.nextPage();
@@ -231,19 +273,24 @@ Control the pagination programmatically using JavaScript methods.
 Listen to the `change` event to respond to page navigation.
 
 ```html
-<capsule-pagination id="my-pagination" page="1" total-pages="10" items-per-page="5">
+<capsule-pagination
+  id="my-pagination"
+  page="1"
+  total-pages="10"
+  items-per-page="5"
+>
   <button slot="previous">← Prev</button>
   <button slot="next">Next →</button>
 </capsule-pagination>
 
 <script>
   const pagination = document.getElementById('my-pagination');
-  
+
   pagination.addEventListener('change', (event) => {
     console.log('Current page:', event.detail.page);
     console.log('Total pages:', event.detail.totalPages);
     console.log('Items per page:', event.detail.itemsPerPage);
-    
+
     // Load data for the new page
     loadPageData(event.detail.page);
   });
@@ -252,14 +299,14 @@ Listen to the `change` event to respond to page navigation.
 
 ## Attributes
 
-| Attribute             | Type    | Default | Description                                                          |
-| --------------------- | ------- | ------- | -------------------------------------------------------------------- |
-| `page`                | number  | 1       | Current page number (1-based)                                        |
-| `total-pages`         | number  | 1       | Total number of pages                                                |
-| `items-per-page`      | number  | 5       | Number of visible page buttons to show                               |
-| `show-boundary-pages` | boolean | false   | Show first and last page numbers when using ellipsis                 |
-| `size`                | string  | md      | Size of pagination buttons: `sm`, `md`, `lg`                         |
-| `variant`             | string  | —       | Visual variant: `outline`, `ghost`                                   |
+| Attribute             | Type    | Default | Description                                                                     |
+| --------------------- | ------- | ------- | ------------------------------------------------------------------------------- |
+| `page`                | number  | 1       | Current page number (1-based)                                                   |
+| `total-pages`         | number  | 1       | Total number of pages                                                           |
+| `items-per-page`      | number  | 5       | Number of visible page buttons to show                                          |
+| `show-boundary-pages` | boolean | false   | Show first and last page numbers when using ellipsis                            |
+| `size`                | string  | md      | Size of pagination buttons: `sm`, `md`, `lg`                                    |
+| `variant`             | string  | —       | Visual variant: `outline`, `ghost`                                              |
 | `color`               | string  | —       | Color theme for active page: `secondary`, `error`, `warning`, `success`, `info` |
 
 ## Slots
@@ -334,12 +381,12 @@ The component automatically sets data attributes that you can use for styling:
 - `data-on-last-page` - Set when on the last page
 
 ```css
-capsule-pagination[data-on-first-page] button[slot="previous"] {
+capsule-pagination[data-on-first-page] button[slot='previous'] {
   opacity: 0.5;
   pointer-events: none;
 }
 
-capsule-pagination[data-on-last-page] button[slot="next"] {
+capsule-pagination[data-on-last-page] button[slot='next'] {
   opacity: 0.5;
   pointer-events: none;
 }
@@ -375,12 +422,32 @@ capsule-pagination::part(page-item active) {
 You have full control over the navigation buttons. Customize them however you want!
 
 ```html
-<capsule-pagination page="5" total-pages="20" items-per-page="5">
-  <capsule-button slot="first" variant="outline">« First</capsule-button>
-  <capsule-button slot="previous" variant="outline">‹ Prev</capsule-button>
+<capsule-pagination
+  page="5"
+  total-pages="20"
+  items-per-page="5"
+>
+  <capsule-button
+    slot="first"
+    variant="outline"
+    >« First</capsule-button
+  >
+  <capsule-button
+    slot="previous"
+    variant="outline"
+    >‹ Prev</capsule-button
+  >
   <span slot="ellipsis">…</span>
-  <capsule-button slot="next" variant="outline">Next ›</capsule-button>
-  <capsule-button slot="last" variant="outline">Last »</capsule-button>
+  <capsule-button
+    slot="next"
+    variant="outline"
+    >Next ›</capsule-button
+  >
+  <capsule-button
+    slot="last"
+    variant="outline"
+    >Last »</capsule-button
+  >
 </capsule-pagination>
 ```
 
@@ -389,18 +456,17 @@ You have full control over the navigation buttons. Customize them however you wa
 Use the data attributes to disable navigation buttons when appropriate:
 
 ```css
-capsule-pagination[data-on-first-page] button[slot="previous"],
-capsule-pagination[data-on-first-page] button[slot="first"] {
+capsule-pagination[data-on-first-page] button[slot='previous'],
+capsule-pagination[data-on-first-page] button[slot='first'] {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-capsule-pagination[data-on-last-page] button[slot="next"],
-capsule-pagination[data-on-last-page] button[slot="last"] {
+capsule-pagination[data-on-last-page] button[slot='next'],
+capsule-pagination[data-on-last-page] button[slot='last'] {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 ```
-

@@ -5,7 +5,7 @@ A star rating component for collecting and displaying user ratings. Supports pre
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Rating
+npx @capsuleui/core add Rating
 ```
 
 ## Usage

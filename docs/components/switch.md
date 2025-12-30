@@ -5,7 +5,7 @@ A toggle switch component for representing on/off states. Fully accessible with 
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Switch
+npx @capsuleui/core add Switch
 ```
 
 ## Usage

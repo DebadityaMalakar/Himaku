@@ -5,7 +5,7 @@ A component that groups buttons together with seamless borders. Perfect for grou
 ## Installation
 
 ```bash
-npx @zizigy/capsule add ButtonGroup
+npx @capsuleui/core add ButtonGroup
 ```
 
 ## Usage

@@ -5,7 +5,7 @@ A navigation component that shows the user's location in a site's hierarchy. Bre
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Breadcrumb
+npx @capsuleui/core add Breadcrumb
 ```
 
 ## Usage

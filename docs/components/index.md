@@ -53,13 +53,13 @@ CapsuleUI provides a collection of modern, unstyled web components that you can 
 To add any of these components to your project, use:
 
 ```bash
-npx @zizigy/capsule add <ComponentName>
+npx @capsuleui/core add <ComponentName>
 ```
 
 For example, to add the Button component:
 
 ```bash
-npx @zizigy/capsule add Button
+npx @capsuleui/core add Button
 ```
 
 See the [Getting Started](/getting-started) guide for more information.

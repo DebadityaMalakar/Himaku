@@ -15,15 +15,15 @@
 1. Initialize global Capsule folder (templates and globals):
 
 ```bash
-npx @zizigy/capsule init
+npx @capsuleui/core init
 # or choose a custom base directory
-npx @zizigy/capsule init --dir ./playground
+npx @capsuleui/core init --dir ./playground
 ```
 
 2. Add a component (installs into `@capsule/components/<prefix>-<component>`):
 
 ```bash
-npx @zizigy/capsule add Slider --prefix ui
+npx @capsuleui/core add Slider --prefix ui
 ```
 
 This will also:
@@ -59,7 +59,7 @@ Open the dev server and experiment with components right away.
 
 ## Commands
 
-- `npx @zizigy/capsule init [-d, --dir <dir>]` — create `@capsule` folder from template
+- `npx @capsuleui/core init [-d, --dir <dir>]` — create `@capsule` folder from template
 - `capsule add <Component> [-p, --prefix <prefix>] [-m, --minify]` — install a component
 - `npm run play` — run Vite dev server for `playground`
 

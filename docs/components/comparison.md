@@ -5,7 +5,7 @@ A before/after comparison component for comparing two images or content side by 
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Comparison
+npx @capsuleui/core add Comparison
 ```
 
 ## Usage
@@ -27,11 +27,17 @@ npx @zizigy/capsule add Comparison
 ```html
 <capsule-comparison>
   <capsule-comparison-before>
-    <img src="before.jpg" alt="Before" />
+    <img
+      src="before.jpg"
+      alt="Before"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="after.jpg" alt="After" />
+    <img
+      src="after.jpg"
+      alt="After"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -57,11 +63,17 @@ Set the initial position of the divider line using the `position` attribute (0-1
 ```html
 <capsule-comparison position="30">
   <capsule-comparison-before>
-    <img src="before.jpg" alt="Before" />
+    <img
+      src="before.jpg"
+      alt="Before"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="after.jpg" alt="After" />
+    <img
+      src="after.jpg"
+      alt="After"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -87,23 +99,38 @@ You have full control over the divider line content! Use the slot to customize i
 ```html
 <!-- Simple emoji icon -->
 <capsule-comparison-line>
-  <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+  <div
+    style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"
+  >
     ↔️
   </div>
 </capsule-comparison-line>
 
 <!-- Custom SVG icon -->
 <capsule-comparison-line>
-  <div style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%;">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path d="M8 12h8M12 8v8" stroke-width="2"/>
+  <div
+    style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 50%;"
+  >
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+    >
+      <path
+        d="M8 12h8M12 8v8"
+        stroke-width="2"
+      />
     </svg>
   </div>
 </capsule-comparison-line>
 
 <!-- No circle, just a simple line -->
 <capsule-comparison-line>
-  <div style="width: 2px; height: 100%; background: rgba(255,255,255,0.8);"></div>
+  <div
+    style="width: 2px; height: 100%; background: rgba(255,255,255,0.8);"
+  ></div>
 </capsule-comparison-line>
 ```
 
@@ -133,11 +160,17 @@ Control the divider position programmatically using JavaScript.
 ```html
 <capsule-comparison id="my-comparison">
   <capsule-comparison-before>
-    <img src="before.jpg" alt="Before" />
+    <img
+      src="before.jpg"
+      alt="Before"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="after.jpg" alt="After" />
+    <img
+      src="after.jpg"
+      alt="After"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 
@@ -154,11 +187,21 @@ The comparison component works with videos as well.
 ```html
 <capsule-comparison>
   <capsule-comparison-before>
-    <video src="before.mp4" autoplay muted loop></video>
+    <video
+      src="before.mp4"
+      autoplay
+      muted
+      loop
+    ></video>
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <video src="after.mp4" autoplay muted loop></video>
+    <video
+      src="after.mp4"
+      autoplay
+      muted
+      loop
+    ></video>
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -184,7 +227,7 @@ You have full control over the appearance! You can apply CSS filters, overlays, 
   .before-image {
     filter: grayscale(100%); /* Black and white */
   }
-  
+
   .after-image {
     /* Color image - no filter */
   }
@@ -192,11 +235,19 @@ You have full control over the appearance! You can apply CSS filters, overlays, 
 
 <capsule-comparison>
   <capsule-comparison-before>
-    <img src="photo.jpg" alt="Before" class="before-image" />
+    <img
+      src="photo.jpg"
+      alt="Before"
+      class="before-image"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="photo.jpg" alt="After" class="after-image" />
+    <img
+      src="photo.jpg"
+      alt="After"
+      class="after-image"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -211,8 +262,8 @@ The Comparison component consists of several sub-components:
 
 The main container for the comparison. Manages the divider position and coordinates all sub-components.
 
-| Attribute | Type   | Default | Description                                              |
-| --------- | ------ | ------- | -------------------------------------------------------- |
+| Attribute  | Type   | Default | Description                                                      |
+| ---------- | ------ | ------- | ---------------------------------------------------------------- |
 | `position` | number | 50      | Initial position of the divider line (0-100, where 50 is center) |
 
 ### `capsule-comparison-before`
@@ -221,7 +272,10 @@ Container for the "before" content. This appears on the left side (or top for ve
 
 ```html
 <capsule-comparison-before>
-  <img src="before.jpg" alt="Before" />
+  <img
+    src="before.jpg"
+    alt="Before"
+  />
 </capsule-comparison-before>
 ```
 
@@ -231,7 +285,10 @@ Container for the "after" content. This appears on the right side (or bottom for
 
 ```html
 <capsule-comparison-after>
-  <img src="after.jpg" alt="After" />
+  <img
+    src="after.jpg"
+    alt="After"
+  />
 </capsule-comparison-after>
 ```
 
@@ -324,13 +381,21 @@ capsule-comparison-line::part(icon) {
 Perfect for showcasing design changes or photo edits.
 
 ```html
-<capsule-comparison style="max-width: 800px; border-radius: 8px; overflow: hidden;">
+<capsule-comparison
+  style="max-width: 800px; border-radius: 8px; overflow: hidden;"
+>
   <capsule-comparison-before>
-    <img src="original.jpg" alt="Original design" />
+    <img
+      src="original.jpg"
+      alt="Original design"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="redesigned.jpg" alt="Redesigned version" />
+    <img
+      src="redesigned.jpg"
+      alt="Redesigned version"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -342,11 +407,17 @@ Compare different versions of a product.
 ```html
 <capsule-comparison position="40">
   <capsule-comparison-before>
-    <img src="product-v1.jpg" alt="Product v1" />
+    <img
+      src="product-v1.jpg"
+      alt="Product v1"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="product-v2.jpg" alt="Product v2" />
+    <img
+      src="product-v2.jpg"
+      alt="Product v2"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
@@ -360,7 +431,7 @@ Show the same image with different filters applied - perfect for photo editing d
   .sepia-filter {
     filter: sepia(100%) contrast(120%);
   }
-  
+
   .colorful {
     filter: saturate(150%) brightness(110%);
   }
@@ -368,14 +439,21 @@ Show the same image with different filters applied - perfect for photo editing d
 
 <capsule-comparison>
   <capsule-comparison-before>
-    <img src="photo.jpg" alt="Original" class="sepia-filter" />
+    <img
+      src="photo.jpg"
+      alt="Original"
+      class="sepia-filter"
+    />
   </capsule-comparison-before>
   <capsule-comparison-line></capsule-comparison-line>
   <capsule-comparison-after>
-    <img src="photo.jpg" alt="Enhanced" class="colorful" />
+    <img
+      src="photo.jpg"
+      alt="Enhanced"
+      class="colorful"
+    />
   </capsule-comparison-after>
 </capsule-comparison>
 ```
 
 Remember: Since you have the actual code files in your project, you can style everything exactly how you want - filters, overlays, borders, shadows, animations, or anything else!
-

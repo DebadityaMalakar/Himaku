@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Badge
+npx @capsuleui/core add Badge
 ```
 
 ## Использование

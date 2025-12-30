@@ -1,6 +1,6 @@
 {
-  "name": "@zizigy/capsule",
-  "version": "1.1.0",
+  "name": "@capsuleui/core",
+  "version": "1.2.4",
   "description": "CapsuleUI: Native Web Components, unstyled by design. Build your own design system on a solid foundation. Like shadcn, for the web platform.",
   "author": "ZiZIGY",
   "license": "MIT",

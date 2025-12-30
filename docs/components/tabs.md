@@ -5,7 +5,7 @@ A tabs component for organizing content into multiple sections that can be switc
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Tabs
+npx @capsuleui/core add Tabs
 ```
 
 ## Usage

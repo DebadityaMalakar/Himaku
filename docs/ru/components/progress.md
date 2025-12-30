@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Progress
+npx @capsuleui/core add Progress
 ```
 
 ## Использование

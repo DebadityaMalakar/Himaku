@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Rating
+npx @capsuleui/core add Rating
 ```
 
 ## Использование

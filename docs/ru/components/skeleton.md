@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Skeleton
+npx @capsuleui/core add Skeleton
 ```
 
 ## Использование

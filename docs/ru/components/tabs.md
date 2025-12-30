@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Tabs
+npx @capsuleui/core add Tabs
 ```
 
 ## Использование

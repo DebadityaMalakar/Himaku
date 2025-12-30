@@ -5,7 +5,7 @@ A visual component for displaying keyboard keys. Perfect for showing keyboard sh
 ## Installation
 
 ```bash
-npx @zizigy/capsule add Kbd
+npx @capsuleui/core add Kbd
 ```
 
 ## Usage

@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule add Calendar
+npx @capsuleui/core add Calendar
 ```
 
 ## Использование
@@ -140,7 +140,9 @@ npx @zizigy/capsule add Calendar
 
 ```html
 <div>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+  <div
+    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;"
+  >
     <button id="prev-month">← Назад</button>
     <span id="month-year"></span>
     <button id="next-month">Вперед →</button>
@@ -153,20 +155,32 @@ npx @zizigy/capsule add Calendar
   const prevBtn = document.getElementById('prev-month');
   const nextBtn = document.getElementById('next-month');
   const monthYear = document.getElementById('month-year');
-  
-  const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
-                      'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-  
+
+  const monthNames = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+  ];
+
   function updateMonthYear() {
     const { year, month } = calendar.getDisplayDate();
     monthYear.textContent = `${monthNames[month]} ${year}`;
   }
-  
+
   function navigateMonth(direction) {
     const { year, month } = calendar.getDisplayDate();
     let newMonth = month + direction;
     let newYear = year;
-    
+
     if (newMonth < 0) {
       newMonth = 11;
       newYear--;
@@ -174,11 +188,11 @@ npx @zizigy/capsule add Calendar
       newMonth = 0;
       newYear++;
     }
-    
+
     calendar.setDisplayDate(newYear, newMonth);
     updateMonthYear();
   }
-  
+
   prevBtn.addEventListener('click', () => navigateMonth(-1));
   nextBtn.addEventListener('click', () => navigateMonth(1));
   updateMonthYear();
@@ -231,19 +245,19 @@ npx @zizigy/capsule add Calendar
 </div>
 
 ```html
-<input 
-  type="text" 
-  id="date-input" 
+<input
+  type="text"
+  id="date-input"
   style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"
   placeholder="YYYY-MM-DD"
   pattern="\d{4}-\d{2}-\d{2}"
->
+/>
 <capsule-calendar id="calendar-input"></capsule-calendar>
 
 <script>
   const calendar = document.getElementById('calendar-input');
   const input = document.getElementById('date-input');
-  
+
   function syncInputToCalendar() {
     const dateValue = input.value.trim();
     // Валидация формата YYYY-MM-DD
@@ -257,7 +271,7 @@ npx @zizigy/capsule add Calendar
       }
     }
   }
-  
+
   // Синхронизация input → calendar при blur или Enter
   input.addEventListener('blur', syncInputToCalendar);
   input.addEventListener('keypress', (e) => {
@@ -266,7 +280,7 @@ npx @zizigy/capsule add Calendar
       input.blur();
     }
   });
-  
+
   // Синхронизация calendar → input
   calendar.addEventListener('input', (e) => {
     input.value = e.detail.value || '';

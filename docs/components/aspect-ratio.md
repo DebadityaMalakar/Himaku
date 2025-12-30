@@ -5,7 +5,7 @@ A simple component for maintaining aspect ratios. Perfect for images, videos, or
 ## Installation
 
 ```bash
-npx @zizigy/capsule add AspectRatio
+npx @capsuleui/core add AspectRatio
 ```
 
 ## Usage

@@ -5,7 +5,7 @@
 ## Установка
 
 ```bash
-npx @zizigy/capsule module add form
+npx @capsuleui/core module add form
 ```
 
 Это добавит модуль Form в директорию `@capsule/modules/form` и автоматически импортирует его в главный файл `@capsule/index.js`.
