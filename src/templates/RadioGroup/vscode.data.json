@@ -1,0 +1,42 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "__PREFIX__-__COMPONENT__",
+      "description": "Root container for RadioGroup component",
+      "attributes": [
+        {
+          "name": "value",
+          "description": "Selected value"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables all radio items"
+        }
+      ]
+    },
+    {
+      "name": "__PREFIX__-__COMPONENT__-item",
+      "description": "Individual radio button item",
+      "attributes": [
+        {
+          "name": "value",
+          "description": "Value of this radio item"
+        },
+        {
+          "name": "disabled",
+          "description": "Disables this radio item"
+        },
+        {
+          "name": "checked",
+          "description": "Whether this item is checked (read-only, set by group)"
+        },
+        {
+          "name": "aria-invalid",
+          "description": "Marks radio as invalid for accessibility"
+        }
+      ]
+    }
+  ]
+}
+
