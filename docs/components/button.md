@@ -17,71 +17,43 @@ npx @capsuleui/core add Button
 ### Core Variants
 
 <div class="component-demo">
-  <capsule-button variant="primary">Primary</capsule-button>
+  <capsule-button variant="default">Default</capsule-button>
   <capsule-button variant="secondary">Secondary</capsule-button>
   <capsule-button variant="outline">Outline</capsule-button>
-  <capsule-button variant="text">Text</capsule-button>
+  <capsule-button variant="ghost">Ghost</capsule-button>
+  <capsule-button variant="link">Link</capsule-button>
+  <capsule-button variant="destructive">Destructive</capsule-button>
 </div>
 
 ```html
-<capsule-button variant="primary">Primary</capsule-button>
+<capsule-button variant="default">Default</capsule-button>
 <capsule-button variant="secondary">Secondary</capsule-button>
 <capsule-button variant="outline">Outline</capsule-button>
-<capsule-button variant="text">Text</capsule-button>
-```
-
-#### Semantic Colors
-
-<div class="component-demo">
-  <capsule-button variant="success">Success</capsule-button>
-  <capsule-button variant="error">Error</capsule-button>
-  <capsule-button variant="warning">Warning</capsule-button>
-  <capsule-button variant="info">Info</capsule-button>
-</div>
-
-```html
-<capsule-button variant="success">Success</capsule-button>
-<capsule-button variant="error">Error</capsule-button>
-<capsule-button variant="warning">Warning</capsule-button>
-<capsule-button variant="info">Info</capsule-button>
+<capsule-button variant="ghost">Ghost</capsule-button>
+<capsule-button variant="link">Link</capsule-button>
+<capsule-button variant="destructive">Destructive</capsule-button>
 ```
 
 ### Sizes
 
 <div class="component-demo">
-  <capsule-button size="xs">Extra Small</capsule-button>
   <capsule-button size="sm">Small</capsule-button>
-  <capsule-button size="md">Medium</capsule-button>
+  <capsule-button size="default">Default</capsule-button>
   <capsule-button size="lg">Large</capsule-button>
+  <capsule-button size="icon">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8 0L10.5 5.5L16 8L10.5 10.5L8 16L5.5 10.5L0 8L5.5 5.5L8 0Z"/>
+    </svg>
+  </capsule-button>
 </div>
 
 ```html
-<capsule-button size="xs">Extra Small</capsule-button>
 <capsule-button size="sm">Small</capsule-button>
-<capsule-button size="md">Medium</capsule-button>
+<capsule-button size="default">Default</capsule-button>
 <capsule-button size="lg">Large</capsule-button>
-```
-
-### Rounded
-
-<div class="component-demo">
-  <capsule-button rounded="none">None</capsule-button>
-  <capsule-button rounded="xs">Extra Small</capsule-button>
-  <capsule-button rounded="sm">Small</capsule-button>
-  <capsule-button rounded="md">Medium</capsule-button>
-  <capsule-button rounded="lg">Large</capsule-button>
-  <capsule-button rounded="xl">XL</capsule-button>
-  <capsule-button rounded="full">Full</capsule-button>
-</div>
-
-```html
-<capsule-button rounded="none">None</capsule-button>
-<capsule-button rounded="xs">Extra Small</capsule-button>
-<capsule-button rounded="sm">Small</capsule-button>
-<capsule-button rounded="md">Medium</capsule-button>
-<capsule-button rounded="lg">Large</capsule-button>
-<capsule-button rounded="xl">XL</capsule-button>
-<capsule-button rounded="full">Full</capsule-button>
+<capsule-button size="icon">
+  <svg>...</svg>
+</capsule-button>
 ```
 
 ### States
@@ -100,42 +72,32 @@ npx @capsuleui/core add Button
 
 ### Attributes
 
-| Attribute  | Type    | Default   | Description                             |
-| ---------- | ------- | --------- | --------------------------------------- |
-| `variant`  | string  | `primary` | Button style                            |
-| `size`     | string  | `md`      | Button size                             |
-| `disabled` | boolean | `false`   | Disabled state                          |
-| `type`     | string  | `button`  | Button type (`button`/`submit`/`reset`) |
-| `rounded`  | string  | `md`      | Border radius degree                    |
+| Attribute  | Type    | Default    | Description                             |
+| ---------- | ------- | ---------- | --------------------------------------- |
+| `variant`  | string  | `default` | Button style variant                    |
+| `size`     | string  | `default`  | Button size                             |
+| `disabled` | boolean | `false`    | Disabled state                          |
+| `type`     | string  | `button`   | Button type (`button`/`submit`/`reset`) |
 
 ### Allowed Values
 
 - **variant:**
 
-  - `primary` — Primary action
+  - `default` — Primary action (default)
   - `secondary` — Secondary action
-  - `outline` — Outlined button
-  - `text` — Text-only button
-  - `success` — Success action
-  - `error` — Error action
-  - `warning` — Warning action
-  - `info` — Informational action
+  - `outline` — Outlined button with border
+  - `ghost` — Transparent button with hover effect
+  - `link` — Link-style button with underline
+  - `destructive` — Destructive/danger action
 
 - **size:**
 
-  - `xs` — Extra small
-  - `sm` — Small
-  - `md` — Medium
-  - `lg` — Large
-
-- **rounded:**
-  - `none` — No rounding
-  - `xs` - Extra Small
-  - `sm` — Small
-  - `md` — Medium
-  - `lg` — Large
-  - `xl` — Extra large
-  - `full` — Full
+  - `default` — Default size (2.25rem height)
+  - `sm` — Small (2rem height)
+  - `lg` — Large (2.5rem height)
+  - `icon` — Icon button (2.25rem × 2.25rem)
+  - `icon-sm` — Small icon button (2rem × 2rem)
+  - `icon-lg` — Large icon button (2.5rem × 2.5rem)
 
 ## Events
 

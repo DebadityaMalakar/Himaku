@@ -17,71 +17,43 @@ npx @capsuleui/core add Button
 ### Основные варианты
 
 <div class="component-demo">
-  <capsule-button variant="primary">Primary</capsule-button>
-  <capsule-button variant="secondary">Secondary</capsule-button>
-  <capsule-button variant="outline">Outline</capsule-button>
-  <capsule-button variant="text">Text</capsule-button>
+  <capsule-button variant="default">По умолчанию</capsule-button>
+  <capsule-button variant="secondary">Вторичный</capsule-button>
+  <capsule-button variant="outline">Контурный</capsule-button>
+  <capsule-button variant="ghost">Прозрачный</capsule-button>
+  <capsule-button variant="link">Ссылка</capsule-button>
+  <capsule-button variant="destructive">Опасный</capsule-button>
 </div>
 
 ```html
-<capsule-button variant="primary">Primary</capsule-button>
-<capsule-button variant="secondary">Secondary</capsule-button>
-<capsule-button variant="outline">Outline</capsule-button>
-<capsule-button variant="text">Text</capsule-button>
-```
-
-#### Семантические цвета
-
-<div class="component-demo">
-  <capsule-button variant="success">Success</capsule-button>
-  <capsule-button variant="error">Error</capsule-button>
-  <capsule-button variant="warning">Warning</capsule-button>
-  <capsule-button variant="info">Info</capsule-button>
-</div>
-
-```html
-<capsule-button variant="success">Success</capsule-button>
-<capsule-button variant="error">Error</capsule-button>
-<capsule-button variant="warning">Warning</capsule-button>
-<capsule-button variant="info">Info</capsule-button>
+<capsule-button variant="default">По умолчанию</capsule-button>
+<capsule-button variant="secondary">Вторичный</capsule-button>
+<capsule-button variant="outline">Контурный</capsule-button>
+<capsule-button variant="ghost">Прозрачный</capsule-button>
+<capsule-button variant="link">Ссылка</capsule-button>
+<capsule-button variant="destructive">Опасный</capsule-button>
 ```
 
 ### Размеры
 
 <div class="component-demo">
-  <capsule-button size="xs">Extra Small</capsule-button>
-  <capsule-button size="sm">Small</capsule-button>
-  <capsule-button size="md">Medium</capsule-button>
-  <capsule-button size="lg">Large</capsule-button>
+  <capsule-button size="sm">Маленький</capsule-button>
+  <capsule-button size="default">По умолчанию</capsule-button>
+  <capsule-button size="lg">Большой</capsule-button>
+  <capsule-button size="icon">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8 0L10.5 5.5L16 8L10.5 10.5L8 16L5.5 10.5L0 8L5.5 5.5L8 0Z"/>
+    </svg>
+  </capsule-button>
 </div>
 
 ```html
-<capsule-button size="xs">Extra Small</capsule-button>
-<capsule-button size="sm">Small</capsule-button>
-<capsule-button size="md">Medium</capsule-button>
-<capsule-button size="lg">Large</capsule-button>
-```
-
-### Скругления
-
-<div class="component-demo">
-  <capsule-button rounded="none">None</capsule-button>
-  <capsule-button rounded="xs">Extra Small</capsule-button>
-  <capsule-button rounded="sm">Small</capsule-button>
-  <capsule-button rounded="md">Medium</capsule-button>
-  <capsule-button rounded="lg">Large</capsule-button>
-  <capsule-button rounded="xl">XL</capsule-button>
-  <capsule-button rounded="full">Full</capsule-button>
-</div>
-
-```html
-<capsule-button rounded="none">None</capsule-button>
-<capsule-button rounded="xs">Extra Small</capsule-button>
-<capsule-button rounded="sm">Small</capsule-button>
-<capsule-button rounded="md">Medium</capsule-button>
-<capsule-button rounded="lg">Large</capsule-button>
-<capsule-button rounded="xl">XL</capsule-button>
-<capsule-button rounded="full">Full</capsule-button>
+<capsule-button size="sm">Маленький</capsule-button>
+<capsule-button size="default">По умолчанию</capsule-button>
+<capsule-button size="lg">Большой</capsule-button>
+<capsule-button size="icon">
+  <svg>...</svg>
+</capsule-button>
 ```
 
 ### Состояния
@@ -102,40 +74,30 @@ npx @capsuleui/core add Button
 
 | Атрибут    | Тип     | По умолчанию | Описание                         |
 | ---------- | ------- | ------------ | -------------------------------- |
-| `variant`  | string  | `primary`    | Стиль кнопки                     |
-| `size`     | string  | `md`         | Размер кнопки                    |
+| `variant`  | string  | `default`    | Вариант стиля кнопки             |
+| `size`     | string  | `default`    | Размер кнопки                    |
 | `disabled` | boolean | `false`      | Отключенное состояние            |
 | `type`     | string  | `button`     | Тип кнопки (button/submit/reset) |
-| `rounded`  | string  | `md`         | Степень скругления углов         |
 
 ### Доступные значения
 
 - **variant**:
 
-  - `primary` — Основное действие
+  - `default` — Основное действие (по умолчанию)
   - `secondary` — Второстепенное действие
-  - `outline` — Контурная кнопка
-  - `text` — Текстовая кнопка
-  - `success` — Успешное действие
-  - `error` — Ошибочное действие
-  - `warning` — Предупреждение
-  - `info` — Информационное действие
+  - `outline` — Контурная кнопка с границей
+  - `ghost` — Прозрачная кнопка с эффектом при наведении
+  - `link` — Кнопка в стиле ссылки с подчеркиванием
+  - `destructive` — Опасное/деструктивное действие
 
 - **size**:
 
-  - `xs` — Очень маленький
-  - `sm` — Маленький
-  - `md` — Средний
-  - `lg` — Большой
-
-- **rounded**:
-  - `none` — Без скруглений
-  - `xs` - Очень маленькое
-  - `sm` — Маленькое
-  - `md` — Среднее
-  - `lg` — Большое
-  - `xl` — Очень большое
-  - `full` — Полное
+  - `default` — Размер по умолчанию (высота 2.25rem)
+  - `sm` — Маленький (высота 2rem)
+  - `lg` — Большой (высота 2.5rem)
+  - `icon` — Кнопка-иконка (2.25rem × 2.25rem)
+  - `icon-sm` — Маленькая кнопка-иконка (2rem × 2rem)
+  - `icon-lg` — Большая кнопка-иконка (2.5rem × 2.5rem)
 
 ## События
 

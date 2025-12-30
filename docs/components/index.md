@@ -28,16 +28,19 @@ CapsuleUI provides a collection of modern, unstyled web components that you can 
 ### Data Display
 
 - **[Badge](/components/badge)** - A badge component
-- **[Chip](/components/chip)** - A chip component
 - **[Rating](/components/rating)** - A rating component
 - **[Divider](/components/divider)** - A divider component
 - **[ScrollArea](/components/scroll-area)** - A custom scrollable area component
 - **[Icon](/components/icon)** - Icon component with Iconify integration
+- **[AspectRatio](/components/aspect-ratio)** - A component for maintaining aspect ratios
+- **[Kbd](/components/kbd)** - A keyboard key display component
+- **[Calendar](/components/calendar)** - A calendar date picker component
+- **[Comparison](/components/comparison)** - A before/after image comparison component
 
 ### Overlay
 
 - **[Tooltip](/components/tooltip)** - A tooltip component
-- **[Alert](/components/alert)** - An alert dialog component
+- **[Tour](/components/tour)** - A guided tour component
 
 ### Data Entry
 
