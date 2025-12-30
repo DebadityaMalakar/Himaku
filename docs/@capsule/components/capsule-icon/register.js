@@ -1,0 +1,2 @@
+import './capsule-icon.js';
+

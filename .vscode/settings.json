@@ -23,6 +23,8 @@
     "docs/@capsule/components/capsule-circular-progress/vscode.data.json",
     "docs/@capsule/components/capsule-tour/vscode.data.json",
     "docs/@capsule/components/capsule-speed-dial/vscode.data.json",
-    "docs/@capsule/components/capsule-container/vscode.data.json"
+    "docs/@capsule/components/capsule-container/vscode.data.json",
+    "docs/@capsule/components/capsule-icon/vscode.data.json",
+    "docs/@capsule/components/capsule-input/vscode.data.json"
   ]
 }

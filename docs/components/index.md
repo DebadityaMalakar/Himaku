@@ -7,6 +7,7 @@ CapsuleUI provides a collection of modern, unstyled web components that you can 
 ### Form Elements
 
 - **[Button](/components/button)** - A button component with multiple variants and sizes
+- **[Input](/components/input)** - CSS-only styles for native input and textarea elements
 - **[Switch](/components/switch)** - A toggle switch component
 - **[Range](/components/range)** - A range slider component
 
@@ -29,6 +30,7 @@ CapsuleUI provides a collection of modern, unstyled web components that you can 
 - **[Rating](/components/rating)** - A rating component
 - **[Divider](/components/divider)** - A divider component
 - **[ScrollArea](/components/scroll-area)** - A custom scrollable area component
+- **[Icon](/components/icon)** - Icon component with Iconify integration
 
 ### Overlay
 

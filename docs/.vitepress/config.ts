@@ -78,6 +78,7 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: '/components/' },
               { text: 'Button', link: '/components/button' },
+              { text: 'Input', link: '/components/input' },
               { text: 'Button Group', link: '/components/button-group' },
               { text: 'Badge', link: '/components/badge' },
               { text: 'Kbd', link: '/components/kbd' },
@@ -85,6 +86,7 @@ export default defineConfig({
               { text: 'Pagination', link: '/components/pagination' },
               { text: 'Skeleton', link: '/components/skeleton' },
               { text: 'Divider', link: '/components/divider' },
+              { text: 'Icon', link: '/components/icon' },
               { text: 'Alert', link: '/components/alert' },
               { text: 'AspectRatio', link: '/components/aspect-ratio' },
               { text: 'Accordion', link: '/components/accordion' },
@@ -145,6 +147,7 @@ export default defineConfig({
             items: [
               { text: 'Обзор', link: '/ru/components/' },
               { text: 'Button', link: '/ru/components/button' },
+              { text: 'Input', link: '/ru/components/input' },
               { text: 'Button Group', link: '/ru/components/button-group' },
               { text: 'Badge', link: '/ru/components/badge' },
               { text: 'Kbd', link: '/ru/components/kbd' },
@@ -152,6 +155,7 @@ export default defineConfig({
               { text: 'Pagination', link: '/ru/components/pagination' },
               { text: 'Skeleton', link: '/ru/components/skeleton' },
               { text: 'Divider', link: '/ru/components/divider' },
+              { text: 'Icon', link: '/ru/components/icon' },
               { text: 'Alert', link: '/ru/components/alert' },
               { text: 'AspectRatio', link: '/ru/components/aspect-ratio' },
               { text: 'Accordion', link: '/ru/components/accordion' },

@@ -1,0 +1,91 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "input",
+      "description": "Native HTML input element styled with CapsuleUI Input styles",
+      "attributes": [
+        {
+          "name": "type",
+          "description": "Input type",
+          "values": [
+            {
+              "name": "text"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "password"
+            },
+            {
+              "name": "number"
+            },
+            {
+              "name": "tel"
+            },
+            {
+              "name": "url"
+            },
+            {
+              "name": "search"
+            },
+            {
+              "name": "date"
+            },
+            {
+              "name": "time"
+            },
+            {
+              "name": "datetime-local"
+            },
+            {
+              "name": "month"
+            },
+            {
+              "name": "week"
+            },
+            {
+              "name": "file"
+            }
+          ]
+        },
+        {
+          "name": "disabled",
+          "description": "Disables the input"
+        },
+        {
+          "name": "aria-invalid",
+          "description": "Marks input as invalid for accessibility"
+        },
+        {
+          "name": "placeholder",
+          "description": "Placeholder text"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "description": "Native HTML textarea element styled with CapsuleUI Input styles",
+      "attributes": [
+        {
+          "name": "disabled",
+          "description": "Disables the textarea"
+        },
+        {
+          "name": "aria-invalid",
+          "description": "Marks textarea as invalid for accessibility"
+        },
+        {
+          "name": "placeholder",
+          "description": "Placeholder text"
+        },
+        {
+          "name": "rows",
+          "description": "Number of visible text lines"
+        }
+      ]
+    }
+  ]
+}
+
