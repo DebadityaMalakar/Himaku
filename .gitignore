@@ -3,3 +3,4 @@ dist
 src/components
 docs/.vitepress/dist
 docs/.vitepress/cache
+.npmrc
