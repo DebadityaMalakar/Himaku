@@ -23,88 +23,76 @@ npx @capsuleui/core add Badge
 ### Variants
 
 <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
-<capsule-badge>1</capsule-badge>
-<capsule-badge variant="outline">12</capsule-badge>
-<capsule-badge variant="ghost">New</capsule-badge>
-<capsule-badge variant="dot">!</capsule-badge>
+<capsule-badge variant="default">Default</capsule-badge>
+<capsule-badge variant="secondary">Secondary</capsule-badge>
+<capsule-badge variant="destructive">Destructive</capsule-badge>
+<capsule-badge variant="outline">Outline</capsule-badge>
 </div>
 
 ```html
-<capsule-badge>1</capsule-badge>
-<capsule-badge variant="outline">12</capsule-badge>
-<capsule-badge variant="ghost">New</capsule-badge>
-<capsule-badge variant="dot">!</capsule-badge>
+<capsule-badge variant="default">Default</capsule-badge>
+<capsule-badge variant="secondary">Secondary</capsule-badge>
+<capsule-badge variant="destructive">Destructive</capsule-badge>
+<capsule-badge variant="outline">Outline</capsule-badge>
 ```
 
-### Value and Max
-
-You can use `value` and `max` attributes on capsule-badge to show numbers. If value exceeds max, badge shows `max+`:
-
-<div style="margin: 1rem 0; display: flex; gap: 0.5rem; align-items: center;">
-  <capsule-badge value="10">10</capsule-badge>
-  <capsule-badge value="150" max="99">99+</capsule-badge>
-</div>
-
-```html
-<!-- Just value -->
-<capsule-badge value="10">10</capsule-badge>
-<!-- If value > max, shows max+ -->
-<capsule-badge
-  value="150"
-  max="99"
-  >99+</capsule-badge
->
-<!-- 99+ -->
-```
-
-### Sizes
+### With Icons
 
 <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
-<capsule-badge size="sm">sm</capsule-badge>
-<capsule-badge>md</capsule-badge>
-<capsule-badge size="lg">lg</capsule-badge>
+<capsule-badge>
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+    <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z"/>
+  </svg>
+  New
+</capsule-badge>
 </div>
 
 ```html
-<capsule-badge size="sm">sm</capsule-badge>
-<capsule-badge>md</capsule-badge>
-<capsule-badge size="lg">lg</capsule-badge>
+<capsule-badge>
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+    <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z"/>
+  </svg>
+  New
+</capsule-badge>
 ```
 
-### Color
+## API Reference
 
-<div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
-  <capsule-badge color="primary">primary</capsule-badge>
-  <capsule-badge color="success">success</capsule-badge>
-  <capsule-badge color="danger">danger</capsule-badge>
-  <capsule-badge color="warning">warning</capsule-badge>
-</div>
+### Attributes
 
-```html
-<capsule-badge color="primary">primary</capsule-badge>
-<capsule-badge color="success">success</capsule-badge>
-<capsule-badge color="danger">danger</capsule-badge>
-<capsule-badge color="warning">warning</capsule-badge>
-```
-
-## Attributes
-
-| Attribute | Type          | Default | Description                                                       |
-| --------- | ------------- | ------- | ----------------------------------------------------------------- |
-| `variant` | string        | -       | Badge style variant                                               |
-| `size`    | string        | -       | Badge size                                                        |
-| `value`   | string/number | `0`     | Value shown in the badge                                          |
-| `max`     | string/number | -       | If set, caps the value; shows max+ if exceeded                    |
-| `type`    | string        | -       | Type attribute for buttons                                        |
-| `color`   | string        | -       | Badge color (e.g. 'primary', 'success', 'danger', HEX, RGB, etc.) |
+| Attribute | Type   | Default    | Description          |
+| --------- | ------ | ---------- | -------------------- |
+| `variant` | string | `default`  | Badge style variant |
 
 ### Variant Values
 
-- `outline` - Outlined badge
-- `ghost` - Ghost badge
-- `dot` - Small dot (can contain text or icon)
+- `default` — Primary badge with primary background (default)
+- `secondary` — Secondary badge with secondary background
+- `destructive` — Destructive badge with destructive background
+- `outline` — Outlined badge with border and transparent background
+
+## Features
+
+- ✅ **Simple and lightweight** — Just renders slot content
+- ✅ **Shadcn-style variants** — Matches Shadcn UI design system
+- ✅ **Icon support** — Can contain SVG icons
+- ✅ **Focus states** — Proper focus indicators
+- ✅ **Dark mode** — Automatic dark mode support
+- ✅ **Accessibility** — Proper ARIA attributes
+
+## Styling Details
+
+The Badge component applies the following styles:
+
+- **Border radius:** `var(--radius-full)` (fully rounded)
+- **Padding:** `0.125rem 0.5rem`
+- **Font size:** `var(--font-size-xs)` (0.75rem)
+- **Font weight:** `var(--font-weight-medium)`
+- **Icon size:** `0.75rem` (12px) for SVG children
+- **Gap:** `0.25rem` between icon and text
 
 ## Accessibility
 
-- ✅ Keyboard interaction support
+- ✅ Proper focus indicators with ring
 - ✅ ARIA attributes for screen readers
+- ✅ `aria-invalid` support for validation states

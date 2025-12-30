@@ -52,7 +52,11 @@ capsule-range[orientation='horizontal']::part(range) {
 }
 
 capsule-range[orientation='vertical']::part(range) {
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.375rem;
+  top: var(--top, 0);
+  height: var(--height, 0);
 }
 
 /* Thumb */

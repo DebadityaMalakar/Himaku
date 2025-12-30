@@ -23,88 +23,76 @@ npx @capsuleui/core add Badge
 ### Варианты
 
 <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
-<capsule-badge>1</capsule-badge>
-<capsule-badge variant="outline">12</capsule-badge>
-<capsule-badge variant="ghost">Новый</capsule-badge>
-<capsule-badge variant="dot">dot</capsule-badge>
+<capsule-badge variant="default">По умолчанию</capsule-badge>
+<capsule-badge variant="secondary">Вторичный</capsule-badge>
+<capsule-badge variant="destructive">Опасный</capsule-badge>
+<capsule-badge variant="outline">Контурный</capsule-badge>
 </div>
 
 ```html
-<capsule-badge>1</capsule-badge>
-<capsule-badge variant="outline">12</capsule-badge>
-<capsule-badge variant="ghost">Новый</capsule-badge>
-<capsule-badge variant="dot">dot</capsule-badge>
+<capsule-badge variant="default">По умолчанию</capsule-badge>
+<capsule-badge variant="secondary">Вторичный</capsule-badge>
+<capsule-badge variant="destructive">Опасный</capsule-badge>
+<capsule-badge variant="outline">Контурный</capsule-badge>
 ```
 
-### value и max
-
-Вы можете использовать атрибуты `value` и `max` у capsule-badge для отображения чисел. Всегда указывайте значение внутри badge. Если value больше max — выводится max+ :
-
-<div style="margin: 1rem 0; display: flex; gap: 0.5rem; align-items: center;">
-  <capsule-badge value="8">8</capsule-badge>
-  <capsule-badge value="120" max="99">99+</capsule-badge>
-</div>
-
-```html
-<!-- Просто value -->
-<capsule-badge value="8">8</capsule-badge>
-<!-- Если value > max, будет max+ -->
-<capsule-badge
-  value="120"
-  max="99"
-  >99+</capsule-badge
->
-<!-- 99+ -->
-```
-
-### Размеры
+### С иконками
 
 <div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
-<capsule-badge size="sm">sm</capsule-badge>
-<capsule-badge>md</capsule-badge>
-<capsule-badge size="lg">lg</capsule-badge>
+<capsule-badge>
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+    <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z"/>
+  </svg>
+  Новый
+</capsule-badge>
 </div>
 
 ```html
-<capsule-badge size="sm">sm</capsule-badge>
-<capsule-badge>md</capsule-badge>
-<capsule-badge size="lg">lg</capsule-badge>
+<capsule-badge>
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+    <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z"/>
+  </svg>
+  Новый
+</capsule-badge>
 ```
 
-### Цвет (color)
+## Справочник API
 
-<div style="margin: 1rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
-  <capsule-badge color="primary">primary</capsule-badge>
-  <capsule-badge color="success">success</capsule-badge>
-  <capsule-badge color="danger">danger</capsule-badge>
-  <capsule-badge color="warning">warning</capsule-badge>
-</div>
+### Атрибуты
 
-```html
-<capsule-badge color="primary">primary</capsule-badge>
-<capsule-badge color="success">success</capsule-badge>
-<capsule-badge color="danger">danger</capsule-badge>
-<capsule-badge color="warning">warning</capsule-badge>
-```
-
-## Атрибуты
-
-| Атрибут   | Тип           | По умолчанию | Описание                                                              |
-| --------- | ------------- | ------------ | --------------------------------------------------------------------- |
-| `variant` | string        | -            | Вариант стиля badge                                                   |
-| `size`    | string        | -            | Размер badge                                                          |
-| `value`   | string/number | `0`          | Значение/число, показываемое в badge                                  |
-| `max`     | string/number | -            | Ограничивает value, при переполнении будет max+                       |
-| `type`    | string        | -            | Атрибут type для кнопок                                               |
-| `color`   | string        | -            | Цвет badge (например: 'primary', 'success', 'danger', HEX, RGB и др.) |
+| Атрибут   | Тип    | По умолчанию | Описание          |
+| --------- | ------ | ------------ | ----------------- |
+| `variant` | string | `default`    | Вариант стиля badge |
 
 ### Значения variant
 
-- `outline` — с контуром
-- `ghost` — без фона
-- `dot` — цветная точка, может содержать текст или число
+- `default` — Основной badge с primary фоном (по умолчанию)
+- `secondary` — Вторичный badge с secondary фоном
+- `destructive` — Опасный badge с destructive фоном
+- `outline` — Контурный badge с границей и прозрачным фоном
+
+## Особенности
+
+- ✅ **Простой и легкий** — Просто рендерит содержимое слота
+- ✅ **Варианты в стиле Shadcn** — Соответствует дизайн-системе Shadcn UI
+- ✅ **Поддержка иконок** — Может содержать SVG иконки
+- ✅ **Состояния фокуса** — Правильные индикаторы фокуса
+- ✅ **Темная тема** — Автоматическая поддержка темной темы
+- ✅ **Доступность** — Правильные ARIA атрибуты
+
+## Детали стилизации
+
+Компонент Badge применяет следующие стили:
+
+- **Скругление:** `var(--radius-full)` (полностью скругленный)
+- **Отступы:** `0.125rem 0.5rem`
+- **Размер шрифта:** `var(--font-size-xs)` (0.75rem)
+- **Насыщенность шрифта:** `var(--font-weight-medium)`
+- **Размер иконки:** `0.75rem` (12px) для дочерних SVG
+- **Отступ:** `0.25rem` между иконкой и текстом
 
 ## Доступность
 
-- ✅ Работа с клавиатурой
-- ✅ ARIA атрибуты
+- ✅ Правильные индикаторы фокуса с кольцом
+- ✅ ARIA атрибуты для скринридеров
+- ✅ Поддержка `aria-invalid` для состояний валидации

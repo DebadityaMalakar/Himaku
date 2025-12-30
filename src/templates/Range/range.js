@@ -183,11 +183,9 @@ class CapsuleRange extends LitElement {
   _initThumbs() {
     if (!this.shadowRoot) return;
 
-    // Remove existing thumbs
     this._thumbs.forEach((thumb) => thumb.remove());
     this._thumbs = [];
 
-    // Create new thumbs
     this._values.forEach((value, index) => {
       const thumb = document.createElement('div');
       thumb.classList.add('thumb');
@@ -248,7 +246,6 @@ class CapsuleRange extends LitElement {
   _renderTicks() {
     if (!this._showTicks || !this._ticksContainer) return;
 
-    // Clear existing ticks
     this._ticksContainer.innerHTML = '';
 
     const ticksCount = Math.floor(
@@ -379,7 +376,6 @@ class CapsuleRange extends LitElement {
     this._updateRange();
     this._updateFormValue();
 
-    // Update value attribute
     this.value = JSON.stringify(this._values);
 
     this.dispatchEvent(
