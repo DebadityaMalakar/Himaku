@@ -1,64 +1,18 @@
 capsule-progress {
-  display: block;
-  width: 100%;
   position: relative;
-  background: var(--capsule-color-surface-variant);
-  border-radius: var(--capsule-radius-full);
+  width: 100%;
+  height: 0.5rem;
   overflow: hidden;
+  border-radius: var(--radius-full);
+  background-color: color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 capsule-progress .progress-bar {
   display: block;
   height: 100%;
-  width: var(--progress, 0%);
-  background: var(--capsule-color-primary);
-  border-radius: var(--capsule-radius-full);
-  transition: var(--capsule-transition);
+  width: 100%;
+  background-color: var(--primary);
+  border-radius: var(--radius-full);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(calc(-100% + var(--progress, 0%)));
 }
-
-/* Sizes */
-capsule-progress[size='xs'] {
-  height: 0.25rem;
-}
-
-capsule-progress[size='sm'] {
-  height: 0.5rem;
-}
-
-capsule-progress[size='md'] {
-  height: 0.75rem;
-}
-
-capsule-progress[size='lg'] {
-  height: 1rem;
-}
-
-capsule-progress[size='xl'] {
-  height: 1.25rem;
-}
-
-/* Colors */
-capsule-progress[color='primary'] .progress-bar {
-  background: var(--capsule-color-primary);
-}
-
-capsule-progress[color='success'] .progress-bar {
-  background: var(--capsule-color-success);
-}
-
-capsule-progress[color='error'] .progress-bar {
-  background: var(--capsule-color-error);
-}
-
-capsule-progress[color='warning'] .progress-bar {
-  background: var(--capsule-color-warning);
-}
-
-capsule-progress[color='info'] .progress-bar {
-  background: var(--capsule-color-info);
-}
-
-capsule-progress[color='accent'] .progress-bar {
-  background: var(--capsule-color-accent);
-}
-

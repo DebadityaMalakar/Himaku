@@ -8,20 +8,21 @@ capsule-tooltip[disabled] {
 
 capsule-tooltip-content {
   position: absolute;
-  padding: 0.5rem 0.75rem;
-  background-color: #1f2937;
-  color: white;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translate(-50%, 10px) scale(0.95);
-  transition: all 0.2s ease-out;
-  pointer-events: none;
+  z-index: var(--z-tooltip);
   width: fit-content;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  white-space: nowrap;
+  background-color: var(--foreground);
+  color: var(--background);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.95);
   height: fit-content;
-  z-index: 50;
 }
 
 capsule-tooltip:hover capsule-tooltip-content,
@@ -41,7 +42,7 @@ capsule-tooltip[disabled]:focus-within
 capsule-tooltip:hover capsule-tooltip-content,
 capsule-tooltip:focus-within capsule-tooltip-content {
   opacity: 1;
-  transform: translate(-50%, 0) scale(1);
+  transform: scale(1);
 }
 
 /* Top placement */
@@ -49,8 +50,8 @@ capsule-tooltip-content,
 capsule-tooltip[placement='top'] capsule-tooltip-content {
   bottom: 100%;
   left: 50%;
-  transform: translate(-50%, 10px) scale(0.95);
-  margin-bottom: 0.5rem;
+  transform: translate(-50%, 0.5rem) scale(0.95);
+  margin-bottom: 0.25rem;
 }
 
 capsule-tooltip:hover capsule-tooltip-content,
@@ -66,8 +67,8 @@ capsule-tooltip[placement='top']:focus-within
 capsule-tooltip[placement='bottom'] capsule-tooltip-content {
   top: 100%;
   left: 50%;
-  transform: translate(-50%, -10px) scale(0.95);
-  margin-top: 0.5rem;
+  transform: translate(-50%, -0.5rem) scale(0.95);
+  margin-top: 0.25rem;
 }
 
 capsule-tooltip[placement='bottom']:hover
@@ -82,8 +83,8 @@ capsule-tooltip[placement='left'] capsule-tooltip-content {
   right: 100%;
   top: 50%;
   left: auto;
-  transform: translate(10px, -50%) scale(0.95);
-  margin-right: 0.5rem;
+  transform: translate(0.5rem, -50%) scale(0.95);
+  margin-right: 0.25rem;
 }
 
 capsule-tooltip[placement='left']:hover
@@ -97,8 +98,8 @@ capsule-tooltip[placement='left']:focus-within
 capsule-tooltip[placement='right'] capsule-tooltip-content {
   left: 100%;
   top: 50%;
-  transform: translate(-10px, -50%) scale(0.95);
-  margin-left: 0.5rem;
+  transform: translate(-0.5rem, -50%) scale(0.95);
+  margin-left: 0.25rem;
 }
 
 capsule-tooltip[placement='right']:hover
@@ -108,46 +109,45 @@ capsule-tooltip[placement='right']:focus-within
   transform: translate(0, -50%) scale(1);
 }
 
+/* Arrow */
 capsule-tooltip-content::before {
   content: '';
   position: absolute;
-  border-width: 4px;
-  border-style: solid;
-  border-color: transparent;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: var(--foreground);
+  transform: rotate(45deg);
+  border-radius: 2px;
 }
 
 capsule-tooltip[placement='top']
   capsule-tooltip-content::before {
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  border-top-color: #1f2937;
-  border-bottom-width: 0;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  margin-top: -2px;
 }
 
 capsule-tooltip[placement='bottom']
   capsule-tooltip-content::before {
   bottom: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  border-bottom-color: #1f2937;
-  border-top-width: 0;
+  transform: translateX(-50%) translateY(50%) rotate(45deg);
+  margin-bottom: -2px;
 }
 
 capsule-tooltip[placement='left']
   capsule-tooltip-content::before {
   left: 100%;
   top: 50%;
-  transform: translateY(-50%);
-  border-left-color: #1f2937;
-  border-right-width: 0;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  margin-left: -2px;
 }
 
 capsule-tooltip[placement='right']
   capsule-tooltip-content::before {
   right: 100%;
   top: 50%;
-  transform: translateY(-50%);
-  border-right-color: #1f2937;
-  border-left-width: 0;
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
+  margin-right: -2px;
 }

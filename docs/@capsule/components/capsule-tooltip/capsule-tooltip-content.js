@@ -6,7 +6,7 @@ class CapsuleTooltipContent extends LitElement {
   }
 
   createRenderRoot() {
-    return this;
+    return super.createRenderRoot();
   }
 
   connectedCallback() {

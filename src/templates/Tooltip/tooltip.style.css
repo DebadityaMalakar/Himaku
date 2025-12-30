@@ -8,20 +8,21 @@ __PREFIX__-__COMPONENT__[disabled] {
 
 __PREFIX__-__COMPONENT__-content {
   position: absolute;
-  padding: 0.5rem 0.75rem;
-  background-color: #1f2937;
-  color: white;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translate(-50%, 10px) scale(0.95);
-  transition: all 0.2s ease-out;
-  pointer-events: none;
+  z-index: var(--z-tooltip);
   width: fit-content;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  white-space: nowrap;
+  background-color: var(--foreground);
+  color: var(--background);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.95);
   height: fit-content;
-  z-index: 50;
 }
 
 __PREFIX__-__COMPONENT__:hover __PREFIX__-__COMPONENT__-content,
@@ -41,7 +42,7 @@ __PREFIX__-__COMPONENT__[disabled]:focus-within
 __PREFIX__-__COMPONENT__:hover __PREFIX__-__COMPONENT__-content,
 __PREFIX__-__COMPONENT__:focus-within __PREFIX__-__COMPONENT__-content {
   opacity: 1;
-  transform: translate(-50%, 0) scale(1);
+  transform: scale(1);
 }
 
 /* Top placement */
@@ -49,8 +50,8 @@ __PREFIX__-__COMPONENT__-content,
 __PREFIX__-__COMPONENT__[placement='top'] __PREFIX__-__COMPONENT__-content {
   bottom: 100%;
   left: 50%;
-  transform: translate(-50%, 10px) scale(0.95);
-  margin-bottom: 0.5rem;
+  transform: translate(-50%, 0.5rem) scale(0.95);
+  margin-bottom: 0.25rem;
 }
 
 __PREFIX__-__COMPONENT__:hover __PREFIX__-__COMPONENT__-content,
@@ -66,8 +67,8 @@ __PREFIX__-__COMPONENT__[placement='top']:focus-within
 __PREFIX__-__COMPONENT__[placement='bottom'] __PREFIX__-__COMPONENT__-content {
   top: 100%;
   left: 50%;
-  transform: translate(-50%, -10px) scale(0.95);
-  margin-top: 0.5rem;
+  transform: translate(-50%, -0.5rem) scale(0.95);
+  margin-top: 0.25rem;
 }
 
 __PREFIX__-__COMPONENT__[placement='bottom']:hover
@@ -82,8 +83,8 @@ __PREFIX__-__COMPONENT__[placement='left'] __PREFIX__-__COMPONENT__-content {
   right: 100%;
   top: 50%;
   left: auto;
-  transform: translate(10px, -50%) scale(0.95);
-  margin-right: 0.5rem;
+  transform: translate(0.5rem, -50%) scale(0.95);
+  margin-right: 0.25rem;
 }
 
 __PREFIX__-__COMPONENT__[placement='left']:hover
@@ -97,8 +98,8 @@ __PREFIX__-__COMPONENT__[placement='left']:focus-within
 __PREFIX__-__COMPONENT__[placement='right'] __PREFIX__-__COMPONENT__-content {
   left: 100%;
   top: 50%;
-  transform: translate(-10px, -50%) scale(0.95);
-  margin-left: 0.5rem;
+  transform: translate(-0.5rem, -50%) scale(0.95);
+  margin-left: 0.25rem;
 }
 
 __PREFIX__-__COMPONENT__[placement='right']:hover
@@ -108,46 +109,45 @@ __PREFIX__-__COMPONENT__[placement='right']:focus-within
   transform: translate(0, -50%) scale(1);
 }
 
+/* Arrow */
 __PREFIX__-__COMPONENT__-content::before {
   content: '';
   position: absolute;
-  border-width: 4px;
-  border-style: solid;
-  border-color: transparent;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: var(--foreground);
+  transform: rotate(45deg);
+  border-radius: 2px;
 }
 
 __PREFIX__-__COMPONENT__[placement='top']
   __PREFIX__-__COMPONENT__-content::before {
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  border-top-color: #1f2937;
-  border-bottom-width: 0;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  margin-top: -2px;
 }
 
 __PREFIX__-__COMPONENT__[placement='bottom']
   __PREFIX__-__COMPONENT__-content::before {
   bottom: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  border-bottom-color: #1f2937;
-  border-top-width: 0;
+  transform: translateX(-50%) translateY(50%) rotate(45deg);
+  margin-bottom: -2px;
 }
 
 __PREFIX__-__COMPONENT__[placement='left']
   __PREFIX__-__COMPONENT__-content::before {
   left: 100%;
   top: 50%;
-  transform: translateY(-50%);
-  border-left-color: #1f2937;
-  border-right-width: 0;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  margin-left: -2px;
 }
 
 __PREFIX__-__COMPONENT__[placement='right']
   __PREFIX__-__COMPONENT__-content::before {
   right: 100%;
   top: 50%;
-  transform: translateY(-50%);
-  border-right-color: #1f2937;
-  border-left-width: 0;
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
+  margin-right: -2px;
 }

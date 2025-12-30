@@ -31,33 +31,12 @@
           "name": "variant",
           "values": [
             {
-              "name": "dot"
-            },
-            {
               "name": "outline"
             },
             {
               "name": "ghost"
             }
           ]
-        },
-        {
-          "name": "position",
-          "values": [
-            {
-              "name": "top-left"
-            },
-            {
-              "name": "bottom-right"
-            },
-            {
-              "name": "bottom-left"
-            }
-          ]
-        },
-        {
-          "name": "invisible",
-          "valueSet": "v"
         },
         {
           "name": "size",

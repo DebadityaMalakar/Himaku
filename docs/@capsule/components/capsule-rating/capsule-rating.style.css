@@ -10,14 +10,14 @@ capsule-rating[readonly] {
 }
 
 capsule-rating[disabled] {
-  opacity: var(--capsule-opacity-disabled);
+  opacity: 0.5;
   pointer-events: none;
 }
 
 capsule-rating::part(stars-container) {
   display: flex;
   align-items: center;
-  gap: var(--capsule-margin-xs);
+  gap: 0.25rem;
   position: relative;
 }
 
@@ -30,15 +30,15 @@ capsule-rating::part(stars-filled) {
   overflow: hidden;
   display: flex;
   align-items: center;
-  gap: var(--capsule-margin-xs);
-  transition: width var(--capsule-transition);
+  gap: 0.25rem;
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
 }
 
 capsule-rating::part(stars-empty) {
   display: flex;
   align-items: center;
-  gap: var(--capsule-margin-xs);
+  gap: 0.25rem;
   z-index: 1;
 }
 
@@ -46,8 +46,10 @@ capsule-rating::part(star) {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--capsule-transition);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 capsule-rating::part(star) svg,
@@ -62,44 +64,13 @@ capsule-rating:not([readonly]):not([disabled]):hover::part(star) {
 }
 
 capsule-rating::part(star-filled) {
-  color: var(--capsule-color-warning);
+  color: oklch(0.828 0.189 84.429);
 }
 
 capsule-rating::part(star-empty) {
-  color: var(--capsule-color-outline);
+  color: var(--muted-foreground);
 }
 
-capsule-rating[size='sm']::part(star) {
-  width: 16px;
-  height: 16px;
-}
-
-capsule-rating[size='md']::part(star) {
-  width: 24px;
-  height: 24px;
-}
-
-capsule-rating[size='lg']::part(star) {
-  width: 32px;
-  height: 32px;
-}
-
-capsule-rating[color='primary']::part(star-filled) {
-  color: var(--capsule-color-primary);
-}
-
-capsule-rating[color='error']::part(star-filled) {
-  color: var(--capsule-color-error);
-}
-
-capsule-rating[color='success']::part(star-filled) {
-  color: var(--capsule-color-success);
-}
-
-capsule-rating[color='secondary']::part(star-filled) {
-  color: var(--capsule-color-text-secondary);
-}
-
-capsule-rating[color='info']::part(star-filled) {
-  color: var(--capsule-color-info);
+.dark capsule-rating::part(star-filled) {
+  color: oklch(0.769 0.188 70.08);
 }
