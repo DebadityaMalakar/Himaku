@@ -1,7 +1,9 @@
-class Chip extends HTMLElement {
-  constructor() {
-    super();
+import { LitElement, html } from '../../lit';
+
+class CapsuleChip extends LitElement {
+  render() {
+    return html`<slot></slot>`;
   }
 }
 
-customElements.define('capsule-chip', Chip);
+customElements.define('capsule-chip', CapsuleChip);
