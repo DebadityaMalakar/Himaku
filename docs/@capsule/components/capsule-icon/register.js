@@ -1,2 +1,1 @@
 import './capsule-icon.js';
-

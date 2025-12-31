@@ -8,8 +8,6 @@ class CapsuleIcon extends LitElement {
 
   constructor() {
     super();
-    this._iconCache = new Map();
-    this._loadingIcons = new Map();
     this.size = '1em';
   }
 
@@ -42,29 +40,12 @@ class CapsuleIcon extends LitElement {
       return;
     }
 
-    if (this._iconCache.has(this.name)) {
-      const cached = this._iconCache.get(this.name);
-      this._renderIcon(cached);
-      return;
-    }
-
-    if (this._loadingIcons.has(this.name)) {
-      await this._loadingIcons.get(this.name);
-      return;
-    }
-
-    const loadPromise = this._fetchIcon(this.name);
-    this._loadingIcons.set(this.name, loadPromise);
-
     try {
-      const iconData = await loadPromise;
-      this._iconCache.set(this.name, iconData);
+      const iconData = await this._fetchIcon(this.name);
       this._renderIcon(iconData);
     } catch (error) {
       console.error(`Failed to load icon: ${this.name}`, error);
       this.innerHTML = '';
-    } finally {
-      this._loadingIcons.delete(this.name);
     }
   }
 
@@ -95,6 +76,10 @@ class CapsuleIcon extends LitElement {
 
   async _fetchIcon(iconName) {
     const url = `https://api.iconify.design/${iconName}.svg`;
+    return await this._fetchAndParseSvg(url);
+  }
+
+  async _fetchAndParseSvg(url) {
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -102,7 +87,10 @@ class CapsuleIcon extends LitElement {
     }
 
     const svgText = await response.text();
+    return this._parseSvg(svgText);
+  }
 
+  _parseSvg(svgText) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(svgText, 'image/svg+xml');
     const svg = doc.querySelector('svg');

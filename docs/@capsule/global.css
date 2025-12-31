@@ -1,8 +1,8 @@
+@import url('./components/capsule-icon/capsule-icon.style.css');
 @import url('./components/capsule-sidebar/capsule-sidebar.style.css');
 @import url('./components/capsule-radio-group/capsule-radio-group.style.css');
 @import url('./components/capsule-hover-card/capsule-hover-card.style.css');
 @import url('./components/capsule-input/capsule-input.style.css');
-@import url('./components/capsule-icon/capsule-icon.style.css');
 @import url('./components/capsule-tour/capsule-tour.style.css');
 @import url('./components/capsule-circular-progress/capsule-circular-progress.style.css');
 @import url('./components/capsule-pagination/capsule-pagination.style.css');
@@ -29,7 +29,7 @@
 @import url('./components/capsule-breadcrumb/capsule-breadcrumb.style.css');
 @import url('./components/capsule-button-group/capsule-button-group.style.css');
 @import url('./components/capsule-button/capsule-button.style.css');
-/* Shadcn-style theme variables */
+
 :root {
   color-scheme: light;
 

@@ -45,12 +45,12 @@ import './components/capsule-comparison/register.js';
 import './components/capsule-pagination/register.js';
 import './components/capsule-circular-progress/register.js';
 import './components/capsule-tour/register.js';
-
-// Import all modules
-import './modules/form/index.js';
 import './components/capsule-container/register.js';
-import './components/capsule-icon/register.js';
 import './components/capsule-input/register.js';
 import './components/capsule-hover-card/register.js';
 import './components/capsule-radio-group/register.js';
 import './components/capsule-sidebar/register.js';
+
+// Import all modules
+import './modules/form/index.js';
+import './components/capsule-icon/register.js';
