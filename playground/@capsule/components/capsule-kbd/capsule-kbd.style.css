@@ -1,0 +1,82 @@
+capsule-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  height: 1.25rem;
+  width: fit-content;
+  min-width: 1.25rem;
+  padding: 0 0.25rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--muted));
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+capsule-kbd svg:not([class*='size-']) {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+[data-slot='tooltip-content'] capsule-kbd {
+  background: color-mix(in srgb, hsl(hsl(var(--background))) 20%, transparent);
+  color: hsl(var(--background));
+}
+
+.dark [data-slot='tooltip-content'] capsule-kbd {
+  background: color-mix(in srgb, hsl(hsl(var(--background))) 10%, transparent);
+}
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-kbd {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-kbd-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-kbd-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-kbd {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-kbd-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-kbd-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-kbd {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-kbd {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-kbd {
+  /* Manual light mode adjustments */
+}

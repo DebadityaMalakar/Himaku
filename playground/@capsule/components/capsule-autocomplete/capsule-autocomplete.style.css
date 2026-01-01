@@ -1,0 +1,70 @@
+capsule-autocomplete {
+  display: inline-flex;
+  position: relative;
+  flex-direction: column;
+}
+
+capsule-autocomplete-options {
+  display: none;
+}
+capsule-autocomplete:focus-within capsule-autocomplete-options {
+  display: flex;
+  flex-direction: column;
+}
+
+capsule-autocomplete-option {
+  display: block;
+}
+
+capsule-autocomplete-option.active {
+  background-color: red;
+}
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-autocomplete {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-autocomplete-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-autocomplete-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-autocomplete {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-autocomplete-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-autocomplete-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-autocomplete {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-autocomplete {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-autocomplete {
+  /* Manual light mode adjustments */
+}

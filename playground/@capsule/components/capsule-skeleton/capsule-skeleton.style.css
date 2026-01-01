@@ -1,0 +1,82 @@
+capsule-skeleton {
+  display: block;
+  background-color: color-mix(in srgb, hsl(hsl(var(--primary))) 10%, transparent);
+  border-radius: var(--radius-md);
+  animation: capsule-skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes capsule-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+capsule-skeleton,
+capsule-skeleton[variant='rectangular'] {
+  width: 100%;
+  height: 4rem;
+}
+
+capsule-skeleton[variant='text'] {
+  height: 1rem;
+  width: 100%;
+}
+
+capsule-skeleton[variant='circular'] {
+  border-radius: var(--radius-full);
+  width: 2rem;
+  height: 2rem;
+}
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-skeleton {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-skeleton-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-skeleton-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-skeleton {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-skeleton-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-skeleton-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-skeleton {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-skeleton {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-skeleton {
+  /* Manual light mode adjustments */
+}

@@ -1,0 +1,67 @@
+capsule-progress {
+  position: relative;
+  width: 100%;
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background-color: color-mix(in srgb, hsl(hsl(var(--primary))) 20%, transparent);
+}
+
+capsule-progress .progress-bar {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: hsl(var(--primary));
+  border-radius: var(--radius-full);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(calc(-100% + var(--progress, 0%)));
+}
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-progress {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-progress-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-progress-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-progress {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-progress-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-progress-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-progress {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-progress {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-progress {
+  /* Manual light mode adjustments */
+}

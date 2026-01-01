@@ -1,0 +1,70 @@
+capsule-scroll-area {
+  display: block;
+  position: relative;
+  overflow: auto;
+  --scrollbar-thumb: var(--capsule-color-border, #e2e8f0);
+  --scrollbar-track: transparent;
+  --scrollbar-size: 8px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  max-width: 100%;
+  max-height: 100%;
+}
+capsule-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+capsule-scroll-area::-webkit-scrollbar-thumb {
+  display: none;
+}
+capsule-scroll-area::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-scroll-area {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-scroll-area-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-scroll-area-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-scroll-area {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-scroll-area-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-scroll-area-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-scroll-area {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-scroll-area {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-scroll-area {
+  /* Manual light mode adjustments */
+}

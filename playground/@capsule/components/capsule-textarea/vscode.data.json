@@ -1,0 +1,32 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "textarea",
+      "description": "Native HTML textarea element styled with CapsuleUI Textarea styles",
+      "attributes": [
+        {
+          "name": "disabled",
+          "description": "Disables the textarea"
+        },
+        {
+          "name": "aria-invalid",
+          "description": "Marks textarea as invalid for accessibility"
+        },
+        {
+          "name": "placeholder",
+          "description": "Placeholder text"
+        },
+        {
+          "name": "rows",
+          "description": "Number of visible text lines"
+        },
+        {
+          "name": "cols",
+          "description": "Number of visible text columns"
+        }
+      ]
+    }
+  ]
+}
+

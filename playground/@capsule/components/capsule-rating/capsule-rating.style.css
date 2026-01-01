@@ -1,0 +1,125 @@
+capsule-rating {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+capsule-rating[readonly] {
+  pointer-events: none;
+}
+
+capsule-rating[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+capsule-rating::part(stars-container) {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+}
+
+capsule-rating::part(stars-filled) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--filled-width, 0%);
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+capsule-rating::part(stars-empty) {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  z-index: 1;
+}
+
+capsule-rating::part(star) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+capsule-rating::part(star) svg,
+capsule-rating::part(star) span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+capsule-rating:not([readonly]):not([disabled]):hover::part(star) {
+  transform: scale(1.1);
+}
+
+capsule-rating::part(star-filled) {
+  color: oklch(0.828 0.189 84.429);
+}
+
+capsule-rating::part(star-empty) {
+  color: hsl(var(--muted-foreground));
+}
+
+.dark capsule-rating::part(star-filled) {
+  color: oklch(0.769 0.188 70.08);
+}
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-rating {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-rating-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-rating-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-rating {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-rating-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-rating-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-rating {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-rating {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-rating {
+  /* Manual light mode adjustments */
+}

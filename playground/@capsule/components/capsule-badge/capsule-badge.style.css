@@ -1,0 +1,217 @@
+/* Import theme variables - will be added by processor */
+/* @import url('../theme/base.css'); */
+/* @import url('../theme/ibm-carbon.css'); */
+/* @import url('../theme/google-material.css'); */
+
+capsule-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid;
+  padding: 0.125rem 0.5rem;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family-sans);
+  width: fit-content;
+  white-space: nowrap;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: color var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+capsule-badge > svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  pointer-events: none;
+}
+
+capsule-badge:focus-visible {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--ring))) 50%, transparent);
+}
+
+capsule-badge[aria-invalid='true'] {
+  border-color: hsl(var(--destructive));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 20%, transparent);
+}
+
+/* Dark mode for aria-invalid */
+@media (prefers-color-scheme: dark) {
+  capsule-badge[aria-invalid='true'] {
+    box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+  }
+}
+
+[data-theme-mode="dark"] capsule-badge[aria-invalid='true'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+}
+
+/* Variants */
+capsule-badge:not([variant]),
+capsule-badge[variant='default'] {
+  border-color: transparent;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+a:hover > capsule-badge:not([variant]),
+a:hover > capsule-badge[variant='default'] {
+  background: color-mix(in srgb, hsl(hsl(var(--primary))) 90%, transparent);
+}
+
+capsule-badge[variant='secondary'] {
+  border-color: transparent;
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+a:hover > capsule-badge[variant='secondary'] {
+  background: color-mix(in srgb, hsl(hsl(var(--secondary))) 90%, transparent);
+}
+
+capsule-badge[variant='destructive'] {
+  border-color: transparent;
+  background: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+}
+
+capsule-badge[variant='destructive']:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 20%, transparent);
+}
+
+/* Dark mode for destructive variant */
+@media (prefers-color-scheme: dark) {
+  capsule-badge[variant='destructive'] {
+    background: color-mix(in srgb, hsl(hsl(var(--destructive))) 60%, transparent);
+  }
+  
+  capsule-badge[variant='destructive']:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+  }
+}
+
+[data-theme-mode="dark"] capsule-badge[variant='destructive'] {
+  background: color-mix(in srgb, hsl(hsl(var(--destructive))) 60%, transparent);
+}
+
+[data-theme-mode="dark"] capsule-badge[variant='destructive']:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+}
+
+a:hover > capsule-badge[variant='destructive'] {
+  background: color-mix(in srgb, hsl(hsl(var(--destructive))) 90%, transparent);
+}
+
+capsule-badge[variant='outline'] {
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+  background: transparent;
+}
+
+a:hover > capsule-badge[variant='outline'] {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-badge {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.01em;
+  border-width: 1px;
+  font-family: var(--font-family-sans, 'IBM Plex Sans');
+}
+
+[theme="carbon"] capsule-badge[variant='outline'] {
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* Material theme */
+[theme="material"] capsule-badge {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+  font-family: var(--font-family-sans, 'Roboto');
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.1));
+}
+
+[theme="material"] capsule-badge[variant='default'] {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Default theme */
+[theme="default"] capsule-badge,
+:not([theme]) capsule-badge {
+  /* Default theme already has proper styles */
+}
+
+/* Dark mode adjustments for all themes */
+@media (prefers-color-scheme: dark) {
+  capsule-badge {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  capsule-badge[variant='default'] {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+}
+
+/* Manual dark mode */
+[data-theme-mode="dark"] capsule-badge {
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme-mode="dark"] capsule-badge[variant='default'] {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Manual light mode */
+[data-theme-mode="light"] capsule-badge {
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme-mode="light"] capsule-badge[variant='default'] {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Additional variants for theme system */
+
+/* Success variant */
+capsule-badge[variant='success'] {
+  border-color: transparent;
+  background: hsl(var(--success, 142 76% 36%));
+  color: hsl(var(--success-foreground, 0 0% 98%));
+}
+
+a:hover > capsule-badge[variant='success'] {
+  background: color-mix(in srgb, hsl(var(--success, 142 76% 36%)) 90%, transparent);
+}
+
+/* Warning variant */
+capsule-badge[variant='warning'] {
+  border-color: transparent;
+  background: hsl(var(--warning, 38 92% 50%));
+  color: hsl(var(--warning-foreground, 0 0% 98%));
+}
+
+a:hover > capsule-badge[variant='warning'] {
+  background: color-mix(in srgb, hsl(var(--warning, 38 92% 50%)) 90%, transparent);
+}
+
+/* Info variant */
+capsule-badge[variant='info'] {
+  border-color: transparent;
+  background: hsl(var(--info, 221 83% 53%));
+  color: hsl(var(--info-foreground, 0 0% 98%));
+}
+
+a:hover > capsule-badge[variant='info'] {
+  background: color-mix(in srgb, hsl(var(--info, 221 83% 53%)) 90%, transparent);
+}

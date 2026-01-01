@@ -12,8 +12,11 @@ import {
 } from './file-operations';
 import {
   processJsFiles,
+  processCssFiles,
   renameComponentFiles,
   cleanupTempFiles,
+  copyThemeFiles,
+  updateGlobalCssWithThemes,
 } from './component-processor';
 import { importCssFiles } from './css-importer';
 import { importJsFiles } from './js-importer';
@@ -22,6 +25,41 @@ import { updateVscodeSettings } from './vscode-updater';
 // Get __dirname in ESM module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Helper function to find the theme directory
+function findThemeDir(startDir: string): string {
+  let currentDir = startDir;
+
+  // In development mode - from dist/cli/commands/add, go to src/theme
+  const devThemePath = path.join(currentDir, '../../../src/theme');
+  if (fs.existsSync(devThemePath)) {
+    return devThemePath;
+  }
+
+  // In published package - find package root first
+  let pkgPath = currentDir;
+  for (let i = 0; i < 10; i++) {
+    if (fs.existsSync(path.join(pkgPath, 'package.json'))) {
+      break;
+    }
+    pkgPath = path.join(pkgPath, '..');
+  }
+
+  // Check different paths relative to package root
+  const paths = [
+    path.join(pkgPath, 'src', 'theme'),
+    path.join(pkgPath, 'theme'),
+  ];
+
+  for (const p of paths) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
+  }
+
+  // If not found, return first path (for error output)
+  return paths[0];
+}
 
 // Console colors
 const colors = {
@@ -46,21 +84,28 @@ export const add = {
       description: 'Minify resulting JS',
       defaultValue: false,
     },
+    {
+      flags: '-t, --theme <theme>',
+      description: 'Include specific theme (default, material, carbon, all)',
+      defaultValue: 'all',
+    },
   ],
   action: async (
     component: string,
     options: {
       prefix?: string;
+      theme?: string;
     }
   ) => {
     const spinner = createSpinner(
-      `Installing component ${colors.blue(component)}...`
+      `Installing component ${colors.blue(component)} with theme support...`
     );
 
     try {
       const projectDir = process.cwd();
       const templateDir = findTemplatesDir(__dirname);
       const componentPath = path.join(templateDir, component);
+      
       if (!fs.existsSync(componentPath)) {
         spinner.fail(`Component ${colors.red(component)} not found`);
 
@@ -93,27 +138,57 @@ export const add = {
 
       const destDir = path.join(capsuleRoot, 'components');
       ensureDir(destDir);
+      
       const prefix = (options.prefix && options.prefix.trim()) || 'capsule';
       const kebabComponent = toKebabCase(component);
       const destComponentDir = path.join(
         destDir,
         `${prefix}-${kebabComponent}`
       );
+      
+      // Check if component already exists
+      if (fs.existsSync(destComponentDir)) {
+        spinner.fail(
+          `Component ${colors.red(component)} already exists at ${colors.blue(destComponentDir)}`
+        );
+        process.exit(1);
+      }
+
+      // Copy component template
       copyDir(componentPath, destComponentDir);
-      // Замена плейсхолдеров во всех файлах компонента
+
+      // STEP 1: Copy theme files from source to capsule root
+      spinner.text(`Setting up theme system...`);
+
+      // FIX: Use the same pattern as findTemplatesDir
+      const sourceThemeDir = findThemeDir(__dirname);
+      const destThemeDir = path.join(capsuleRoot, 'theme');
+      
+      // Debug logging (optional - remove in production)
+      console.log(`\nLooking for themes in: ${sourceThemeDir}`);
+      console.log(`Themes exist: ${fs.existsSync(sourceThemeDir)}`);
+      
+      copyThemeFiles(sourceThemeDir, destThemeDir);
+
+      // STEP 2: Update global.css with theme imports
+      const globalCssPath = path.join(capsuleRoot, 'global.css');
+      updateGlobalCssWithThemes(globalCssPath, destThemeDir);
+
+      // STEP 3: Replace placeholders in all component files
+      spinner.text('Processing component files...');
       walkDirAndReplace(destComponentDir, prefix, kebabComponent);
 
-      // Переименование файлов с плейсхолдерами в названии
+      // STEP 4: Rename files with placeholders in names
       renameFilesWithPlaceholders(destComponentDir, prefix, kebabComponent);
 
-      // Переименование основных файлов компонента
+      // STEP 5: Rename main component files
       const renamedFiles = renameComponentFiles(
         destComponentDir,
         kebabComponent,
         prefix
       );
 
-      // Собираем все JS и CSS файлы для автоимпорта
+      // Collect all files for processing
       const jsFiles = renamedFiles.filter(
         (f) => f.endsWith('.js') && f !== 'index.js'
       );
@@ -122,32 +197,44 @@ export const add = {
       const registerFile = renamedFiles.find((f) => f === 'register.js');
 
       if (jsFiles.length === 0) {
-        throw new Error('Не найден основной js-файл компонента');
+        throw new Error('No main JavaScript file found for component');
       }
 
       if (!registerFile) {
         throw new Error(
-          'register.js не найден - обязательный файл для правильной последовательности загрузки'
+          'register.js not found - required for proper loading sequence'
         );
       }
 
-      // Обработка JS файлов (минификация и удаление import/export)
+      // STEP 6: Process CSS files (add theme imports and update variables)
+      if (cssFiles.length > 0) {
+        spinner.text('Processing CSS files with theme support...');
+        processCssFiles(destComponentDir, cssFiles, prefix, kebabComponent, templateDir);
+      }
+
+      // STEP 7: Process JS files (minification and import/export removal)
+      spinner.text('Processing JavaScript files...');
       processJsFiles(destComponentDir, jsFiles);
 
-      // Обработка CSS: автоимпорт в global.css
-      importCssFiles(capsuleRoot, cssFiles, prefix, kebabComponent);
+      // STEP 8: Auto-import CSS into global.css
+      if (cssFiles.length > 0) {
+        spinner.text('Updating global styles...');
+        importCssFiles(capsuleRoot, cssFiles, prefix, kebabComponent);
+      }
 
       if (readmeFile) {
         console.log(`Documentation saved: ${readmeFile}`);
       }
 
-      // Очистка временных файлов
+      // STEP 9: Clean up temporary files
       cleanupTempFiles(destComponentDir);
 
-      // Автоимпорт JS файлов в @capsule/components/all.js
+      // STEP 10: Auto-import JS files into @capsule/components/all.js
+      spinner.text('Setting up JavaScript imports...');
       importJsFiles(capsuleRoot, jsFiles, prefix, kebabComponent);
 
-      // Обновление VS Code настроек
+      // STEP 11: Update VS Code settings for IntelliSense
+      spinner.text('Updating VS Code settings...');
       const vscodeDataPath = path.join(destComponentDir, 'vscode.data.json');
       updateVscodeSettings(projectDir, destComponentDir, vscodeDataPath);
 
@@ -158,6 +245,17 @@ export const add = {
           path.join('@capsule', 'components', `${prefix}-${kebabComponent}`)
         )} with prefix ${colors.cyan(prefix)}`
       );
+
+      // Display theme usage instructions
+      console.log(colors.cyan('\nTheme Usage Instructions:'));
+      console.log('  Set theme attribute on <html> element:');
+      console.log(`    <html theme="default">     - Open Sans, light/dark mode`);
+      console.log(`    <html theme="material">    - Roboto, Material Design`);
+      console.log(`    <html theme="carbon">      - IBM Plex, IBM Carbon`);
+      console.log('\n  Control light/dark mode:');
+      console.log(`    <html theme="material" data-theme-mode="dark">`);
+      console.log(`    <html theme="carbon" data-theme-mode="light">`);
+
     } catch (error) {
       spinner.fail(`Installation error: ${(error as Error).message}`);
       console.error(error);

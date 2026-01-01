@@ -1,0 +1,64 @@
+capsule-divider {
+  background-color: hsl(var(--border));
+  flex-shrink: 0;
+}
+
+capsule-divider,
+capsule-divider[orientation='horizontal'] {
+  height: 1px;
+  width: 100%;
+}
+
+capsule-divider[orientation='vertical'] {
+  height: 100%;
+  width: 1px;
+}
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-divider {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-divider-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-divider-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-divider {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-divider-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-divider-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-divider {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-divider {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-divider {
+  /* Manual light mode adjustments */
+}

@@ -1,0 +1,152 @@
+capsule-radio-group {
+  display: grid;
+  gap: 0.75rem;
+}
+
+capsule-radio-group-item {
+  display: inline-flex;
+  aspect-ratio: 1;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  border: 1px solid hsl(var(--input));
+  background-color: transparent;
+  color: hsl(var(--primary));
+  box-shadow: var(--shadow-sm);
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Default circle indicator - shown when no slot content */
+capsule-radio-group-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: hsl(var(--primary));
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+capsule-radio-group-item[checked]::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Hide default circle when slot has content */
+capsule-radio-group-item:has(> :not(:empty))::before {
+  display: none;
+}
+
+/* Slot content (icons) - only visible when checked */
+capsule-radio-group-item > *:not(script):not(style) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.5rem;
+  height: 0.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+capsule-radio-group-item[checked] > *:not(script):not(style) {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Icon support */
+capsule-radio-group-item > *:not(script):not(style) svg {
+  width: 0.5rem;
+  height: 0.5rem;
+  color: hsl(var(--primary));
+  flex-shrink: 0;
+}
+
+capsule-radio-group-item:focus-visible {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--ring))) 50%, transparent);
+}
+
+capsule-radio-group-item[aria-invalid='true'] {
+  border-color: hsl(var(--destructive));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 20%, transparent);
+}
+
+.dark capsule-radio-group-item[aria-invalid='true'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+}
+
+capsule-radio-group-item:disabled,
+capsule-radio-group-item[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.dark capsule-radio-group-item {
+  background-color: color-mix(in srgb, hsl(hsl(var(--input))) 30%, transparent);
+}
+
+
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-radio-group {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-radio-group-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-radio-group-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-radio-group {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-radio-group-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-radio-group-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-radio-group {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-radio-group {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-radio-group {
+  /* Manual light mode adjustments */
+}

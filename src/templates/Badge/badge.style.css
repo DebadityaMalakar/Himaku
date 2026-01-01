@@ -1,3 +1,8 @@
+/* Import theme variables - will be added by processor */
+/* @import url('../theme/base.css'); */
+/* @import url('../theme/ibm-carbon.css'); */
+/* @import url('../theme/google-material.css'); */
+
 __PREFIX__-__COMPONENT__ {
   display: inline-flex;
   align-items: center;
@@ -8,13 +13,15 @@ __PREFIX__-__COMPONENT__ {
   padding: 0.125rem 0.5rem;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
-  font-family: var(--font-family);
+  font-family: var(--font-family-sans);
   width: fit-content;
   white-space: nowrap;
   flex-shrink: 0;
   overflow: hidden;
-  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 __PREFIX__-__COMPONENT__ > svg {
@@ -25,71 +32,186 @@ __PREFIX__-__COMPONENT__ > svg {
 
 __PREFIX__-__COMPONENT__:focus-visible {
   outline: none;
-  border-color: var(--ring);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--ring)) 50%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[aria-invalid='true'] {
-  border-color: var(--destructive);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
+  border-color: hsl(var(--destructive));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 20%, transparent);
 }
 
-.dark __PREFIX__-__COMPONENT__[aria-invalid='true'] {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 40%, transparent);
+/* Dark mode for aria-invalid */
+@media (prefers-color-scheme: dark) {
+  __PREFIX__-__COMPONENT__[aria-invalid='true'] {
+    box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 40%, transparent);
+  }
+}
+
+[data-theme-mode="dark"] __PREFIX__-__COMPONENT__[aria-invalid='true'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 40%, transparent);
 }
 
 /* Variants */
 __PREFIX__-__COMPONENT__:not([variant]),
 __PREFIX__-__COMPONENT__[variant='default'] {
   border-color: transparent;
-  background: var(--primary);
-  color: var(--primary-foreground);
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
 }
 
 a:hover > __PREFIX__-__COMPONENT__:not([variant]),
 a:hover > __PREFIX__-__COMPONENT__[variant='default'] {
-  background: color-mix(in srgb, var(--primary) 90%, transparent);
+  background: color-mix(in srgb, hsl(var(--primary)) 90%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='secondary'] {
   border-color: transparent;
-  background: var(--secondary);
-  color: var(--secondary-foreground);
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
 }
 
 a:hover > __PREFIX__-__COMPONENT__[variant='secondary'] {
-  background: color-mix(in srgb, var(--secondary) 90%, transparent);
+  background: color-mix(in srgb, hsl(var(--secondary)) 90%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='destructive'] {
   border-color: transparent;
-  background: var(--destructive);
-  color: white;
+  background: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
 }
 
 __PREFIX__-__COMPONENT__[variant='destructive']:focus-visible {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 20%, transparent);
 }
 
-.dark __PREFIX__-__COMPONENT__[variant='destructive'] {
-  background: color-mix(in srgb, var(--destructive) 60%, transparent);
+/* Dark mode for destructive variant */
+@media (prefers-color-scheme: dark) {
+  __PREFIX__-__COMPONENT__[variant='destructive'] {
+    background: color-mix(in srgb, hsl(var(--destructive)) 60%, transparent);
+  }
+  
+  __PREFIX__-__COMPONENT__[variant='destructive']:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 40%, transparent);
+  }
 }
 
-.dark __PREFIX__-__COMPONENT__[variant='destructive']:focus-visible {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 40%, transparent);
+[data-theme-mode="dark"] __PREFIX__-__COMPONENT__[variant='destructive'] {
+  background: color-mix(in srgb, hsl(var(--destructive)) 60%, transparent);
+}
+
+[data-theme-mode="dark"] __PREFIX__-__COMPONENT__[variant='destructive']:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 40%, transparent);
 }
 
 a:hover > __PREFIX__-__COMPONENT__[variant='destructive'] {
-  background: color-mix(in srgb, var(--destructive) 90%, transparent);
+  background: color-mix(in srgb, hsl(var(--destructive)) 90%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='outline'] {
-  color: var(--foreground);
-  border-color: var(--border);
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
   background: transparent;
 }
 
 a:hover > __PREFIX__-__COMPONENT__[variant='outline'] {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] __PREFIX__-__COMPONENT__ {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.01em;
+  border-width: 1px;
+  font-family: var(--font-family-sans, 'IBM Plex Sans');
+}
+
+[theme="carbon"] __PREFIX__-__COMPONENT__[variant='outline'] {
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* Material theme */
+[theme="material"] __PREFIX__-__COMPONENT__ {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+  font-family: var(--font-family-sans, 'Roboto');
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.1));
+}
+
+[theme="material"] __PREFIX__-__COMPONENT__[variant='default'] {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Default theme */
+[theme="default"] __PREFIX__-__COMPONENT__,
+:not([theme]) __PREFIX__-__COMPONENT__ {
+  /* Default theme already has proper styles */
+}
+
+/* Dark mode adjustments for all themes */
+@media (prefers-color-scheme: dark) {
+  __PREFIX__-__COMPONENT__ {
+    box-shadow: var(--shadow-sm);
+  }
+  
+  __PREFIX__-__COMPONENT__[variant='default'] {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+}
+
+/* Manual dark mode */
+[data-theme-mode="dark"] __PREFIX__-__COMPONENT__ {
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme-mode="dark"] __PREFIX__-__COMPONENT__[variant='default'] {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Manual light mode */
+[data-theme-mode="light"] __PREFIX__-__COMPONENT__ {
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme-mode="light"] __PREFIX__-__COMPONENT__[variant='default'] {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Additional variants for theme system */
+
+/* Success variant */
+__PREFIX__-__COMPONENT__[variant='success'] {
+  border-color: transparent;
+  background: hsl(var(--success, 142 76% 36%));
+  color: hsl(var(--success-foreground, 0 0% 98%));
+}
+
+a:hover > __PREFIX__-__COMPONENT__[variant='success'] {
+  background: color-mix(in srgb, hsl(var(--success, 142 76% 36%)) 90%, transparent);
+}
+
+/* Warning variant */
+__PREFIX__-__COMPONENT__[variant='warning'] {
+  border-color: transparent;
+  background: hsl(var(--warning, 38 92% 50%));
+  color: hsl(var(--warning-foreground, 0 0% 98%));
+}
+
+a:hover > __PREFIX__-__COMPONENT__[variant='warning'] {
+  background: color-mix(in srgb, hsl(var(--warning, 38 92% 50%)) 90%, transparent);
+}
+
+/* Info variant */
+__PREFIX__-__COMPONENT__[variant='info'] {
+  border-color: transparent;
+  background: hsl(var(--info, 221 83% 53%));
+  color: hsl(var(--info-foreground, 0 0% 98%));
+}
+
+a:hover > __PREFIX__-__COMPONENT__[variant='info'] {
+  background: color-mix(in srgb, hsl(var(--info, 221 83% 53%)) 90%, transparent);
 }

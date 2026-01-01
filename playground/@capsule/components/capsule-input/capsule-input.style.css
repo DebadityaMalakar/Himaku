@@ -1,0 +1,169 @@
+/* Input CSS-only component - applies styles to native <input> elements */
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='tel'],
+input[type='url'],
+input[type='search'],
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='week'] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 2.25rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: hsl(var(--foreground));
+  font-size: 1rem;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  box-shadow: var(--shadow-sm);
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+input::selection {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.dark input[type='text'],
+.dark input[type='email'],
+.dark input[type='password'],
+.dark input[type='number'],
+.dark input[type='tel'],
+.dark input[type='url'],
+.dark input[type='search'],
+.dark input[type='date'],
+.dark input[type='time'],
+.dark input[type='datetime-local'],
+.dark input[type='month'],
+.dark input[type='week'] {
+  background-color: color-mix(in srgb, hsl(hsl(var(--input))) 30%, transparent);
+}
+
+input:focus-visible {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--ring))) 50%, transparent);
+}
+
+input[aria-invalid='true'] {
+  border-color: hsl(var(--destructive));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 20%, transparent);
+}
+
+.dark input[aria-invalid='true'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+}
+
+input:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* File input styles */
+input[type='file'] {
+  display: inline-flex;
+  height: 1.75rem;
+  border: 0;
+  background-color: transparent;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  padding: 0;
+  box-shadow: none;
+}
+
+input[type='file']::file-selector-button {
+  display: inline-flex;
+  height: 1.75rem;
+  border: 0;
+  background-color: transparent;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  padding: 0;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* Responsive font size */
+@media (min-width: 768px) {
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='number'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='search'],
+  input[type='date'],
+  input[type='time'],
+  input[type='datetime-local'],
+  input[type='month'],
+  input[type='week'] {
+    font-size: var(--font-size-sm);
+  }
+}
+
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-input {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-input-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-input-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-input {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-input-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-input-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-input {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-input {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-input {
+  /* Manual light mode adjustments */
+}

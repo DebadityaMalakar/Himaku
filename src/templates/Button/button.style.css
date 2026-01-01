@@ -7,8 +7,8 @@ __PREFIX__-__COMPONENT__ {
   border-radius: var(--radius-md);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  font-family: var(--font-family);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-family-sans);
+  transition: all var(--transition-fast);
   cursor: pointer;
   user-select: none;
   border: 1px solid transparent;
@@ -35,17 +35,17 @@ __PREFIX__-__COMPONENT__[disabled] {
 
 __PREFIX__-__COMPONENT__:focus-visible {
   outline: none;
-  border-color: var(--ring);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--ring)) 50%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[aria-invalid='true'] {
-  border-color: var(--destructive);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
+  border-color: hsl(var(--destructive));
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 20%, transparent);
 }
 
 .dark __PREFIX__-__COMPONENT__[aria-invalid='true'] {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 40%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 40%, transparent);
 }
 
 /* Sizes */
@@ -105,87 +105,87 @@ __PREFIX__-__COMPONENT__[size='icon-lg'] {
 /* Variants */
 __PREFIX__-__COMPONENT__:not([variant]),
 __PREFIX__-__COMPONENT__[variant='default'] {
-  background: var(--primary);
-  color: var(--primary-foreground);
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
   border-color: transparent;
 }
 
 __PREFIX__-__COMPONENT__:not([variant]):hover:not([disabled]),
 __PREFIX__-__COMPONENT__[variant='default']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--primary) 90%, transparent);
+  background: color-mix(in srgb, hsl(var(--primary)) 90%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='destructive'] {
-  background: var(--destructive);
+  background: hsl(var(--destructive));
   color: white;
   border-color: transparent;
 }
 
 __PREFIX__-__COMPONENT__[variant='destructive']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--destructive) 90%, transparent);
+  background: color-mix(in srgb, hsl(var(--destructive)) 90%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='destructive']:focus-visible {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 20%, transparent);
 }
 
 .dark __PREFIX__-__COMPONENT__[variant='destructive'] {
-  background: color-mix(in srgb, var(--destructive) 60%, transparent);
+  background: color-mix(in srgb, hsl(var(--destructive)) 60%, transparent);
 }
 
 .dark __PREFIX__-__COMPONENT__[variant='destructive']:focus-visible {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 40%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--destructive)) 40%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='outline'] {
-  border: 1px solid var(--border);
-  background: var(--background);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
   box-shadow: var(--shadow-sm);
-  color: var(--foreground);
+  color: hsl(var(--foreground));
 }
 
 __PREFIX__-__COMPONENT__[variant='outline']:hover:not([disabled]) {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
 }
 
 .dark __PREFIX__-__COMPONENT__[variant='outline'] {
-  background: color-mix(in srgb, var(--input) 30%, transparent);
-  border-color: var(--input);
+  background: color-mix(in srgb, hsl(var(--input)) 30%, transparent);
+  border-color: hsl(var(--input));
 }
 
 .dark __PREFIX__-__COMPONENT__[variant='outline']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--input) 50%, transparent);
+  background: color-mix(in srgb, hsl(var(--input)) 50%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='secondary'] {
-  background: var(--secondary);
-  color: var(--secondary-foreground);
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
   border-color: transparent;
 }
 
 __PREFIX__-__COMPONENT__[variant='secondary']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--secondary) 80%, transparent);
+  background: color-mix(in srgb, hsl(var(--secondary)) 80%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='ghost'] {
   background: transparent;
-  color: var(--foreground);
+  color: hsl(var(--foreground));
   border-color: transparent;
 }
 
 __PREFIX__-__COMPONENT__[variant='ghost']:hover:not([disabled]) {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
 }
 
 .dark __PREFIX__-__COMPONENT__[variant='ghost']:hover:not([disabled]) {
-  background: color-mix(in srgb, var(--accent) 50%, transparent);
+  background: color-mix(in srgb, hsl(var(--accent)) 50%, transparent);
 }
 
 __PREFIX__-__COMPONENT__[variant='link'] {
   background: transparent;
-  color: var(--primary);
+  color: hsl(var(--primary));
   border-color: transparent;
   text-decoration: underline;
   text-underline-offset: 4px;

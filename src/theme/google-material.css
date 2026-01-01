@@ -1,0 +1,189 @@
+/* roboto-latin-wght-normal */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(@fontsource-variable/roboto/files/roboto-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* roboto-mono-latin-wght-normal */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 700;
+  src: url(@fontsource-variable/roboto-mono/files/roboto-mono-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* 
+ * Google Material Theme
+ * Based on Material Design 3
+ * Includes both light and dark modes with Roboto fonts
+ */
+
+[theme="material"] {
+  /* === Color Palette (Material Light Mode) === */
+  --background: 0 0% 99%;
+  --foreground: 0 0% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 20%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 20%;
+  --primary: 250 84% 57%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 67% 47%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 46%;
+  --accent: 270 67% 47%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 92%;
+  --input: 0 0% 92%;
+  --ring: 250 84% 57%;
+  
+  /* === Typography (Roboto) === */
+  --font-family-sans: 'Roboto', system-ui, sans-serif;
+  --font-family-mono: 'Roboto Mono', ui-monospace, monospace;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* === Spacing & Sizing (Material) === */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+  
+  /* === Shadows (Material Light) === */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px 3px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 6px 10px 4px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 8px 12px 6px rgba(0, 0, 0, 0.15);
+  
+  /* === Animation (Material Motion) === */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Material Dark Mode */
+[theme="material"][data-theme-mode="dark"] {
+  --background: 0 0% 10%;
+  --foreground: 0 0% 90%;
+  --card: 0 0% 15%;
+  --card-foreground: 0 0% 90%;
+  --popover: 0 0% 15%;
+  --popover-foreground: 0 0% 90%;
+  --primary: 250 95% 76%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 270 90% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 270 90% 70%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
+  --ring: 250 95% 76%;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 6px 10px 4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 8px 12px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  [theme="material"]:not([data-theme-mode="light"]) {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 90%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 90%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 250 95% 76%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 270 90% 70%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 270 90% 70%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 250 95% 76%;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 8px 3px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 6px 10px 4px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 8px 12px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Manual Material Light/Dark Overrides */
+[theme="material"][data-theme-mode="light"] {
+  --background: 0 0% 99%;
+  --foreground: 0 0% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 20%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 20%;
+  --primary: 250 84% 57%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 67% 47%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 46%;
+  --accent: 270 67% 47%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 92%;
+  --input: 0 0% 92%;
+  --ring: 250 84% 57%;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px 3px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 6px 10px 4px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 8px 12px 6px rgba(0, 0, 0, 0.15);
+}
+
+[theme="material"][data-theme-mode="dark"] {
+  --background: 0 0% 10%;
+  --foreground: 0 0% 90%;
+  --card: 0 0% 15%;
+  --card-foreground: 0 0% 90%;
+  --popover: 0 0% 15%;
+  --popover-foreground: 0 0% 90%;
+  --primary: 250 95% 76%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 270 90% 70%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 270 90% 70%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
+  --ring: 250 95% 76%;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 6px 10px 4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 8px 12px 6px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,61 @@
+capsule-aspect-ratio {
+  display: block;
+  width: 100%;
+  --aspect-ratio: initial;
+}
+
+capsule-aspect-ratio > img,
+capsule-aspect-ratio > video {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: var(--aspect-ratio);
+}
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-aspect-ratio {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-aspect-ratio-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-aspect-ratio-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-aspect-ratio {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-aspect-ratio-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-aspect-ratio-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-aspect-ratio {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-aspect-ratio {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-aspect-ratio {
+  /* Manual light mode adjustments */
+}

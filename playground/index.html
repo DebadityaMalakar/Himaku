@@ -1,236 +1,619 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="./assets/capsule.css"
-    />
-    <script
-      type="module"
-      src="./assets/capsule.js"
-      defer
-    ></script>
-  </head>
-  <body>
-    <h1>Independent Calendar Grids Demo (Inline Script)</h1>
-    <!-- Управление для Single Calendar -->
+<html theme="default" data-theme-mode="light">
+<head>
+    <title>CapsuleUI Theme System Showcase</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Theme fonts (optional - for demo purposes) -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="./assets/capsule.js"></script>
+    <link rel="stylesheet" href="./assets/capsule.css">
+</head>
+<body>
+    <div class="showcase-container">
+        <!-- Theme Controls -->
+        <div class="theme-controls">
+            <h1>🎨 CapsuleUI Theme System</h1>
+            <div class="theme-buttons">
+                <button onclick="setTheme('default')" class="theme-btn active">Default Theme</button>
+                <button onclick="setTheme('material')" class="theme-btn">Material Theme</button>
+                <button onclick="setTheme('carbon')" class="theme-btn">IBM Carbon</button>
+                <button onclick="toggleDarkMode()" class="theme-btn">Toggle Dark Mode</button>
+            </div>
+            <div class="current-theme">Current: <span id="current-theme">default</span> • Mode: <span id="current-mode">light</span></div>
+        </div>
 
-    <capsule-switch></capsule-switch>
+        <!-- 1. Alert Component -->
+        <section class="component-section">
+            <h2>Alert Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Default Alert</h3>
+                    <capsule-alert>
+                        <capsule-alert-title>Heads up!</capsule-alert-title>
+                        <capsule-alert-description>
+                            You can add components to your app using the CLI.
+                        </capsule-alert-description>
+                    </capsule-alert>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Destructive Alert</h3>
+                    <capsule-alert variant="destructive">
+                        <capsule-alert-title>Error</capsule-alert-title>
+                        <capsule-alert-description>
+                            Your session has expired. Please log in again.
+                        </capsule-alert-description>
+                    </capsule-alert>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Alert with Icon</h3>
+                    <capsule-alert>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <capsule-alert-title>Note</capsule-alert-title>
+                        <capsule-alert-description>
+                            This alert includes an icon and uses theme variables.
+                        </capsule-alert-description>
+                    </capsule-alert>
+                </div>
+            </div>
+        </section>
 
-    <capsule-button>Click me</capsule-button>
+        <!-- 2. Badge Component -->
+        <section class="component-section">
+            <h2>Badge Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Basic Variants</h3>
+                    <capsule-badge>Default</capsule-badge>
+                    <capsule-badge variant="secondary">Secondary</capsule-badge>
+                    <capsule-badge variant="destructive">Destructive</capsule-badge>
+                    <capsule-badge variant="outline">Outline</capsule-badge>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Extended Variants</h3>
+                    <capsule-badge variant="success">Success</capsule-badge>
+                    <capsule-badge variant="warning">Warning</capsule-badge>
+                    <capsule-badge variant="info">Info</capsule-badge>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>With Icons</h3>
+                    <capsule-badge>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        Info
+                    </capsule-badge>
+                    <capsule-badge variant="success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Success
+                    </capsule-badge>
+                </div>
+            </div>
+        </section>
 
-    <capsule-icon name="mdi:arrow-all"></capsule-icon>
+        <!-- 3. KBD Component -->
+        <section class="component-section">
+            <h2>KBD Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Keyboard Shortcuts</h3>
+                    <div class="shortcut-demo">
+                        Press <capsule-kbd>Ctrl</capsule-kbd> + <capsule-kbd>S</capsule-kbd> to save
+                    </div>
+                    <div class="shortcut-demo">
+                        Use <capsule-kbd>↑</capsule-kbd> <capsule-kbd>↓</capsule-kbd> to navigate
+                    </div>
+                    <div class="shortcut-demo">
+                        <capsule-kbd>⌘</capsule-kbd> + <capsule-kbd>Shift</capsule-kbd> + <capsule-kbd>P</capsule-kbd>
+                    </div>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>With Icons</h3>
+                    <capsule-kbd>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        Enter
+                    </capsule-kbd>
+                    <capsule-kbd>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6L6 18"></path>
+                            <path d="M6 6l12 12"></path>
+                        </svg>
+                        Esc
+                    </capsule-kbd>
+                </div>
+            </div>
+        </section>
 
-    <div style="display: flex; align-items: center; gap: 1rem">
-      <capsule-range
-        id="single-range"
-        value="[50]"
-      ></capsule-range>
-      <input
-        type="number"
-        id="single-input"
-        value="50"
-        min="0"
-        max="100"
-      />
+        <!-- 4. Breadcrumb Component -->
+        <section class="component-section">
+            <h2>Breadcrumb Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Basic Breadcrumb</h3>
+                    <capsule-breadcrumb>
+                        <capsule-breadcrumb-item>
+                            <a href="#">Home</a>
+                        </capsule-breadcrumb-item>
+                        <capsule-breadcrumb-separator>/</capsule-breadcrumb-separator>
+                        <capsule-breadcrumb-item>
+                            <a href="#">Components</a>
+                        </capsule-breadcrumb-item>
+                        <capsule-breadcrumb-separator>/</capsule-breadcrumb-separator>
+                        <capsule-breadcrumb-item>
+                            Breadcrumb
+                        </capsule-breadcrumb-item>
+                    </capsule-breadcrumb>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>With Icons</h3>
+                    <capsule-breadcrumb>
+                        <capsule-breadcrumb-item>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            <a href="#">Home</a>
+                        </capsule-breadcrumb-item>
+                        <capsule-breadcrumb-separator>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </capsule-breadcrumb-separator>
+                        <capsule-breadcrumb-item>
+                            <a href="#">Documents</a>
+                        </capsule-breadcrumb-item>
+                        <capsule-breadcrumb-separator>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </capsule-breadcrumb-separator>
+                        <capsule-breadcrumb-item>
+                            Theme System
+                        </capsule-breadcrumb-item>
+                    </capsule-breadcrumb>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Tooltip Component -->
+        <section class="component-section">
+            <h2>Tooltip Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Placement Demo</h3>
+                    <div class="tooltip-grid">
+                        <capsule-tooltip placement="top">
+                            <capsule-tooltip-trigger>
+                                <button class="demo-btn">Top Tooltip</button>
+                            </capsule-tooltip-trigger>
+                            <capsule-tooltip-content>
+                                This is a top positioned tooltip
+                            </capsule-tooltip-content>
+                        </capsule-tooltip>
+                        
+                        <capsule-tooltip placement="bottom">
+                            <capsule-tooltip-trigger>
+                                <button class="demo-btn">Bottom Tooltip</button>
+                            </capsule-tooltip-trigger>
+                            <capsule-tooltip-content>
+                                This is a bottom positioned tooltip
+                            </capsule-tooltip-content>
+                        </capsule-tooltip>
+                        
+                        <capsule-tooltip placement="left">
+                            <capsule-tooltip-trigger>
+                                <button class="demo-btn">Left Tooltip</button>
+                            </capsule-tooltip-trigger>
+                            <capsule-tooltip-content>
+                                This is a left positioned tooltip
+                            </capsule-tooltip-content>
+                        </capsule-tooltip>
+                        
+                        <capsule-tooltip placement="right">
+                            <capsule-tooltip-trigger>
+                                <button class="demo-btn">Right Tooltip</button>
+                            </capsule-tooltip-trigger>
+                            <capsule-tooltip-content>
+                                This is a right positioned tooltip
+                            </capsule-tooltip-content>
+                        </capsule-tooltip>
+                    </div>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Interactive Tooltip</h3>
+                    <capsule-tooltip>
+                        <capsule-tooltip-trigger>
+                            <button class="demo-btn">Hover over me</button>
+                        </capsule-tooltip-trigger>
+                        <capsule-tooltip-content>
+                            Tooltip content using theme variables
+                        </capsule-tooltip-content>
+                    </capsule-tooltip>
+                    
+                    <capsule-tooltip>
+                        <capsule-tooltip-trigger>
+                            <capsule-badge variant="info">Info Badge with Tooltip</capsule-badge>
+                        </capsule-tooltip-trigger>
+                        <capsule-tooltip-content>
+                            Badges can have tooltips too!
+                        </capsule-tooltip-content>
+                    </capsule-tooltip>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theme Comparison -->
+        <section class="component-section">
+            <h2>Theme Comparison</h2>
+            <div class="theme-comparison">
+                <div class="comparison-item">
+                    <h3>Default Theme</h3>
+                    <div style="padding: 1rem; border-radius: var(--radius-lg); background: hsl(var(--card));">
+                        <capsule-badge>Badge</capsule-badge>
+                        <capsule-alert style="margin-top: 1rem;">
+                            <capsule-alert-description>Default theme alert</capsule-alert-description>
+                        </capsule-alert>
+                    </div>
+                </div>
+                
+                <div class="comparison-item">
+                    <h3>Material Theme</h3>
+                    <div style="padding: 1rem; border-radius: var(--radius-lg); background: hsl(var(--card));" data-theme="material">
+                        <capsule-badge>Badge</capsule-badge>
+                        <capsule-alert style="margin-top: 1rem;">
+                            <capsule-alert-description>Material theme alert</capsule-alert-description>
+                        </capsule-alert>
+                    </div>
+                </div>
+                
+                <div class="comparison-item">
+                    <h3>IBM Carbon</h3>
+                    <div style="padding: 1rem; border-radius: var(--radius-lg); background: hsl(var(--card));" data-theme="carbon">
+                        <capsule-badge>Badge</capsule-badge>
+                        <capsule-alert style="margin-top: 1rem;">
+                            <capsule-alert-description>Carbon theme alert</capsule-alert-description>
+                        </capsule-alert>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS Variables Display -->
+        <section class="component-section">
+            <h2>CSS Variables in Action</h2>
+            <div class="variables-demo">
+                <div class="variable-item">
+                    <div class="variable-preview" style="background: hsl(var(--primary)); color: hsl(var(--primary-foreground));">
+                        --primary
+                    </div>
+                    <code>hsl(var(--primary))</code>
+                </div>
+                
+                <div class="variable-item">
+                    <div class="variable-preview" style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground));">
+                        --secondary
+                    </div>
+                    <code>hsl(var(--secondary))</code>
+                </div>
+                
+                <div class="variable-item">
+                    <div class="variable-preview" style="background: hsl(var(--destructive)); color: hsl(var(--destructive-foreground));">
+                        --destructive
+                    </div>
+                    <code>hsl(var(--destructive))</code>
+                </div>
+                
+                <div class="variable-item">
+                    <div class="variable-preview" style="background: hsl(var(--muted)); color: hsl(var(--muted-foreground)); border: 1px solid hsl(var(--border));">
+                        --muted
+                    </div>
+                    <code>hsl(var(--muted))</code>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
-      const range = document.querySelector('#single-range');
-      const input = document.querySelector('#single-input');
-
-      range.addEventListener('change', (e) => {
-        input.value = e.detail.values[0];
-      });
-
-      input.addEventListener('input', (e) => {
-        const value = parseFloat(e.target.value) || 0;
-        range.value = `[${value}]`;
-      });
+        // Theme switching
+        function setTheme(themeName) {
+            document.documentElement.setAttribute('theme', themeName);
+            document.getElementById('current-theme').textContent = themeName;
+            
+            // Update active button
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(themeName.charAt(0).toUpperCase() + themeName.slice(1))) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            console.log(`Theme switched to: ${themeName}`);
+        }
+        
+        function toggleDarkMode() {
+            const currentMode = document.documentElement.getAttribute('data-theme-mode') || 'light';
+            const newMode = currentMode === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme-mode', newMode);
+            document.getElementById('current-mode').textContent = newMode;
+            console.log(`Mode switched to: ${newMode}`);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentTheme = document.documentElement.getAttribute('theme') || 'default';
+            const currentMode = document.documentElement.getAttribute('data-theme-mode') || 'light';
+            
+            document.getElementById('current-theme').textContent = currentTheme;
+            document.getElementById('current-mode').textContent = currentMode;
+            
+            // Set active button
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                if (btn.textContent.includes(currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1))) {
+                    btn.classList.add('active');
+                }
+            });
+        });
     </script>
 
-    <capsule-button variant=""></capsule-button>
-
-    <capsule-tabs>
-      <capsule-tabs-list>
-        <capsule-tabs-trigger value="account">Аккаунт</capsule-tabs-trigger>
-        <capsule-tabs-trigger value="password">Пароль</capsule-tabs-trigger>
-        <capsule-tabs-trigger value="settings">Настройки</capsule-tabs-trigger>
-      </capsule-tabs-list>
-      <capsule-tabs-panels>
-        <capsule-tabs-panel value="account">
-          Контент аккаунта здесь
-        </capsule-tabs-panel>
-        <capsule-tabs-panel value="password">
-          Контент пароля здесь
-        </capsule-tabs-panel>
-        <capsule-tabs-panel value="settings">
-          Контент настроек здесь
-        </capsule-tabs-panel>
-      </capsule-tabs-panels>
-    </capsule-tabs>
-
-    <capsule-scroll-area>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, enim
-      distinctio. Ea fuga beatae qui adipisci a, culpa cumque laboriosam modi
-      porro delectus sapiente dicta perspiciatis officiis. Quos cum adipisci
-      consectetur nulla, nemo doloribus earum necessitatibus atque expedita
-      error impedit placeat qui, fugiat velit perspiciatis illum iure, provident
-      possimus ratione sapiente tenetur amet praesentium? Voluptatibus aperiam
-      eos in similique, fuga officia ipsum neque impedit earum consequuntur enim
-      molestiae quas, blanditiis nemo nam atque optio odio hic dolorum corporis
-      velit. Sit expedita quia impedit velit repellat quam molestiae! Beatae
-      necessitatibus provident odit ipsum praesentium quos. Suscipit,
-      praesentium id. Officia pariatur nemo laborum exercitationem non tenetur
-      temporibus possimus esse sequi repellat qui soluta vero suscipit
-      repellendus ipsa quaerat rem, architecto adipisci accusamus necessitatibus
-      recusandae veniam delectus fuga. Nesciunt animi distinctio quam hic
-      numquam harum exercitationem nemo iste magni sapiente quaerat atque sed
-      fugiat illo, necessitatibus neque. Ipsa alias, voluptatem est, natus
-      voluptates eveniet, aliquid velit distinctio asperiores debitis aspernatur
-      obcaecati illum veritatis animi provident tempora et quo. Itaque ducimus
-      eaque, doloremque laudantium assumenda nulla? Laudantium esse molestias
-      eligendi ratione quas consectetur consequuntur maiores, neque illum, quia
-      adipisci dolorum explicabo expedita. Adipisci, accusamus, eaque natus
-      itaque porro ducimus repudiandae impedit in numquam fugit veniam
-      consequuntur corrupti aliquam optio eum! Animi, enim in quod itaque
-      veniam, sequi distinctio architecto unde facere libero obcaecati explicabo
-      perspiciatis? Ab non illum accusamus reiciendis aperiam exercitationem
-      nemo quasi, adipisci dicta animi. In eveniet sapiente soluta debitis
-      quibusdam quisquam accusantium provident natus asperiores aut? Voluptatem
-      obcaecati aliquam harum commodi. Ullam sunt illum saepe est consequuntur
-      incidunt nemo odit voluptatibus architecto dolor? Quaerat impedit et
-      commodi dicta eum at minus repellat, veniam excepturi neque repellendus
-      pariatur placeat, aliquam, tenetur doloremque expedita nemo consequatur.
-      Aut tenetur adipisci fuga repudiandae consequuntur laborum! Ea, officiis
-      repellat? Aliquid quaerat ipsa corporis sunt, totam deserunt? Recusandae
-      iure harum dolorum id, dicta incidunt. Repellat modi error ipsa quo quas
-      sit accusantium enim tempore laudantium eum veniam ab, maxime corrupti
-      deserunt reiciendis sapiente hic nisi vero neque. Quidem est temporibus
-      dicta ratione obcaecati commodi quae placeat earum nobis atque assumenda
-      tenetur quibusdam cupiditate neque similique asperiores, aperiam nam
-      laboriosam at officia magni? Accusamus fuga fugit magni ipsum in optio,
-      odio dolorum molestias perferendis. Nostrum magnam ex rerum quos sequi.
-      Eius similique porro sed expedita a, dignissimos unde, amet dicta libero
-      labore consequuntur cumque obcaecati odit cupiditate aspernatur nostrum
-      nulla eaque. Provident nostrum numquam minima nesciunt vitae expedita
-      doloribus pariatur sit sequi culpa consectetur nemo laboriosam ipsum
-      voluptas perspiciatis praesentium, et, consequatur aut omnis. Quia dolorem
-      dicta laborum soluta quos, ducimus corrupti aut est molestiae aliquam
-      totam cumque non numquam odio minima et suscipit velit? Molestiae, rerum
-      temporibus illum excepturi explicabo eligendi quae expedita. Itaque,
-      necessitatibus! Cumque ullam molestias quos blanditiis? Quod officia esse
-      consectetur aperiam fuga doloremque dignissimos vero quisquam. Quibusdam
-      fugiat nihil debitis corrupti maiores dicta molestiae pariatur repellat
-      magnam quaerat error soluta blanditiis libero cum, quos quasi omnis
-      deserunt? Voluptatem fuga velit nesciunt fugit animi? Tempore rerum
-      accusantium veniam esse quo at eius distinctio facere aperiam similique
-      quam dolores vitae rem libero earum cupiditate, illum nobis est ex
-      accusamus facilis laborum reprehenderit. Porro fugit inventore animi?
-      Repellendus reiciendis voluptas culpa accusamus molestiae harum, amet
-      provident animi exercitationem accusantium ducimus quos velit laborum non
-      maxime? Porro odio vero, facilis veritatis quisquam laboriosam vel ratione
-      magnam, illo iste eveniet sed molestias reiciendis perspiciatis commodi?
-      Quia modi dolore, perferendis a error, at ullam, ad unde doloribus
-      voluptatem rerum aspernatur molestias voluptatibus quos inventore. Rem
-      neque dolore laudantium exercitationem natus eveniet eaque quasi
-      perferendis sapiente pariatur excepturi, aspernatur est recusandae a
-      delectus, atque voluptas odit praesentium illum maiores ullam, in vitae.
-      Fuga est repellendus illo ipsum, nemo perspiciatis doloremque. Voluptates
-      ut aliquam, odit similique quos tempora esse quasi accusamus maxime
-      assumenda nobis reprehenderit commodi! Odit mollitia, doloribus
-      perspiciatis nobis iusto quos vel tempora similique eum quisquam!
-      Perspiciatis ab nisi sapiente amet perferendis ipsam, sequi assumenda
-      harum enim itaque vitae quis veniam magni molestiae dolorem. Eius est non
-      sapiente quidem, enim ducimus rem eos, voluptas numquam odit vero autem
-      suscipit ea corrupti molestias laudantium aspernatur reiciendis. Est,
-      commodi. Ipsa architecto accusamus delectus, amet, quisquam quibusdam nisi
-      quaerat aliquam nam sequi repellat ducimus magnam ipsam vero. Nihil rem
-      eum fugiat, necessitatibus fuga tempore doloribus iusto eaque modi
-      nesciunt optio aliquam quaerat veritatis, eveniet omnis facilis eius odio
-      quo ea totam quas temporibus. Amet explicabo harum ipsa voluptas ipsum
-      optio sequi corporis laborum repudiandae debitis natus suscipit facere
-      eos, enim sapiente eligendi expedita nostrum tempora, impedit cumque vel
-      alias pariatur ipsam itaque. Ex perferendis totam in aspernatur nisi
-      aliquid fuga libero sequi architecto id, eaque accusantium laborum
-      adipisci autem consectetur possimus tempora aperiam, vero officiis
-      praesentium. Voluptate ducimus provident nihil nam? Commodi sequi
-      doloribus praesentium aspernatur cum error id amet impedit, obcaecati
-      voluptate eius laboriosam velit delectus ad. Illum officiis velit commodi
-      deserunt animi incidunt, optio sint maxime cumque eum suscipit, ratione
-      cupiditate autem explicabo nulla? Facilis minima, reprehenderit optio
-      illum accusamus voluptas aut nulla a temporibus minus, placeat, voluptatem
-      vero ullam animi voluptate vitae aliquam labore. Illo quam provident ipsum
-      veritatis distinctio saepe quisquam reprehenderit amet et. Doloremque
-      cumque eum nesciunt recusandae velit? Quod sequi praesentium nostrum
-      debitis deserunt. Dicta pariatur iure minus sunt obcaecati veritatis non,
-      distinctio ad deserunt dolorum eveniet voluptatem iusto. Nisi ullam libero
-      fuga sed et. Mollitia dicta repellendus ipsa voluptates quaerat eligendi
-      veniam neque laboriosam assumenda, cupiditate consectetur repudiandae eius
-      illo esse ratione numquam in tempore iusto placeat ipsum, nihil nostrum
-      molestiae dolorem? Ipsam accusamus earum molestias alias quibusdam, natus
-      enim quod commodi dolorem facere sint hic voluptatum autem voluptas
-      ratione facilis voluptate ex odio beatae. Nihil nobis quisquam a ea,
-      adipisci reprehenderit minus tempora numquam possimus, alias ducimus magni
-      deserunt? Facilis, placeat molestias in consectetur, sequi porro
-      blanditiis labore necessitatibus, vero aspernatur veniam dicta ab mollitia
-      voluptas sapiente pariatur repellat laudantium vel sunt. Reprehenderit
-      possimus minima necessitatibus. Reprehenderit recusandae cumque assumenda
-      unde eligendi quibusdam voluptas, velit animi harum sit dolor minima
-      molestiae, numquam, quis quo asperiores officia porro. Natus velit odio at
-      sed beatae facere?
-    </capsule-scroll-area>
-
-    <div class="calendar-container">
-      <h3>Single Calendar Grid</h3>
-      <div class="controls">
-        <label>
-          Year:
-          <input
-            type="number"
-            id="single-year"
-            value="2025"
-            min="1900"
-            onchange="document.getElementById('single-grid').setDisplayDate(this.value, document.getElementById('single-month').value)"
-          />
-        </label>
-        <label>
-          Month (0-11):
-          <input
-            type="number"
-            id="single-month"
-            value="9"
-            min="0"
-            max="11"
-            onchange="document.getElementById('single-grid').setDisplayDate(document.getElementById('single-year').value, this.value)"
-          />
-        </label>
-        <button
-          onclick="document.getElementById('single-grid').setSelectedDate('2025-10-15')"
-        >
-          Set Date 2025-10-15
-        </button>
-        <button
-          onclick="document.getElementById('single-grid').setSelectedDate('')"
-        >
-          Clear Date
-        </button>
-      </div>
-
-      <capsule-calendar
-        id="single-grid"
-        locale="en-US"
-        value=""
-      ></capsule-calendar>
-      <div class="selected-display">
-        Selected: <span id="single-selected-display">None</span>
-      </div>
-    </div>
-  </body>
+    <style>
+        /* Base styles using theme variables ONLY */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: var(--font-family-sans, sans-serif);
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            transition: background-color var(--transition-base), color var(--transition-base);
+        }
+        
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Theme Controls */
+        .theme-controls {
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .theme-controls h1 {
+            margin-bottom: 1rem;
+            color: hsl(var(--card-foreground));
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+        }
+        
+        .theme-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .theme-btn {
+            padding: 0.5rem 1rem;
+            background: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            transition: background-color var(--transition-base);
+        }
+        
+        .theme-btn:hover {
+            background: hsl(var(--secondary) / 0.8);
+        }
+        
+        .theme-btn.active {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+        }
+        
+        .current-theme {
+            font-size: var(--font-size-sm);
+            color: hsl(var(--muted-foreground));
+        }
+        
+        .current-theme span {
+            font-weight: var(--font-weight-medium);
+            color: hsl(var(--foreground));
+        }
+        
+        /* Component Sections */
+        .component-section {
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .component-section h2 {
+            color: hsl(var(--card-foreground));
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid hsl(var(--border));
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .component-demo {
+            background: hsl(var(--card) / 0.5);
+            border: 1px solid hsl(var(--border) / 0.3);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+        }
+        
+        .component-demo h3 {
+            color: hsl(var(--card-foreground));
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        /* Specific component demo styles */
+        .shortcut-demo {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+        }
+        
+        .tooltip-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .demo-btn {
+            padding: 0.5rem 1rem;
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border: 1px solid hsl(var(--primary));
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            transition: background-color var(--transition-base);
+        }
+        
+        .demo-btn:hover {
+            background: hsl(var(--primary) / 0.9);
+        }
+        
+        /* Theme Comparison */
+        .theme-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .comparison-item h3 {
+            color: hsl(var(--card-foreground));
+            margin-bottom: 0.75rem;
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        /* CSS Variables Display */
+        .variables-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .variable-item {
+            text-align: center;
+        }
+        
+        .variable-preview {
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 0.5rem;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .variable-item code {
+            display: block;
+            font-family: var(--font-family-mono, monospace);
+            font-size: var(--font-size-xs);
+            color: hsl(var(--muted-foreground));
+            background: hsl(var(--muted));
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+        
+        /* Dark mode adjustments */
+        @media (prefers-color-scheme: dark) {
+            .component-demo {
+                background: hsl(var(--card) / 0.7);
+            }
+        }
+        
+        [data-theme-mode="dark"] .component-demo {
+            background: hsl(var(--card) / 0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .component-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tooltip-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-buttons {
+                flex-direction: column;
+            }
+            
+            .theme-btn {
+                width: 100%;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .theme-controls,
+            .theme-btn {
+                display: none;
+            }
+            
+            .component-section {
+                break-inside: avoid;
+                border: 1px solid #000;
+                box-shadow: none;
+            }
+        }
+    </style>
+</body>
 </html>

@@ -1,0 +1,205 @@
+capsule-range {
+  position: relative;
+  display: flex;
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+  align-items: center;
+  cursor: pointer;
+}
+
+capsule-range[orientation='vertical'] {
+  height: 100%;
+  min-height: 11rem;
+  width: auto;
+  flex-direction: column;
+}
+
+capsule-range[disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Track */
+capsule-range::part(track) {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background-color: hsl(var(--muted));
+}
+
+capsule-range[orientation='horizontal']::part(track) {
+  height: 0.375rem;
+  width: 100%;
+}
+
+capsule-range[orientation='vertical']::part(track) {
+  height: 100%;
+  width: 0.375rem;
+}
+
+/* Range */
+capsule-range::part(range) {
+  position: absolute;
+  background-color: hsl(var(--primary));
+  border-radius: var(--radius-full);
+}
+
+capsule-range[orientation='horizontal']::part(range) {
+  height: 100%;
+}
+
+capsule-range[orientation='vertical']::part(range) {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.375rem;
+  top: var(--top, 0);
+  height: var(--height, 0);
+}
+
+/* Thumb */
+capsule-range::part(thumb) {
+  position: absolute;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  border: 2px solid hsl(var(--primary));
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  touch-action: none;
+  z-index: 2;
+}
+
+capsule-range[orientation='horizontal']::part(thumb) {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+capsule-range[orientation='vertical']::part(thumb) {
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+capsule-range::part(thumb):hover {
+  box-shadow: 0 0 0 4px color-mix(in srgb, hsl(hsl(var(--ring))) 50%, transparent);
+}
+
+capsule-range::part(thumb):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px color-mix(in srgb, hsl(hsl(var(--ring))) 50%, transparent);
+}
+
+capsule-range[disabled]::part(thumb) {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Surface (inner circle) - hidden, thumb itself is styled */
+capsule-range::part(surface) {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Ticks */
+capsule-range::part(ticks) {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+capsule-range[orientation='horizontal']::part(ticks) {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 0.375rem;
+}
+
+capsule-range[orientation='vertical']::part(ticks) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.375rem;
+  height: 100%;
+}
+
+capsule-range::part(tick) {
+  position: absolute;
+  background-color: hsl(var(--muted-foreground));
+  border-radius: var(--radius-sm);
+  opacity: 0.6;
+}
+
+capsule-range[orientation='horizontal']::part(tick) {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 0.5rem;
+}
+
+capsule-range[orientation='vertical']::part(tick) {
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 0.5rem;
+  height: 2px;
+}
+
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme */
+[theme="carbon"] capsule-range {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-range-title {
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-range-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme */
+[theme="material"] capsule-range {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
+}
+
+[theme="material"] capsule-range-title {
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-range-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-range {
+    /* Dark mode specific adjustments */
+  }
+}
+
+[data-theme-mode="dark"] capsule-range {
+  /* Manual dark mode adjustments */
+}
+
+[data-theme-mode="light"] capsule-range {
+  /* Manual light mode adjustments */
+}

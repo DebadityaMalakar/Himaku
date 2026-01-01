@@ -7,6 +7,7 @@ export function createSpinner(text: string) {
     succeed: (successText: string) => console.log(`✅ ${successText}`),
     fail: (errorText: string) => console.log(`❌ ${errorText}`),
     stop: () => {},
+    text: (newText: string) => console.log(`⏳ ${newText}`),
   };
 }
 

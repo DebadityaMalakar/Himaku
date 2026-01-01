@@ -1,0 +1,152 @@
+capsule-alert {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+  padding: 0.75rem 1rem;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-sans);
+  display: grid;
+  grid-template-columns: 0 1fr;
+  gap: 0.125rem;
+  align-items: flex-start;
+  box-sizing: border-box;
+  transition: border-color var(--transition-base),
+              background-color var(--transition-base),
+              color var(--transition-base);
+}
+
+capsule-alert:has(> svg) {
+  grid-template-columns: 1rem 1fr;
+  column-gap: 0.75rem;
+}
+
+capsule-alert > svg {
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(0.125rem);
+  color: currentColor;
+  grid-column: 1;
+  grid-row: 1;
+  transition: color var(--transition-base);
+}
+
+capsule-alert > :not(svg) {
+  grid-column: 2;
+}
+
+/* Variants */
+capsule-alert:not([variant]),
+capsule-alert[variant='default'] {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border-color: hsl(var(--border));
+}
+
+capsule-alert[variant='destructive'] {
+  color: hsl(var(--destructive));
+  background-color: hsl(var(--card));
+  border-color: hsl(var(--destructive));
+}
+
+capsule-alert[variant='destructive'] > svg {
+  color: hsl(var(--destructive));
+}
+
+/* Fix the color-mix function to use hsl() */
+capsule-alert[variant='destructive'] capsule-alert-description {
+  color: color-mix(in srgb, hsl(hsl(var(--destructive))) 90%, transparent);
+}
+
+/* Title */
+capsule-alert-title {
+  grid-column-start: 2;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 1rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.025em;
+  margin: 0;
+  font-family: inherit;
+  color: hsl(var(--card-foreground));
+}
+
+/* Description */
+capsule-alert-description {
+  grid-column-start: 2;
+  display: grid;
+  justify-items: start;
+  gap: 0.25rem;
+  color: hsl(var(--muted-foreground));
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-sans);
+  margin: 0;
+  transition: color var(--transition-base);
+}
+
+capsule-alert-description p {
+  line-height: 1.625;
+  margin: 0;
+}
+
+/* Theme-specific adjustments */
+
+/* IBM Carbon theme adjustments */
+[theme="carbon"] capsule-alert {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-alert-title {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+}
+
+[theme="carbon"] capsule-alert-description {
+  letter-spacing: -0.01em;
+}
+
+/* Material theme adjustments */
+[theme="material"] capsule-alert {
+  border-width: 1px;
+  box-shadow: var(--shadow-sm);
+}
+
+[theme="material"] capsule-alert-title {
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-alert-description {
+  line-height: 1.75;
+  letter-spacing: 0.009em;
+}
+
+/* Default theme adjustments */
+[theme="default"] capsule-alert,
+:not([theme]) capsule-alert {
+  /* Additional default theme styles if needed */
+}
+
+/* Dark mode adjustments for all themes */
+@media (prefers-color-scheme: dark) {
+  capsule-alert {
+    /* Dark mode specific adjustments */
+  }
+  
+  [data-theme-mode="dark"] capsule-alert {
+    /* Manual dark mode adjustments */
+  }
+}
+
+/* Manual light/dark mode overrides */
+[data-theme-mode="light"] capsule-alert {
+  /* Light mode specific adjustments */
+}
+
+[data-theme-mode="dark"] capsule-alert {
+  /* Dark mode specific adjustments */
+}

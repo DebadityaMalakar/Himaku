@@ -1,1 +1,0 @@
-import './capsule-chip.js';
