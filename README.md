@@ -1,9 +1,8 @@
 # **Himaku UI**
 
 *(formerly CapsuleUI – extended fork)*
-
 <p align="center">
-  <img src="./public/71d4e75e-f140-4533-b378-77c5b1587def.png" alt="Himaku UI" width="560" />
+  <img src="https://github.com/user-attachments/assets/f2777b1e-0f42-4f99-879d-1f6f27d0075e" alt="Himaku UI" width="560" />
 </p>
 
 <p align="center">
@@ -216,6 +215,9 @@ Modified components are the best reference.
 ---
 
 ## Relationship to CapsuleUI
+<p align="left">
+  <img src="./public/71d4e75e-f140-4533-b378-77c5b1587def.png" alt="CapsuleUI" width="120" />
+</p>
 
 * Himaku UI is a **fork** of CapsuleUI
 * No upstream PRs planned (philosophical divergence)
