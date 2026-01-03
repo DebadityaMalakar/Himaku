@@ -28,7 +28,7 @@
 * Rebranding to `himaku-*` will happen organically as development progresses
 
 👉 **For contributors:** This is the active development branch
-👉 **For production:** Use tagged releases for stability
+
 
 ---
 
