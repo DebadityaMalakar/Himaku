@@ -1,0 +1,135 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "__PREFIX__-__COMPONENT__",
+      "description": "Card component for displaying content in a contained surface",
+      "attributes": [
+        {
+          "name": "variant",
+          "description": "Visual variant of the card",
+          "type": "string",
+          "values": [
+            {
+              "name": "default",
+              "description": "Default card style with border"
+            },
+            {
+              "name": "outlined",
+              "description": "Card with primary color border"
+            },
+            {
+              "name": "filled",
+              "description": "Card with muted background and no border"
+            },
+            {
+              "name": "ghost",
+              "description": "Card with dashed border and transparent background"
+            }
+          ]
+        },
+        {
+          "name": "elevated",
+          "description": "Adds shadow and hover effects to the card",
+          "type": "boolean"
+        },
+        {
+          "name": "interactive",
+          "description": "Makes the card interactive with hover and active states",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "__PREFIX__-__COMPONENT__-header",
+      "description": "Header element for the card component",
+      "attributes": []
+    },
+    {
+      "name": "__PREFIX__-__COMPONENT__-title",
+      "description": "Title element for the card component",
+      "attributes": []
+    },
+    {
+      "name": "__PREFIX__-__COMPONENT__-image",
+      "description": "Image container for the card with built-in aspect ratios",
+      "attributes": [
+        {
+          "name": "ratio",
+          "description": "Aspect ratio for the image container",
+          "type": "string",
+          "values": [
+            {
+              "name": "1:1",
+              "description": "Square aspect ratio"
+            },
+            {
+              "name": "4:3",
+              "description": "Standard photography ratio"
+            },
+            {
+              "name": "16:9",
+              "description": "Widescreen video ratio (default)"
+            },
+            {
+              "name": "21:9",
+              "description": "Ultra-widescreen ratio"
+            },
+            {
+              "name": "3:2",
+              "description": "Classic film ratio"
+            },
+            {
+              "name": "custom",
+              "description": "Custom ratio (set via CSS)"
+            }
+          ]
+        },
+        {
+          "name": "src",
+          "description": "Source URL for the image",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "description": "Alternative text for the image",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "__PREFIX__-__COMPONENT__-body",
+      "description": "Main content area for the card",
+      "attributes": []
+    },
+    {
+      "name": "__PREFIX__-__COMPONENT__-footer",
+      "description": "Footer element for the card",
+      "attributes": [
+        {
+          "name": "alignment",
+          "description": "Alignment of footer content",
+          "type": "string",
+          "values": [
+            {
+              "name": "start",
+              "description": "Align content to the start"
+            },
+            {
+              "name": "center",
+              "description": "Center align content"
+            },
+            {
+              "name": "end",
+              "description": "Align content to the end"
+            },
+            {
+              "name": "space-between",
+              "description": "Space content evenly"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

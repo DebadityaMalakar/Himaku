@@ -41,8 +41,10 @@ export function importCssFiles(
     // FIX: Updated theme import paths to use correct relative path
     const themeImports = [
       `@import url('${relativePath}/base.css');`,
+      `@import url('${relativePath}/default.css');`,
       `@import url('${relativePath}/ibm-carbon.css');`,
-      `@import url('${relativePath}/google-material.css');`
+      `@import url('${relativePath}/google-material.css');`,
+      `@import url('${relativePath}/flat.css');`
     ];
 
     // Add theme imports if not present

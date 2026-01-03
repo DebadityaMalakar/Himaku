@@ -46,3 +46,4 @@ import './components/capsule-tabs/register.js';
 import './components/capsule-textarea/register.js';
 import './components/capsule-tooltip/register.js';
 import './components/capsule-tour/register.js';
+import './components/capsule-card/register.js';

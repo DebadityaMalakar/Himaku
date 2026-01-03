@@ -5,37 +5,72 @@ capsule-calendar {
   padding: 0.75rem;
   background-color: hsl(var(--background));
   border-radius: var(--radius-lg);
-  font-family: var(--font-family);
+  border: 1px solid hsl(var(--border));
+  font-family: var(--font-family-sans);
   box-sizing: border-box;
   color: hsl(var(--foreground));
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
 }
 
 capsule-calendar::part(calendar-header) {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   width: 100%;
-  padding-top: 0.25rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0.5rem 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+capsule-calendar::part(navigation) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+capsule-calendar::part(nav-button) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: hsl(var(--muted-foreground));
+  transition: all var(--transition-base);
+}
+
+capsule-calendar::part(nav-button):hover:not(:disabled) {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+capsule-calendar::part(nav-button):disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 capsule-calendar::part(current-month) {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   color: hsl(var(--foreground));
+  text-align: center;
+  flex: 1;
 }
 
 capsule-calendar::part(weekdays) {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0;
-  margin-top: 1rem;
+  gap: 0.125rem;
+  margin-top: 0.5rem;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: var(--font-size-xs);
   color: hsl(var(--muted-foreground));
-  font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-medium);
   border-radius: var(--radius-md);
   flex: 1;
 }
@@ -45,126 +80,486 @@ capsule-calendar::part(weekdays) > div {
   align-items: center;
   justify-content: center;
   padding: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 capsule-calendar::part(days-grid) {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  gap: 0;
-  margin-top: 0.5rem;
+  gap: 0.125rem;
+  margin-top: 0.25rem;
   width: 100%;
 }
 
 capsule-calendar::part(day) {
-  width: 2rem;
-  height: 2rem;
+  width: 2.25rem;
+  height: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   background: transparent;
   border-radius: var(--radius-md);
-  cursor: default;
+  cursor: pointer;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-base);
   position: relative;
   padding: 0;
   color: hsl(var(--foreground));
+  outline: none;
 }
 
-capsule-calendar::part(day):hover:not(
-    capsule-calendar::part(day disabled)
-  ):not(capsule-calendar::part(day selected)) {
+capsule-calendar::part(day):hover:not([disabled]):not([aria-selected="true"]) {
   background: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
 }
 
+capsule-calendar::part(day):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
 capsule-calendar::part(day other-month) {
-  color: hsl(var(--muted-foreground));
+  color: hsl(var(--muted-foreground) / 0.6);
 }
 
 capsule-calendar::part(day selected) {
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
-  opacity: 1;
+  font-weight: var(--font-weight-medium);
 }
 
 capsule-calendar::part(day selected):hover {
-  background-color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.9);
   color: hsl(var(--primary-foreground));
 }
 
-capsule-calendar::part(day selected):focus {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-}
-
-capsule-calendar::part(day today):not(
-    capsule-calendar::part(day selected)
-  ) {
-  background-color: hsl(var(--accent));
+capsule-calendar::part(day today):not([aria-selected="true"]) {
+  background-color: hsl(var(--accent) / 0.3);
   color: hsl(var(--accent-foreground));
-  border: none;
+  border: 1px solid hsl(var(--accent));
 }
 
 capsule-calendar::part(day disabled) {
-  color: hsl(var(--muted-foreground));
-  opacity: 0.5;
+  color: hsl(var(--muted-foreground) / 0.4);
   cursor: not-allowed;
+  opacity: 0.5;
 }
 
 capsule-calendar::part(day disabled):hover {
   background: transparent;
-  color: hsl(var(--muted-foreground));
+  color: hsl(var(--muted-foreground) / 0.4);
 }
 
-
-/* Theme-specific adjustments */
-
-/* IBM Carbon theme */
-[theme="carbon"] capsule-calendar {
-  border-width: 1px;
-  letter-spacing: -0.01em;
+capsule-calendar::part(day range-start),
+capsule-calendar::part(day range-end) {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
 }
 
-[theme="carbon"] capsule-calendar-title {
-  font-weight: var(--font-weight-semibold, 600);
-  letter-spacing: -0.02em;
-}
-
-[theme="carbon"] capsule-calendar-description {
-  letter-spacing: -0.01em;
-}
-
-/* Material theme */
-[theme="material"] capsule-calendar {
-  border-width: 1px;
-  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.3));
-}
-
-[theme="material"] capsule-calendar-title {
-  font-weight: var(--font-weight-medium, 500);
-  letter-spacing: 0.009em;
-}
-
-[theme="material"] capsule-calendar-description {
-  line-height: 1.75;
-  letter-spacing: 0.009em;
+capsule-calendar::part(day in-range) {
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
 }
 
 /* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
   capsule-calendar {
-    /* Dark mode specific adjustments */
+    background-color: hsl(var(--card));
+    border-color: hsl(var(--border) / 0.5);
+  }
+  
+  capsule-calendar::part(day in-range) {
+    background-color: hsl(var(--primary) / 0.3);
+  }
+  
+  capsule-calendar::part(day today):not([aria-selected="true"]) {
+    background-color: hsl(var(--accent) / 0.2);
   }
 }
 
 [data-theme-mode="dark"] capsule-calendar {
-  /* Manual dark mode adjustments */
+  background-color: hsl(var(--card));
+  border-color: hsl(var(--border) / 0.5);
 }
 
-[data-theme-mode="light"] capsule-calendar {
-  /* Manual light mode adjustments */
+[data-theme-mode="dark"] capsule-calendar::part(day in-range) {
+  background-color: hsl(var(--primary) / 0.3);
+}
+
+[data-theme-mode="dark"] capsule-calendar::part(day today):not([aria-selected="true"]) {
+  background-color: hsl(var(--accent) / 0.2);
+}
+
+/* Theme-specific adjustments */
+[theme="material"] capsule-calendar {
+  border-width: 1px;
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-calendar::part(current-month) {
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] capsule-calendar::part(day) {
+  letter-spacing: 0.009em;
+}
+
+[theme="carbon"] capsule-calendar {
+  border-width: 1px;
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-calendar::part(current-month) {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] capsule-calendar::part(weekdays) > div {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Flat theme adjustments */
+[theme="flat"] capsule-calendar {
+  border-radius: 0;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: none;
+  padding: 1rem;
+  background-color: hsl(var(--background));
+  border-color: hsl(var(--border));
+}
+
+[theme="flat"] capsule-calendar::part(calendar-header) {
+  padding: 0.75rem 0;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid hsl(var(--border));
+}
+
+[theme="flat"] capsule-calendar::part(nav-button) {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0;
+  border: 2px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-weight: var(--font-weight-bold);
+}
+
+[theme="flat"] capsule-calendar::part(nav-button):hover:not(:disabled) {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+}
+
+[theme="flat"] capsule-calendar::part(nav-button):focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+[theme="flat"] capsule-calendar::part(current-month) {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: hsl(var(--foreground));
+  letter-spacing: normal;
+}
+
+[theme="flat"] capsule-calendar::part(weekdays) {
+  gap: 0;
+  margin-top: 0.75rem;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+[theme="flat"] capsule-calendar::part(weekdays) > div {
+  font-weight: var(--font-weight-semibold);
+  padding: 0.75rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: hsl(var(--foreground));
+  border-bottom: 2px solid hsl(var(--border));
+}
+
+[theme="flat"] capsule-calendar::part(days-grid) {
+  gap: 0;
+  margin-top: 0;
+}
+
+[theme="flat"] capsule-calendar::part(day) {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0;
+  border: 1px solid transparent;
+  font-weight: var(--font-weight-medium);
+  background: transparent;
+  color: hsl(var(--foreground));
+}
+
+[theme="flat"] capsule-calendar::part(day):hover:not([disabled]):not([aria-selected="true"]) {
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  border: 1px solid hsl(var(--primary));
+}
+
+[theme="flat"] capsule-calendar::part(day):focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: -2px;
+  box-shadow: none;
+}
+
+[theme="flat"] capsule-calendar::part(day other-month) {
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--muted) / 0.3);
+}
+
+[theme="flat"] capsule-calendar::part(day selected) {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-weight: var(--font-weight-bold);
+  border: 2px solid hsl(var(--primary));
+}
+
+[theme="flat"] capsule-calendar::part(day selected):hover {
+  background-color: hsl(var(--primary) / 0.9);
+  color: hsl(var(--primary-foreground));
+  border: 2px solid hsl(var(--primary));
+}
+
+[theme="flat"] capsule-calendar::part(day today):not([aria-selected="true"]) {
+  background-color: transparent;
+  color: hsl(var(--primary));
+  border: 2px solid hsl(var(--primary));
+  font-weight: var(--font-weight-bold);
+}
+
+[theme="flat"] capsule-calendar::part(day disabled) {
+  color: hsl(var(--muted-foreground) / 0.5);
+  background: hsl(var(--muted) / 0.2);
+  cursor: not-allowed;
+}
+
+[theme="flat"] capsule-calendar::part(day disabled):hover {
+  background: hsl(var(--muted) / 0.2);
+  color: hsl(var(--muted-foreground) / 0.5);
+  border: 1px solid transparent;
+}
+
+[theme="flat"] capsule-calendar::part(day range-start),
+[theme="flat"] capsule-calendar::part(day range-end) {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 2px solid hsl(var(--primary));
+}
+
+[theme="flat"] capsule-calendar::part(day in-range) {
+  background-color: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  border: 1px solid hsl(var(--primary) / 0.3);
+}
+
+/* Remove dot indicator for flat theme */
+[theme="flat"] capsule-calendar::part(day today)::after {
+  content: none;
+}
+
+/* Flat dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  [theme="flat"] capsule-calendar {
+    background-color: hsl(var(--card));
+    border-color: hsl(var(--border) / 0.8);
+  }
+  
+  [theme="flat"] capsule-calendar::part(calendar-header) {
+    border-bottom-color: hsl(var(--border) / 0.8);
+  }
+  
+  [theme="flat"] capsule-calendar::part(weekdays) > div {
+    color: hsl(var(--foreground));
+    border-bottom-color: hsl(var(--border) / 0.8);
+  }
+  
+  [theme="flat"] capsule-calendar::part(day):hover:not([disabled]):not([aria-selected="true"]) {
+    background: hsl(var(--primary) / 0.2);
+  }
+  
+  [theme="flat"] capsule-calendar::part(day in-range) {
+    background-color: hsl(var(--primary) / 0.2);
+  }
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-calendar {
+  background-color: hsl(var(--card));
+  border-color: hsl(var(--border) / 0.8);
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-calendar::part(calendar-header) {
+  border-bottom-color: hsl(var(--border) / 0.8);
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-calendar::part(weekdays) > div {
+  color: hsl(var(--foreground));
+  border-bottom-color: hsl(var(--border) / 0.8);
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-calendar::part(day):hover:not([disabled]):not([aria-selected="true"]) {
+  background: hsl(var(--primary) / 0.2);
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-calendar::part(day in-range) {
+  background-color: hsl(var(--primary) / 0.2);
+}
+
+/* Range selection styles */
+capsule-calendar::part(day range-start) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+capsule-calendar::part(day range-end) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+capsule-calendar::part(day in-range):not([aria-selected="true"]) {
+  border-radius: 0;
+}
+
+/* Today indicator dot */
+capsule-calendar::part(day today)::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: hsl(var(--primary));
+}
+
+capsule-calendar::part(day today)[aria-selected="true"]::after {
+  background-color: hsl(var(--primary-foreground));
+}
+
+capsule-calendar::part(day today other-month)::after {
+  background-color: hsl(var(--muted-foreground) / 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  capsule-calendar {
+    padding: 0.5rem;
+  }
+  
+  capsule-calendar::part(day) {
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--font-size-xs);
+  }
+  
+  capsule-calendar::part(weekdays) > div {
+    font-size: var(--font-size-2xs);
+    padding: 0.375rem 0;
+  }
+  
+  /* Flat theme responsive */
+  [theme="flat"] capsule-calendar {
+    padding: 0.75rem;
+  }
+  
+  [theme="flat"] capsule-calendar::part(day) {
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--font-size-xs);
+  }
+  
+  [theme="flat"] capsule-calendar::part(nav-button) {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* Variants */
+capsule-calendar[variant="minimal"] {
+  border: none;
+  box-shadow: none;
+  padding: 0.5rem;
+  background: transparent;
+}
+
+capsule-calendar[variant="minimal"]::part(day):hover:not([disabled]):not([aria-selected="true"]) {
+  background: hsl(var(--accent) / 0.3);
+}
+
+capsule-calendar[variant="filled"] {
+  background: hsl(var(--muted));
+  border: none;
+}
+
+capsule-calendar[variant="outlined"] {
+  background: transparent;
+  border: 2px solid hsl(var(--border));
+}
+
+/* Flat theme variants */
+[theme="flat"] capsule-calendar[variant="filled"] {
+  background: hsl(var(--muted));
+  border: 2px solid hsl(var(--border));
+}
+
+[theme="flat"] capsule-calendar[variant="outlined"] {
+  background: transparent;
+  border: 2px solid hsl(var(--border));
+}
+
+[theme="flat"] capsule-calendar[variant="minimal"] {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Size variants */
+capsule-calendar[size="sm"] {
+  padding: 0.5rem;
+}
+
+capsule-calendar[size="sm"]::part(day) {
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: var(--font-size-xs);
+}
+
+capsule-calendar[size="lg"] {
+  padding: 1rem;
+}
+
+capsule-calendar[size="lg"]::part(day) {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: var(--font-size-base);
+}
+
+/* Flat theme size variants */
+[theme="flat"] capsule-calendar[size="sm"] {
+  padding: 0.75rem;
+}
+
+[theme="flat"] capsule-calendar[size="sm"]::part(day) {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--font-size-xs);
+}
+
+[theme="flat"] capsule-calendar[size="lg"] {
+  padding: 1.25rem;
+}
+
+[theme="flat"] capsule-calendar[size="lg"]::part(day) {
+  width: 3rem;
+  height: 3rem;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
 }

@@ -1,3 +1,5 @@
+@import url('./theme/flat.css');
+@import url('./theme/default.css');
 @import url('./components/capsule-accordion/capsule-accordion.style.css');
 @import url('./components/capsule-alert/capsule-alert.style.css');
 @import url('./components/capsule-aspect-ratio/capsule-aspect-ratio.style.css');
@@ -26,6 +28,7 @@
 @import url('./components/capsule-textarea/capsule-textarea.style.css');
 @import url('./components/capsule-tooltip/capsule-tooltip.style.css');
 @import url('./components/capsule-tour/capsule-tour.style.css');
+@import url('./components/capsule-card/capsule-card.style.css');
 /* CapsuleUI Theme System */
 @import url('./theme/base.css');
 @import url('./theme/ibm-carbon.css');

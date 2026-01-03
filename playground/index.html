@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html theme="default" data-theme-mode="light">
 <head>
-    <title>CapsuleUI Theme System Showcase</title>
+    <title>Himaku UI Theme System Showcase</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Theme fonts (optional - for demo purposes) -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="./assets/capsule.js"></script>
+    <script type="module" src="./assets/capsule.js"></script>
     <link rel="stylesheet" href="./assets/capsule.css">
 </head>
 <body>
     <div class="showcase-container">
         <!-- Theme Controls -->
         <div class="theme-controls">
-            <h1>🎨 CapsuleUI Theme System</h1>
+            <h1>🎨 Himaku UI Theme System Showcase</h1>
             <div class="theme-buttons">
                 <button onclick="setTheme('default')" class="theme-btn active">Default Theme</button>
                 <button onclick="setTheme('material')" class="theme-btn">Material Theme</button>
                 <button onclick="setTheme('carbon')" class="theme-btn">IBM Carbon</button>
+                <button onclick="setTheme('flat')" class="theme-btn">Flat Theme</button>
                 <button onclick="toggleDarkMode()" class="theme-btn">Toggle Dark Mode</button>
             </div>
             <div class="current-theme">Current: <span id="current-theme">default</span> • Mode: <span id="current-mode">light</span></div>
+            <div class="project-status">
+                <small>⚠️ Project Status: Transitional - Still using <code>capsule-*</code> namespace</small>
+            </div>
         </div>
 
         <!-- 1. Alert Component -->
@@ -66,7 +70,78 @@
             </div>
         </section>
 
-        <!-- 2. Badge Component -->
+        <!-- 2. Card Component -->
+        <section class="component-section">
+            <h2>Card Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Basic Card</h3>
+                    <capsule-card>
+                        <capsule-card-header>
+                            <capsule-card-title>Card Title</capsule-card-title>
+                        </capsule-card-header>
+                        <capsule-card-body>
+                            <p>This is a basic card with header and body content.</p>
+                            <p>It uses theme variables for colors, borders, and spacing.</p>
+                        </capsule-card-body>
+                    </capsule-card>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Card with Image</h3>
+                    <capsule-card elevated interactive>
+                        <capsule-card-image 
+                            src="https://images.unsplash.com/photo-1579546929662-711aa81148cf?w=400&h=225&fit=crop"
+                            alt="Colorful gradient"
+                            ratio="16:9"
+                        ></capsule-card-image>
+                        <capsule-card-header>
+                            <capsule-card-title>Featured Content</capsule-card-title>
+                        </capsule-card-header>
+                        <capsule-card-body>
+                            <p>This card has an image, is elevated with shadow, and has interactive hover effects.</p>
+                        </capsule-card-body>
+                        <capsule-card-footer alignment="end">
+                            <button class="demo-btn">Learn More</button>
+                        </capsule-card-footer>
+                    </capsule-card>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Card Variants</h3>
+                    <div class="card-variants-grid">
+                        <capsule-card variant="outlined">
+                            <capsule-card-header>
+                                <capsule-card-title>Outlined</capsule-card-title>
+                            </capsule-card-header>
+                            <capsule-card-body>
+                                <p>Primary colored border</p>
+                            </capsule-card-body>
+                        </capsule-card>
+                        
+                        <capsule-card variant="filled">
+                            <capsule-card-header>
+                                <capsule-card-title>Filled</capsule-card-title>
+                            </capsule-card-header>
+                            <capsule-card-body>
+                                <p>Muted background, no border</p>
+                            </capsule-card-body>
+                        </capsule-card>
+                        
+                        <capsule-card variant="ghost">
+                            <capsule-card-header>
+                                <capsule-card-title>Ghost</capsule-card-title>
+                            </capsule-card-header>
+                            <capsule-card-body>
+                                <p>Dashed border, transparent</p>
+                            </capsule-card-body>
+                        </capsule-card>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Badge Component -->
         <section class="component-section">
             <h2>Badge Component</h2>
             <div class="component-grid">
@@ -105,7 +180,130 @@
             </div>
         </section>
 
-        <!-- 3. KBD Component -->
+        <!-- 4. Rating Component -->
+        <section class="component-section">
+            <h2>Rating Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Interactive Rating</h3>
+                    <div class="rating-demo">
+                        <label>Rate our components:</label>
+                        <capsule-rating id="interactive-rating" value="3.5" precision="0.5"></capsule-rating>
+                        <div class="rating-value">Current: <span id="rating-value">3.5</span> / 5</div>
+                    </div>
+                    
+                    <div class="rating-demo" style="margin-top: 1rem;">
+                        <label>Readonly rating:</label>
+                        <capsule-rating value="4" readonly></capsule-rating>
+                    </div>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Rating Variants & Sizes</h3>
+                    <div class="rating-demo">
+                        <label>Primary variant:</label>
+                        <capsule-rating value="3" color="primary" size="md"></capsule-rating>
+                    </div>
+                    
+                    <div class="rating-demo" style="margin-top: 1rem;">
+                        <label>Secondary variant (large):</label>
+                        <capsule-rating value="4" color="secondary" size="lg"></capsule-rating>
+                    </div>
+                    
+                    <div class="rating-demo" style="margin-top: 1rem;">
+                        <label>Warning variant (small):</label>
+                        <capsule-rating value="2.5" color="warning" size="sm" precision="0.5"></capsule-rating>
+                    </div>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Custom Max & Precision</h3>
+                    <div class="rating-demo">
+                        <label>10-star rating (0.5 precision):</label>
+                        <capsule-rating id="ten-star-rating" max="10" value="7.5" precision="0.5"></capsule-rating>
+                        <div class="rating-value">Current: <span id="ten-star-value">7.5</span> / 10</div>
+                    </div>
+                    
+                    <div class="rating-demo" style="margin-top: 1rem;">
+                        <label>Disabled rating:</label>
+                        <capsule-rating value="3" disabled></capsule-rating>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Calendar Component -->
+        <section class="component-section">
+            <h2>Calendar Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Interactive Calendar</h3>
+                    <div class="calendar-demo">
+                        <label>Select a date:</label>
+                        <capsule-calendar id="main-calendar" value="2024-01-15"></capsule-calendar>
+                        <div class="calendar-selected">Selected: <span id="selected-date">2024-01-15</span></div>
+                    </div>
+                    
+                    <div class="calendar-demo" style="margin-top: 1rem;">
+                        <label>Calendar with today's date:</label>
+                        <capsule-calendar id="today-calendar"></capsule-calendar>
+                    </div>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Calendar with Constraints</h3>
+                    <div class="calendar-demo">
+                        <label>Select date in January 2024:</label>
+                        <capsule-calendar 
+                            id="constrained-calendar"
+                            display-year="2024"
+                            display-month="0"
+                            min-date="2024-01-01"
+                            max-date="2024-01-31"
+                        ></capsule-calendar>
+                        <div class="calendar-selected">Selected: <span id="constrained-date">None</span></div>
+                    </div>
+                    
+                    <div class="calendar-demo" style="margin-top: 1rem;">
+                        <label>Calendar with disabled dates:</label>
+                        <capsule-calendar 
+                            id="disabled-dates-calendar"
+                            disabled-dates="2024-01-01,2024-01-06,2024-01-07,2024-01-13,2024-01-14,2024-01-20,2024-01-21,2024-01-27,2024-01-28"
+                            display-year="2024"
+                            display-month="0"
+                        ></capsule-calendar>
+                    </div>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Calendar Navigation</h3>
+                    <div class="calendar-demo">
+                        <label>Calendar with custom display month:</label>
+                        <capsule-calendar 
+                            id="custom-month-calendar"
+                            display-year="2024"
+                            display-month="5"
+                        ></capsule-calendar>
+                        <div class="calendar-controls">
+                            <button class="demo-btn" onclick="prevMonth()">← Previous</button>
+                            <button class="demo-btn" onclick="nextMonth()">Next →</button>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-demo" style="margin-top: 1rem;">
+                        <label>Locale Calendar (French):</label>
+                        <capsule-calendar 
+                            id="french-calendar"
+                            locale="fr-FR"
+                            display-year="2024"
+                            display-month="0"
+                        ></capsule-calendar>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. KBD Component -->
         <section class="component-section">
             <h2>KBD Component</h2>
             <div class="component-grid">
@@ -142,7 +340,153 @@
             </div>
         </section>
 
-        <!-- 4. Breadcrumb Component -->
+        <!-- 7. Accordion Component -->
+        <section class="component-section">
+            <h2>Accordion Component</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Basic Accordion</h3>
+                    <capsule-accordion>
+                        <capsule-accordion-panel open="true">
+                            <capsule-accordion-trigger>
+                                What is Himaku UI?
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </capsule-accordion-trigger>
+                            <capsule-accordion-content>
+                                Himaku UI is an extended fork of CapsuleUI with built-in theme system support. It uses CSS custom properties for consistent theming across all components.
+                            </capsule-accordion-content>
+                        </capsule-accordion-panel>
+                        
+                        <capsule-accordion-panel>
+                            <capsule-accordion-trigger>
+                                How to customize themes?
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </capsule-accordion-trigger>
+                            <capsule-accordion-content>
+                                You can customize themes by overriding CSS custom properties or creating new theme presets. Each theme defines its own color palette, typography, and spacing.
+                            </capsule-accordion-content>
+                        </capsule-accordion-panel>
+                        
+                        <capsule-accordion-panel>
+                            <capsule-accordion-trigger>
+                                Is it accessible?
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </capsule-accordion-trigger>
+                            <capsule-accordion-content>
+                                Yes, all Himaku UI components are built with accessibility in mind. They include proper ARIA attributes, keyboard navigation, and focus management.
+                            </capsule-accordion-content>
+                        </capsule-accordion-panel>
+                    </capsule-accordion>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Accordion Variants</h3>
+                    
+                    <h4>Filled Variant</h4>
+                    <capsule-accordion variant="filled">
+                        <capsule-accordion-panel>
+                            <capsule-accordion-trigger>
+                                Getting Started
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </capsule-accordion-trigger>
+                            <capsule-accordion-content>
+                                Install via npm: <code>npm install @himakui/core</code> (coming soon)
+                            </capsule-accordion-content>
+                        </capsule-accordion-panel>
+                    </capsule-accordion>
+                    
+                    <h4 style="margin-top: 1rem;">Bordered Variant</h4>
+                    <capsule-accordion variant="bordered">
+                        <capsule-accordion-panel>
+                            <capsule-accordion-trigger>
+                                Documentation
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </capsule-accordion-trigger>
+                            <capsule-accordion-content>
+                                Check our comprehensive docs at docs.himakui.dev (coming soon)
+                            </capsule-accordion-content>
+                        </capsule-accordion-panel>
+                    </capsule-accordion>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. HTML Input Components -->
+        <section class="component-section">
+            <h2>HTML Input Components</h2>
+            <div class="component-grid">
+                <div class="component-demo">
+                    <h3>Text Inputs</h3>
+                    <div class="input-group">
+                        <label for="text-input">Text Input</label>
+                        <input type="text" id="text-input" placeholder="Enter your name">
+                        
+                        <label for="email-input" style="margin-top: 1rem;">Email Input</label>
+                        <input type="email" id="email-input" placeholder="user@example.com">
+                        
+                        <label for="password-input" style="margin-top: 1rem;">Password Input</label>
+                        <input type="password" id="password-input" placeholder="••••••••">
+                    </div>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Other Input Types</h3>
+                    <div class="input-group">
+                        <label for="number-input">Number Input</label>
+                        <input type="number" id="number-input" placeholder="Enter a number">
+                        
+                        <label for="date-input" style="margin-top: 1rem;">Date Input</label>
+                        <input type="date" id="date-input">
+                        
+                        <label for="search-input" style="margin-top: 1rem;">Search Input</label>
+                        <input type="search" id="search-input" placeholder="Search...">
+                        
+                        <label for="file-input" style="margin-top: 1rem;">File Input</label>
+                        <input type="file" id="file-input">
+                    </div>
+                </div>
+                
+                <div class="component-demo">
+                    <h3>Textarea & Select</h3>
+                    <div class="input-group">
+                        <label for="textarea-input">Textarea</label>
+                        <textarea id="textarea-input" placeholder="Enter your message..." rows="3"></textarea>
+                        
+                        <label for="select-input" style="margin-top: 1rem;">Select Dropdown</label>
+                        <select id="select-input">
+                            <option value="">Choose an option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        
+                        <div style="margin-top: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem;">Checkboxes</label>
+                            <div>
+                                <input type="checkbox" id="checkbox1">
+                                <label for="checkbox1" style="margin-left: 0.5rem;">Checkbox 1</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="checkbox2">
+                                <label for="checkbox2" style="margin-left: 0.5rem;">Checkbox 2</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Breadcrumb Component -->
         <section class="component-section">
             <h2>Breadcrumb Component</h2>
             <div class="component-grid">
@@ -194,7 +538,7 @@
             </div>
         </section>
 
-        <!-- 5. Tooltip Component -->
+        <!-- 10. Tooltip Component -->
         <section class="component-section">
             <h2>Tooltip Component</h2>
             <div class="component-grid">
@@ -262,42 +606,6 @@
             </div>
         </section>
 
-        <!-- Theme Comparison -->
-        <section class="component-section">
-            <h2>Theme Comparison</h2>
-            <div class="theme-comparison">
-                <div class="comparison-item">
-                    <h3>Default Theme</h3>
-                    <div style="padding: 1rem; border-radius: var(--radius-lg); background: hsl(var(--card));">
-                        <capsule-badge>Badge</capsule-badge>
-                        <capsule-alert style="margin-top: 1rem;">
-                            <capsule-alert-description>Default theme alert</capsule-alert-description>
-                        </capsule-alert>
-                    </div>
-                </div>
-                
-                <div class="comparison-item">
-                    <h3>Material Theme</h3>
-                    <div style="padding: 1rem; border-radius: var(--radius-lg); background: hsl(var(--card));" data-theme="material">
-                        <capsule-badge>Badge</capsule-badge>
-                        <capsule-alert style="margin-top: 1rem;">
-                            <capsule-alert-description>Material theme alert</capsule-alert-description>
-                        </capsule-alert>
-                    </div>
-                </div>
-                
-                <div class="comparison-item">
-                    <h3>IBM Carbon</h3>
-                    <div style="padding: 1rem; border-radius: var(--radius-lg); background: hsl(var(--card));" data-theme="carbon">
-                        <capsule-badge>Badge</capsule-badge>
-                        <capsule-alert style="margin-top: 1rem;">
-                            <capsule-alert-description>Carbon theme alert</capsule-alert-description>
-                        </capsule-alert>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- CSS Variables Display -->
         <section class="component-section">
             <h2>CSS Variables in Action</h2>
@@ -358,6 +666,95 @@
             console.log(`Mode switched to: ${newMode}`);
         }
         
+        // Rating functionality
+        function initializeRating() {
+            const interactiveRating = document.getElementById('interactive-rating');
+            const tenStarRating = document.getElementById('ten-star-rating');
+            
+            if (interactiveRating) {
+                interactiveRating.addEventListener('change', (e) => {
+                    document.getElementById('rating-value').textContent = e.detail.value;
+                });
+                
+                interactiveRating.addEventListener('input', (e) => {
+                    document.getElementById('rating-value').textContent = e.detail.value;
+                });
+            }
+            
+            if (tenStarRating) {
+                tenStarRating.addEventListener('change', (e) => {
+                    document.getElementById('ten-star-value').textContent = e.detail.value;
+                });
+                
+                tenStarRating.addEventListener('input', (e) => {
+                    document.getElementById('ten-star-value').textContent = e.detail.value;
+                });
+            }
+        }
+        
+        // Calendar functionality
+        function initializeCalendar() {
+            const mainCalendar = document.getElementById('main-calendar');
+            const constrainedCalendar = document.getElementById('constrained-calendar');
+            
+            if (mainCalendar) {
+                mainCalendar.addEventListener('change', (e) => {
+                    document.getElementById('selected-date').textContent = e.detail.value || 'None';
+                });
+                
+                mainCalendar.addEventListener('input', (e) => {
+                    document.getElementById('selected-date').textContent = e.detail.value || 'None';
+                });
+            }
+            
+            if (constrainedCalendar) {
+                constrainedCalendar.addEventListener('change', (e) => {
+                    document.getElementById('constrained-date').textContent = e.detail.value || 'None';
+                });
+                
+                constrainedCalendar.addEventListener('input', (e) => {
+                    document.getElementById('constrained-date').textContent = e.detail.value || 'None';
+                });
+            }
+        }
+        
+        // Calendar navigation
+        function prevMonth() {
+            const calendar = document.getElementById('custom-month-calendar');
+            if (calendar) {
+                const current = calendar.getDisplayDate();
+                const newMonth = current.month === 0 ? 11 : current.month - 1;
+                const newYear = current.month === 0 ? current.year - 1 : current.year;
+                calendar.setDisplayDate(newYear, newMonth);
+            }
+        }
+        
+        function nextMonth() {
+            const calendar = document.getElementById('custom-month-calendar');
+            if (calendar) {
+                const current = calendar.getDisplayDate();
+                const newMonth = current.month === 11 ? 0 : current.month + 1;
+                const newYear = current.month === 11 ? current.year + 1 : current.year;
+                calendar.setDisplayDate(newYear, newMonth);
+            }
+        }
+        
+        // Accordion functionality
+        function initializeAccordion() {
+            const accordionPanels = document.querySelectorAll('capsule-accordion-panel');
+            
+            accordionPanels.forEach(panel => {
+                const trigger = panel.querySelector('capsule-accordion-trigger');
+                
+                if (trigger) {
+                    trigger.addEventListener('click', () => {
+                        const isOpen = panel.getAttribute('open') === 'true';
+                        panel.setAttribute('open', !isOpen);
+                    });
+                }
+            });
+        }
+        
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             const currentTheme = document.documentElement.getAttribute('theme') || 'default';
@@ -372,6 +769,19 @@
                     btn.classList.add('active');
                 }
             });
+            
+            // Add some interactivity to demo cards
+            const interactiveCards = document.querySelectorAll('capsule-card[interactive]');
+            interactiveCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    alert('Card clicked! This would navigate to more details.');
+                });
+            });
+            
+            // Initialize components
+            initializeRating();
+            //initializeCalendar();
+            initializeAccordion();
         });
     </script>
 
@@ -453,6 +863,23 @@
             color: hsl(var(--foreground));
         }
         
+        .project-status {
+            margin-top: 0.75rem;
+            padding: 0.5rem;
+            background: hsl(var(--warning) / 0.1);
+            border: 1px solid hsl(var(--warning) / 0.3);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            color: hsl(var(--muted-foreground));
+        }
+        
+        .project-status code {
+            background: hsl(var(--warning) / 0.2);
+            color: hsl(var(--warning));
+            padding: 0.125rem 0.25rem;
+            border-radius: var(--radius-xs);
+        }
+        
         /* Component Sections */
         .component-section {
             background: hsl(var(--card));
@@ -493,6 +920,97 @@
             opacity: 0.8;
         }
         
+        .component-demo h4 {
+            color: hsl(var(--card-foreground));
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        /* Card specific styles */
+        .card-variants-grid {
+            display: grid;
+            gap: 0.75rem;
+        }
+        
+        /* Rating specific styles */
+        .rating-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .rating-demo label {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: hsl(var(--foreground));
+        }
+        
+        .rating-value, .calendar-selected {
+            font-size: var(--font-size-sm);
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.5rem;
+        }
+        
+        .rating-value span, .calendar-selected span {
+            font-weight: var(--font-weight-medium);
+            color: hsl(var(--foreground));
+        }
+        
+        /* Calendar specific styles */
+        .calendar-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .calendar-controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Accordion specific styles */
+        capsule-accordion {
+            display: block;
+        }
+        
+        /* Input group styles */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            display: block;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 0.25rem;
+            color: hsl(var(--foreground));
+        }
+        
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            margin-bottom: 0.5rem;
+        }
+        
+        .input-group input[type="checkbox"] + label {
+            display: inline;
+            font-weight: var(--font-weight-normal);
+        }
+        
+        /* Code styles */
+        code {
+            font-family: var(--font-family-mono, monospace);
+            font-size: var(--font-size-xs);
+            background: hsl(var(--muted));
+            padding: 0.125rem 0.25rem;
+            border-radius: var(--radius-sm);
+            color: hsl(var(--foreground));
+        }
+        
         /* Specific component demo styles */
         .shortcut-demo {
             margin-bottom: 0.75rem;
@@ -522,20 +1040,6 @@
         
         .demo-btn:hover {
             background: hsl(var(--primary) / 0.9);
-        }
-        
-        /* Theme Comparison */
-        .theme-comparison {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .comparison-item h3 {
-            color: hsl(var(--card-foreground));
-            margin-bottom: 0.75rem;
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-medium);
         }
         
         /* CSS Variables Display */
@@ -604,7 +1108,8 @@
         /* Print styles */
         @media print {
             .theme-controls,
-            .theme-btn {
+            .theme-btn,
+            .project-status {
                 display: none;
             }
             

@@ -207,7 +207,7 @@ export function copyThemeFiles(
   }
 
   // Копируем файлы тем
-  const themeFiles = ['base.css', 'ibm-carbon.css', 'google-material.css'];
+  const themeFiles = ['base.css', 'default.css', 'ibm-carbon.css', 'google-material.css', 'flat.css'];
   
   for (const themeFile of themeFiles) {
     const sourcePath = path.join(sourceThemeDir, themeFile);

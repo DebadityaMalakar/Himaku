@@ -44,7 +44,13 @@ capsule-button[aria-invalid='true'] {
   box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 20%, transparent);
 }
 
-.dark capsule-button[aria-invalid='true'] {
+@media (prefers-color-scheme: dark) {
+  capsule-button[aria-invalid='true'] {
+    box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+  }
+}
+
+[data-theme-mode="dark"] capsule-button[aria-invalid='true'] {
   box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
 }
 
@@ -129,14 +135,6 @@ capsule-button[variant='destructive']:focus-visible {
   box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 20%, transparent);
 }
 
-.dark capsule-button[variant='destructive'] {
-  background: color-mix(in srgb, hsl(hsl(var(--destructive))) 60%, transparent);
-}
-
-.dark capsule-button[variant='destructive']:focus-visible {
-  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
-}
-
 capsule-button[variant='outline'] {
   border: 1px solid hsl(var(--border));
   background: hsl(var(--background));
@@ -147,15 +145,6 @@ capsule-button[variant='outline'] {
 capsule-button[variant='outline']:hover:not([disabled]) {
   background: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
-}
-
-.dark capsule-button[variant='outline'] {
-  background: color-mix(in srgb, hsl(hsl(var(--input))) 30%, transparent);
-  border-color: hsl(var(--input));
-}
-
-.dark capsule-button[variant='outline']:hover:not([disabled]) {
-  background: color-mix(in srgb, hsl(hsl(var(--input))) 50%, transparent);
 }
 
 capsule-button[variant='secondary'] {
@@ -179,10 +168,6 @@ capsule-button[variant='ghost']:hover:not([disabled]) {
   color: hsl(var(--accent-foreground));
 }
 
-.dark capsule-button[variant='ghost']:hover:not([disabled]) {
-  background: color-mix(in srgb, hsl(hsl(var(--accent))) 50%, transparent);
-}
-
 capsule-button[variant='link'] {
   background: transparent;
   color: hsl(var(--primary));
@@ -193,6 +178,225 @@ capsule-button[variant='link'] {
 
 capsule-button[variant='link']:hover:not([disabled]) {
   text-decoration: underline;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  capsule-button[variant='destructive'] {
+    background: color-mix(in srgb, hsl(hsl(var(--destructive))) 60%, transparent);
+  }
+  
+  capsule-button[variant='destructive']:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+  }
+  
+  capsule-button[variant='outline'] {
+    background: color-mix(in srgb, hsl(hsl(var(--input))) 30%, transparent);
+    border-color: hsl(var(--input));
+  }
+  
+  capsule-button[variant='outline']:hover:not([disabled]) {
+    background: color-mix(in srgb, hsl(hsl(var(--input))) 50%, transparent);
+  }
+  
+  capsule-button[variant='ghost']:hover:not([disabled]) {
+    background: color-mix(in srgb, hsl(hsl(var(--accent))) 50%, transparent);
+  }
+}
+
+[data-theme-mode="dark"] capsule-button[variant='destructive'] {
+  background: color-mix(in srgb, hsl(hsl(var(--destructive))) 60%, transparent);
+}
+
+[data-theme-mode="dark"] capsule-button[variant='destructive']:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(hsl(var(--destructive))) 40%, transparent);
+}
+
+[data-theme-mode="dark"] capsule-button[variant='outline'] {
+  background: color-mix(in srgb, hsl(hsl(var(--input))) 30%, transparent);
+  border-color: hsl(var(--input));
+}
+
+[data-theme-mode="dark"] capsule-button[variant='outline']:hover:not([disabled]) {
+  background: color-mix(in srgb, hsl(hsl(var(--input))) 50%, transparent);
+}
+
+[data-theme-mode="dark"] capsule-button[variant='ghost']:hover:not([disabled]) {
+  background: color-mix(in srgb, hsl(hsl(var(--accent))) 50%, transparent);
+}
+
+/* Flat theme adjustments */
+[theme="flat"] capsule-button {
+  border-radius: 0;
+  border-width: 2px;
+  border-style: solid;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: normal;
+  box-shadow: none;
+  transition: all var(--transition-base);
+}
+
+[theme="flat"] capsule-button:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+[theme="flat"] capsule-button[aria-invalid='true'] {
+  outline: 2px solid hsl(var(--destructive));
+  outline-offset: 2px;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+[theme="flat"] capsule-button:not([variant]),
+[theme="flat"] capsule-button[variant='default'] {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+}
+
+[theme="flat"] capsule-button:not([variant]):hover:not([disabled]),
+[theme="flat"] capsule-button[variant='default']:hover:not([disabled]) {
+  background: hsl(var(--primary-foreground));
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+}
+
+[theme="flat"] capsule-button[variant='destructive'] {
+  background: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+  border-color: hsl(var(--destructive));
+}
+
+[theme="flat"] capsule-button[variant='destructive']:hover:not([disabled]) {
+  background: hsl(var(--destructive-foreground));
+  color: hsl(var(--destructive));
+  border-color: hsl(var(--destructive));
+}
+
+[theme="flat"] capsule-button[variant='destructive']:focus-visible {
+  outline: 2px solid hsl(var(--destructive));
+  outline-offset: 2px;
+}
+
+[theme="flat"] capsule-button[variant='outline'] {
+  border: 2px solid hsl(var(--border));
+  background: transparent;
+  color: hsl(var(--foreground));
+  box-shadow: none;
+}
+
+[theme="flat"] capsule-button[variant='outline']:hover:not([disabled]) {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border-color: hsl(var(--accent));
+}
+
+[theme="flat"] capsule-button[variant='secondary'] {
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  border-color: hsl(var(--secondary));
+}
+
+[theme="flat"] capsule-button[variant='secondary']:hover:not([disabled]) {
+  background: hsl(var(--secondary-foreground));
+  color: hsl(var(--secondary));
+  border-color: hsl(var(--secondary));
+}
+
+[theme="flat"] capsule-button[variant='ghost'] {
+  background: transparent;
+  color: hsl(var(--foreground));
+  border: 2px solid transparent;
+}
+
+[theme="flat"] capsule-button[variant='ghost']:hover:not([disabled]) {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border-color: hsl(var(--accent));
+}
+
+[theme="flat"] capsule-button[variant='link'] {
+  background: transparent;
+  color: hsl(var(--primary));
+  border: 2px solid transparent;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: var(--font-weight-medium);
+}
+
+[theme="flat"] capsule-button[variant='link']:hover:not([disabled]) {
+  background: transparent;
+  color: hsl(var(--primary));
+  text-decoration-thickness: 2px;
+}
+
+/* Flat dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  [theme="flat"] capsule-button[variant='outline'] {
+    border-color: hsl(var(--border) / 0.8);
+    background: transparent;
+    color: hsl(var(--foreground));
+  }
+  
+  [theme="flat"] capsule-button[variant='outline']:hover:not([disabled]) {
+    background: hsl(var(--accent) / 0.9);
+    color: hsl(var(--accent-foreground));
+    border-color: hsl(var(--accent) / 0.9);
+  }
+  
+  [theme="flat"] capsule-button[variant='ghost']:hover:not([disabled]) {
+    background: hsl(var(--accent) / 0.9);
+    color: hsl(var(--accent-foreground));
+    border-color: hsl(var(--accent) / 0.9);
+  }
+  
+  [theme="flat"] capsule-button[variant='link'] {
+    color: hsl(var(--primary) / 0.9);
+  }
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-button[variant='outline'] {
+  border-color: hsl(var(--border) / 0.8);
+  background: transparent;
+  color: hsl(var(--foreground));
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-button[variant='outline']:hover:not([disabled]) {
+  background: hsl(var(--accent) / 0.9);
+  color: hsl(var(--accent-foreground));
+  border-color: hsl(var(--accent) / 0.9);
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-button[variant='ghost']:hover:not([disabled]) {
+  background: hsl(var(--accent) / 0.9);
+  color: hsl(var(--accent-foreground));
+  border-color: hsl(var(--accent) / 0.9);
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-button[variant='link'] {
+  color: hsl(var(--primary) / 0.9);
+}
+
+/* Flat theme size adjustments */
+[theme="flat"] capsule-button[size='sm'] {
+  border-radius: 0;
+  border-width: 1px;
+}
+
+[theme="flat"] capsule-button[size='lg'] {
+  border-radius: 0;
+  border-width: 3px;
+  font-size: var(--font-size-base);
+}
+
+[theme="flat"] capsule-button[size='icon'],
+[theme="flat"] capsule-button[size='icon-sm'],
+[theme="flat"] capsule-button[size='icon-lg'] {
+  border-radius: 0;
+  border-width: 2px;
 }
 
 /* Theme-specific adjustments */

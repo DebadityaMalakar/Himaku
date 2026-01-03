@@ -1,7 +1,4 @@
 /* Import theme variables - will be added by processor */
-/* @import url('../theme/base.css'); */
-/* @import url('../theme/ibm-carbon.css'); */
-/* @import url('../theme/google-material.css'); */
 
 __PREFIX__-__COMPONENT__ {
   display: inline-flex;

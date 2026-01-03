@@ -5,9 +5,9 @@ __PREFIX__-__COMPONENT__ {
 
 __PREFIX__-__COMPONENT__-panel {
   display: grid;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid hsl(var(--border));
   overflow: hidden;
-  transition: grid-template-rows 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: grid-template-rows var(--transition-base);
 }
 
 __PREFIX__-__COMPONENT__-panel:last-child {
@@ -35,51 +35,280 @@ __PREFIX__-__COMPONENT__-trigger {
   text-align: left;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: inherit;
+  color: hsl(var(--foreground));
   background: transparent;
   border: none;
   width: 100%;
   cursor: pointer;
   user-select: none;
   outline: none;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-base);
+  font-family: var(--font-family-sans);
 }
 
 __PREFIX__-__COMPONENT__-trigger:hover {
-  text-decoration: underline;
+  color: hsl(var(--primary));
+  text-decoration: none;
 }
 
 __PREFIX__-__COMPONENT__-trigger:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--ring)) 50%, transparent);
 }
 
 __PREFIX__-__COMPONENT__-trigger:disabled {
   pointer-events: none;
   opacity: 0.5;
+  color: hsl(var(--muted-foreground));
 }
 
 __PREFIX__-__COMPONENT__-trigger > svg {
   width: 1rem;
   height: 1rem;
-  color: var(--muted-foreground);
+  color: hsl(var(--muted-foreground));
   pointer-events: none;
   flex-shrink: 0;
   transform: translateY(0.125rem);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-base), color var(--transition-base);
 }
 
 __PREFIX__-__COMPONENT__-panel[open='true'] __PREFIX__-__COMPONENT__-trigger > svg,
 __PREFIX__-__COMPONENT__-panel[open] __PREFIX__-__COMPONENT__-trigger > svg {
   transform: translateY(0.125rem) rotate(180deg);
+  color: hsl(var(--primary));
+}
+
+__PREFIX__-__COMPONENT__-trigger:hover > svg {
+  color: hsl(var(--primary));
 }
 
 __PREFIX__-__COMPONENT__-content {
   overflow: hidden;
   font-size: var(--font-size-sm);
+  color: hsl(var(--muted-foreground));
+  font-family: var(--font-family-sans);
+  line-height: 1.625;
 }
 
 __PREFIX__-__COMPONENT__-content > * {
   padding-top: 0;
   padding-bottom: 1rem;
+}
+
+/* Theme-specific styles */
+[theme="material"] __PREFIX__-__COMPONENT__-trigger {
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.009em;
+}
+
+[theme="material"] __PREFIX__-__COMPONENT__-content {
+  letter-spacing: 0.009em;
+  line-height: 1.75;
+}
+
+[theme="carbon"] __PREFIX__-__COMPONENT__-trigger {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.01em;
+}
+
+[theme="carbon"] __PREFIX__-__COMPONENT__-content {
+  letter-spacing: -0.01em;
+}
+
+/* Flat theme specific styles */
+[theme="flat"] __PREFIX__-__COMPONENT__-panel {
+  border-radius: 0;
+  border-bottom: 2px solid hsl(var(--border));
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-panel:last-child {
+  border-bottom: 2px solid transparent;
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-trigger {
+  border-radius: 0;
+  font-weight: var(--font-weight-semibold);
+  padding: 1.25rem 0;
+  transition: color var(--transition-base);
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-trigger:hover {
+  background-color: transparent;
+  color: hsl(var(--primary));
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-trigger:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-trigger > svg {
+  transition: transform var(--transition-base);
+  color: hsl(var(--foreground));
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-panel[open='true'] __PREFIX__-__COMPONENT__-trigger > svg,
+[theme="flat"] __PREFIX__-__COMPONENT__-panel[open] __PREFIX__-__COMPONENT__-trigger > svg {
+  transform: translateY(0.125rem) rotate(180deg);
+  color: hsl(var(--primary));
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-trigger:hover > svg {
+  color: hsl(var(--primary));
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-content {
+  letter-spacing: normal;
+  line-height: 1.6;
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__-content > * {
+  padding-bottom: 1.25rem;
+}
+
+/* Flat theme variants */
+[theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-panel {
+  background: hsl(var(--muted));
+  border: none;
+  padding: 0;
+  margin-bottom: 0.25rem;
+  border-radius: 0;
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-trigger {
+  background: hsl(var(--muted));
+  padding: 1.25rem 1rem;
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-content > * {
+  padding: 1rem 1rem 1.25rem 1rem;
+  background: hsl(var(--muted));
+  margin: 0;
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__[variant="bordered"] __PREFIX__-__COMPONENT__-panel {
+  border: 2px solid hsl(var(--border));
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__[variant="bordered"] __PREFIX__-__COMPONENT__-trigger {
+  border-bottom: 2px solid hsl(var(--border));
+  padding: 1.25rem 1rem;
+}
+
+[theme="flat"] __PREFIX__-__COMPONENT__[variant="bordered"] __PREFIX__-__COMPONENT__-content > * {
+  padding: 1rem 1rem 1.25rem 1rem;
+  border-top: none;
+}
+
+/* Flat dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  [theme="flat"] __PREFIX__-__COMPONENT__-panel {
+    border-bottom-color: hsl(var(--border) / 0.8);
+  }
+  
+  [theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-panel {
+    background: hsl(var(--muted) / 0.8);
+  }
+  
+  [theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-trigger {
+    background: hsl(var(--muted) / 0.8);
+  }
+  
+  [theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-content > * {
+    background: hsl(var(--muted) / 0.8);
+  }
+}
+
+[data-theme-mode="dark"] [theme="flat"] __PREFIX__-__COMPONENT__-panel {
+  border-bottom-color: hsl(var(--border) / 0.8);
+}
+
+[data-theme-mode="dark"] [theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-panel {
+  background: hsl(var(--muted) / 0.8);
+}
+
+[data-theme-mode="dark"] [theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-trigger {
+  background: hsl(var(--muted) / 0.8);
+}
+
+[data-theme-mode="dark"] [theme="flat"] __PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-content > * {
+  background: hsl(var(--muted) / 0.8);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  __PREFIX__-__COMPONENT__-panel {
+    border-bottom-color: hsl(var(--border) / 0.5);
+  }
+  
+  __PREFIX__-__COMPONENT__-content {
+    color: hsl(var(--muted-foreground) / 0.9);
+  }
+}
+
+[data-theme-mode="dark"] __PREFIX__-__COMPONENT__-panel {
+  border-bottom-color: hsl(var(--border) / 0.5);
+}
+
+[data-theme-mode="dark"] __PREFIX__-__COMPONENT__-content {
+  color: hsl(var(--muted-foreground) / 0.9);
+}
+
+/* Animation improvements */
+__PREFIX__-__COMPONENT__-panel {
+  transition: grid-template-rows var(--transition-base),
+              border-color var(--transition-base);
+}
+
+__PREFIX__-__COMPONENT__-trigger {
+  transition: all var(--transition-base),
+              color var(--transition-base);
+}
+
+/* Variant support */
+__PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-panel {
+  background: hsl(var(--muted) / 0.3);
+  border-radius: var(--radius-md);
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: none;
+}
+
+__PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-panel:last-child {
+  margin-bottom: 0;
+}
+
+__PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-trigger {
+  padding: 1rem 0;
+}
+
+__PREFIX__-__COMPONENT__[variant="filled"] __PREFIX__-__COMPONENT__-content > * {
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+__PREFIX__-__COMPONENT__[variant="bordered"] __PREFIX__-__COMPONENT__-panel {
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  padding: 0 1rem;
+  margin-bottom: 0.75rem;
+}
+
+__PREFIX__-__COMPONENT__[variant="bordered"] __PREFIX__-__COMPONENT__-panel:last-child {
+  margin-bottom: 0;
+}
+
+__PREFIX__-__COMPONENT__[variant="bordered"] __PREFIX__-__COMPONENT__-trigger {
+  padding: 1rem 0;
+}
+
+__PREFIX__-__COMPONENT__[variant="bordered"] __PREFIX__-__COMPONENT__-content > * {
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  border-top: 1px solid hsl(var(--border) / 0.3);
+  padding-top: 1rem;
 }

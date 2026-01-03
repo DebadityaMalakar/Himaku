@@ -125,6 +125,117 @@ capsule-alert-description p {
   letter-spacing: 0.009em;
 }
 
+/* Flat theme adjustments */
+[theme="flat"] capsule-alert {
+  border-radius: 0;
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: none;
+  padding: 1rem;
+}
+
+[theme="flat"] capsule-alert:has(> svg) {
+  grid-template-columns: 1.25rem 1fr;
+  column-gap: 0.875rem;
+}
+
+[theme="flat"] capsule-alert > svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: translateY(0.125rem);
+}
+
+[theme="flat"] capsule-alert-title {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: normal;
+  font-size: var(--font-size-base);
+  color: hsl(var(--foreground));
+  line-height: 1.3;
+}
+
+[theme="flat"] capsule-alert-description {
+  letter-spacing: normal;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  opacity: 0.9;
+  font-size: var(--font-size-sm);
+}
+
+[theme="flat"] capsule-alert[variant='default'] {
+  border-color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.05);
+  color: hsl(var(--primary));
+}
+
+[theme="flat"] capsule-alert[variant='default'] capsule-alert-title {
+  color: hsl(var(--primary));
+}
+
+[theme="flat"] capsule-alert[variant='default'] capsule-alert-description {
+  color: hsl(var(--primary));
+  opacity: 0.8;
+}
+
+[theme="flat"] capsule-alert[variant='destructive'] {
+  border-color: hsl(var(--destructive));
+  background-color: hsl(var(--destructive) / 0.05);
+  color: hsl(var(--destructive));
+}
+
+[theme="flat"] capsule-alert[variant='destructive'] > svg {
+  color: hsl(var(--destructive));
+}
+
+[theme="flat"] capsule-alert[variant='destructive'] capsule-alert-title {
+  color: hsl(var(--destructive));
+}
+
+[theme="flat"] capsule-alert[variant='destructive'] capsule-alert-description {
+  color: hsl(var(--destructive));
+  opacity: 0.8;
+}
+
+/* Flat dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  [theme="flat"] capsule-alert[variant='default'] {
+    background-color: hsl(var(--primary) / 0.1);
+    border-color: hsl(var(--primary) / 0.8);
+  }
+  
+  [theme="flat"] capsule-alert[variant='destructive'] {
+    background-color: hsl(var(--destructive) / 0.1);
+    border-color: hsl(var(--destructive) / 0.8);
+  }
+  
+  [theme="flat"] capsule-alert-title {
+    color: hsl(var(--foreground));
+  }
+  
+  [theme="flat"] capsule-alert-description {
+    color: hsl(var(--foreground));
+    opacity: 0.8;
+  }
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-alert[variant='default'] {
+  background-color: hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--primary) / 0.8);
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-alert[variant='destructive'] {
+  background-color: hsl(var(--destructive) / 0.1);
+  border-color: hsl(var(--destructive) / 0.8);
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-alert-title {
+  color: hsl(var(--foreground));
+}
+
+[data-theme-mode="dark"] [theme="flat"] capsule-alert-description {
+  color: hsl(var(--foreground));
+  opacity: 0.8;
+}
+
 /* Default theme adjustments */
 [theme="default"] capsule-alert,
 :not([theme]) capsule-alert {
